@@ -20,7 +20,7 @@ passport.use(
     {
       clientID: keys.FACEBOOK_CLIENT,
       clientSecret: keys.FACEBOOK_SECRET,
-      callbackURL: '/auth/facebook/callback',
+      callbackURL: '/api/user/facebook/callback',
       proxy: true,
     },
     async (accessToken, refreshToken, profile, done) => {
