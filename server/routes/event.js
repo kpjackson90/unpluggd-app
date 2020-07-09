@@ -6,19 +6,24 @@ const Event = mongoose.module('Event');
 
 const router = express.Router();
 
-router.get('/api/events', requireAuth, roleAuthorization, async (req, res) => {
-  try {
-    const events = await Event.find({});
-    return res.status(200).send({ events, success: 'OK' });
-  } catch (err) {
-    return res.status(400).send({ error: err.message });
+router.get(
+  '/api/events',
+  requireAuth,
+  roleAuthorization(['host', 'guest']),
+  async (req, res) => {
+    try {
+      const events = await Event.find({});
+      return res.status(200).send({ events, success: 'OK' });
+    } catch (err) {
+      return res.status(400).send({ error: err.message });
+    }
   }
-});
+);
 
 router.get(
   '/api/events/:id',
   requireAuth,
-  roleAuthorization,
+  roleAuthorization(['host', 'guest']),
   async (req, res) => {
     try {
       const event = await Event.findById({ _id: req.params.id });
@@ -29,23 +34,12 @@ router.get(
   }
 );
 
-router.post('/api/event', requireAuth, roleAuthorization, async (req, res) => {
-  const {
-    name,
-    date,
-    price,
-    description,
-    start_time,
-    end_time,
-    host,
-    link,
-    max_occupancy,
-    picture,
-    rsvp,
-  } = req.body;
-
-  try {
-    const event = new Event({
+router.post(
+  '/api/event',
+  requireAuth,
+  roleAuthorization(['host']),
+  async (req, res) => {
+    const {
       name,
       date,
       price,
@@ -57,14 +51,64 @@ router.post('/api/event', requireAuth, roleAuthorization, async (req, res) => {
       max_occupancy,
       picture,
       rsvp,
-    });
+    } = req.body;
 
-    await event.save();
+    try {
+      const event = new Event({
+        name,
+        date,
+        price,
+        description,
+        start_time,
+        end_time,
+        host,
+        link,
+        max_occupancy,
+        picture,
+        rsvp,
+      });
 
-    return res.status(200).send({ event, success: 'OK' });
-  } catch (err) {
-    return res.status(400).send({ error: err.message });
+      await event.save();
+
+      return res.status(200).send({ event, success: 'OK' });
+    } catch (err) {
+      return res.status(400).send({ error: err.message });
+    }
   }
-});
+);
+
+router.put(
+  '/api/event/:id',
+  requireAuth,
+  roleAuthorization(['host']),
+  async (req, res) => {
+    let event = await Event.findById({ _id: req.params.id });
+
+    if (!event) {
+      return res.status(400).send({ error: 'Event does not exist' });
+    }
+
+    try {
+      event = await Event.findByIdAndUpdate(req.params.id, {
+        ...(name && { name }),
+        ...(date && { date }),
+        ...(cover_image && { cover_image }),
+        ...(occupation && { occupation }),
+        ...(username && { username }),
+        ...(company && { company }),
+        ...(categories && { categories }),
+        ...(first_name && { first_name }),
+        ...(bio && { bio }),
+        ...(intro_video && { intro_video }),
+        ...(logo && { logo }),
+        ...(residence && { residence }),
+        ...(business_address && { business_address }),
+        ...(color && { color }),
+      });
+    } catch (err) {
+      return res.status(400).send({ error: err.message });
+    }
+  }
+);
 
 module.exports = router;

@@ -14,10 +14,10 @@ const EventSchema = new Schema({
   description: {
     type: String,
   },
-  startTime: {
+  start_time: {
     type: Date,
   },
-  endTime: {
+  end_time: {
     type: Date,
   },
   host: {
@@ -27,7 +27,7 @@ const EventSchema = new Schema({
   link: {
     type: String,
   },
-  maxOccupancy: {
+  max_occupancy: {
     type: Number,
   },
   rsvp: {
