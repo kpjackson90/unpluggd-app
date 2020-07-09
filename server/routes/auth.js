@@ -64,10 +64,11 @@ router.post('/api/user/signin', async (req, res) => {
     );
     return res.status(200).send({ token, success: 'OK' });
   } catch (err) {
-    return res.status(422).send({ error: 'Invalid password or email' });
+    return res.status(400).send({ error: 'Invalid password or email' });
   }
 });
 
+/** 
 router.get(
   '/api/user/facebook',
   passport.authenticate('facebook', { scope: ['profile', 'email'] })
@@ -85,5 +86,42 @@ router.get('/api/logout', (req, res) => {
   req.logout();
   res.redirect('/');
 });
+*/
+
+router.put(
+  '/api/user/update-profile',
+  requireAuth,
+  roleAuthorization(['user']),
+  async (req, res) => {
+    let user = await User.findById({ _id: req.user._id });
+
+    if (!user) {
+      return res.status(400).send({ error: 'User not found' });
+    }
+
+    try {
+      user = await User.findByIdAndUpdate(req.user._id, {
+        ...(email && { email }),
+        ...(profile_image && { profile_image }),
+        ...(cover_image && { cover_image }),
+        ...(occupation && { occupation }),
+        ...(username && { username }),
+        ...(company && { company }),
+        ...(categories && { categories }),
+        ...(first_name && { first_name }),
+        ...(bio && { bio }),
+        ...(intro_video && { intro_video }),
+        ...(logo && { logo }),
+        ...(residence && { residence }),
+        ...(business_address && { business_address }),
+        ...(color && { color }),
+      });
+
+      return res.status(200).send({ user, success: 'OK' });
+    } catch (err) {
+      return res.status(400).send({ error: err.message });
+    }
+  }
+);
 
 module.exports = router;

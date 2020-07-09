@@ -18,6 +18,56 @@ const UserSchema = new Schema({
     type: String,
     enum: ['admin', 'host', 'guest'],
   },
+  profile_image: {
+    type: String,
+  },
+  cover_image: {
+    type: String,
+  },
+  occupation: {
+    type: String,
+  },
+  company: {
+    type: String,
+  },
+  username: {
+    type: String,
+  },
+  bio: {
+    type: String,
+  },
+  intro_video: {
+    type: String,
+  },
+  categories: [
+    {
+      type: String,
+    },
+  ],
+  first_name: {
+    type: String,
+  },
+  last_name: {
+    type: String,
+  },
+  logo: {
+    type: String,
+  },
+  residence: {
+    type: String,
+  },
+  business_address: {
+    type: String,
+  },
+  color: {
+    type: String,
+  },
+  events: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'Event',
+    },
+  ],
   isVerified: {
     type: Boolean,
     default: false,

@@ -1,3 +1,8 @@
+/**Models */
+require('./models/User');
+require('./models/Event');
+
+/**Dependencies */
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -6,6 +11,10 @@ const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const bodyParser = require('body-parser');
 const keys = require('./config/keys');
+
+/**routes */
+const auth = require('./routes/auth');
+const event = require('./routes/auth');
 
 const app = express();
 
@@ -30,6 +39,8 @@ const swaggerOptions = {
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+app.use(auth);
+app.use(event);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.MONGO_URI, {

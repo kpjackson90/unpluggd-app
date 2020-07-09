@@ -11,6 +11,31 @@ const EventSchema = new Schema({
   price: {
     type: String,
   },
+  description: {
+    type: String,
+  },
+  startTime: {
+    type: Date,
+  },
+  endTime: {
+    type: Date,
+  },
+  host: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+  },
+  link: {
+    type: String,
+  },
+  maxOccupancy: {
+    type: Number,
+  },
+  rsvp: {
+    type: Number,
+  },
+  picture: {
+    type: String,
+  },
 });
 
 mongoose.model('Event', EventSchema);
