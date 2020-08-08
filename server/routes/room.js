@@ -1,11 +1,11 @@
 const roomRoutes = require('express').Router();
+const mongoose = require('mongoose');
 const {validateTime} = require('../middleware/validateTime');
 const {createRoom} = require('../services/twilio');
-const Event = require('../models/Event');
+const Event = mongoose.model('Event');
 
 roomRoutes.post('/api/rooms/create/:eventId', async (req, res) => {
 	const {eventId} = req.params;
-	const {maxParticipants} = req.body;
 	try {
 		const existingEvent = await Event.findOne({_id: eventId});
 
@@ -20,10 +20,12 @@ roomRoutes.post('/api/rooms/create/:eventId', async (req, res) => {
 			return res.status(400).send('Cannot create room as yet');
 		}
 
-		//valid time.. create room
+		const {name, max_occupancy} = existingEvent;
+
+		// //valid time.. create room
 		const params = {
-			roomName: 'Test-Room',
-			maxParticipants,
+			roomName: name,
+			maxParticipants: max_occupancy,
 		};
 		const room = await createRoom(params);
 		return res.status(201).send(room);

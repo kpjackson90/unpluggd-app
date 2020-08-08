@@ -14,7 +14,7 @@ const keys = require('./config/keys');
 
 /**routes */
 const auth = require('./routes/auth');
-const event = require('./routes/auth');
+const event = require('./routes/event');
 const room = require('./routes/room');
 
 const app = express();

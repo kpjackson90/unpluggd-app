@@ -1,6 +1,3 @@
-//date,
-//start-time
-
 exports.validateTime = (date, start_time) => {
 	/* 
 	  verify it is the correct day of the event.
@@ -11,19 +8,22 @@ exports.validateTime = (date, start_time) => {
 	  start time: new Date("2020-08-1 21:20:03"); => minutes
 
 	*/
+
 	const currentDay = new Date();
 	const currentHour = new Date().getHours();
 	const currentMinutes = new Date().getMinutes();
-	const minutesToStart = start_time.getMinutes();
+	const minutesToStart = new Date(start_time).getMinutes();
+	const eventHour = new Date(start_time).getHours();
 
 	const minuteDiff = minutesToStart - currentMinutes;
-	//event day has not arrived
+
+	//not day of event.
 	if (date > currentDay) {
 		return false;
 	}
 
 	//not @least 1hr before event start
-	if (start_time !== currentHour - 1) {
+	if (eventHour - currentHour > 1 || eventHour - currentHour < 0) {
 		return false;
 	}
 

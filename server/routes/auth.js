@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const util = require('util');
 const keys = require('../config/keys');
 const User = mongoose.model('User');
 require('../services/passport');
+
+//promisify json token
+util.promisify(jwt.sign);
 
 const {requireAuth} = require('../middleware/requireAuth');
 const {roleAuthorization} = require('../middleware/roleAuthorization');
@@ -32,8 +36,9 @@ router.post('/api/user/signup', async (req, res) => {
 		const user = new User({email, password, role});
 
 		await user.save();
-		const token = jwt.sign({userId: user._id, role}, keys.JWT_SECRET, {
-			expired: 10080,
+
+		const token = await jwt.sign({userId: user._id, role}, keys.JWT_SECRET, {
+			expiresIn: 10080,
 		});
 
 		res.status(201).send({token, role, message: 'User successfully created'});
