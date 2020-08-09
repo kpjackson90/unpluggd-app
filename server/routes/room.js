@@ -17,17 +17,19 @@ roomRoutes.post('/api/rooms/create/:eventId', async (req, res) => {
 		const isTimeValid = validateTime(date, start_time);
 
 		if (!isTimeValid) {
-			return res.status(400).send('Cannot create room as yet');
+			return res.status(400).send('Cannot create room');
 		}
 
 		const {name, max_occupancy} = existingEvent;
 
-		// //valid time.. create room
+		//valid time.. create room
 		const params = {
 			roomName: name,
 			maxParticipants: max_occupancy,
 		};
 		const room = await createRoom(params);
+
+		await existingEvent.updateOne({$set: {room_id: room.sid}});
 		return res.status(201).send(room);
 	} catch (err) {
 		console.error('Error: ', err);

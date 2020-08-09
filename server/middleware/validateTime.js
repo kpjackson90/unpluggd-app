@@ -1,15 +1,11 @@
 exports.validateTime = (date, start_time) => {
-	/* 
-	  verify it is the correct day of the event.
-	  Assumption is made that the date in the event model
-	  is stored in the format new Date("2020-08-1 0:00:00");
+	const currentDay = new Date().getDate();
+	const currentMonth = new Date().getMonth();
+	const currentYear = new Date().getFullYear();
+	const eventDay = date.getDate();
+	const eventMonth = date.getMonth();
+	const eventYear = date.getFullYear();
 
-	  start time: new Date("2020-08-1 21:20:00"); => hours
-	  start time: new Date("2020-08-1 21:20:03"); => minutes
-
-	*/
-
-	const currentDay = new Date();
 	const currentHour = new Date().getHours();
 	const currentMinutes = new Date().getMinutes();
 	const minutesToStart = new Date(start_time).getMinutes();
@@ -18,7 +14,7 @@ exports.validateTime = (date, start_time) => {
 	const minuteDiff = minutesToStart - currentMinutes;
 
 	//not day of event.
-	if (date > currentDay) {
+	if (currentYear !== eventYear && currentMonth !== eventMonth && currentDay !== eventDay) {
 		return false;
 	}
 
@@ -27,7 +23,7 @@ exports.validateTime = (date, start_time) => {
 		return false;
 	}
 
-	//time before event start greater than 1hr
+	//time before event start greater than 1hr..
 	if (minuteDiff <= 0 && minuteDiff >= 60) {
 		return false;
 	}

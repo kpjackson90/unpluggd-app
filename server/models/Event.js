@@ -5,6 +5,7 @@ const EventSchema = new Schema({
 	name: {
 		type: String,
 	},
+	room_id: {type: String, default: '--'},
 	date: {
 		type: Date,
 	},
