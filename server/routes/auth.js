@@ -123,7 +123,7 @@ router.put(
   requireAuth,
   roleAuthorization(['user']),
   async (req, res) => {
-    let user = await User.findById({ _id: req.user._id });
+    let user = await User.findById({ _id: req.user._id, isVerified: true });
 
     if (!user) {
       return res.status(400).send({ error: 'User not found' });
