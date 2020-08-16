@@ -25,7 +25,7 @@ passport.use(
 			proxy: true,
 		},
 		async (accessToken, refreshToken, profile, done) => {
-			const role = 'guest';
+			const role = 'user';
 			const isVerified = true;
 
 			const {id, name, email} = profile._json;
