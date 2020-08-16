@@ -1,0 +1,140 @@
+/* general styles */
+.app-btn {
+  padding: 10px 20px !important;
+  border-radius: 6px;
+  background: radial-gradient(circle, #12ccc7 0%, #08b09a 100%);
+  color: white !important;
+}
+
+.text-teal {
+  color: #12ccc7 !important;
+}
+
+.app-width {
+  width: 80%;
+  margin: 0 auto;
+}
+/* navbar styles */
+
+.navbar .nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  margin-right: 30px;
+}
+
+/* home styles */
+
+.home {
+  background-color: #141417;
+  color: #ffffff;
+}
+
+.banner {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 4% 0 6% 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.intro-text {
+  text-align: center;
+  margin: 50px 0 120px 0;
+}
+
+.intro-text h6 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  line-height: 36px;
+  margin-bottom: 8px;
+}
+
+.intro-text img {
+  height: 61px;
+  margin-bottom: 23px;
+}
+
+.intro-text p {
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.banner-imgs {
+  display: flex;
+  margin-top: auto !important;
+}
+
+.banner-imgs img {
+  margin-right: 1.5%;
+  height: 175px;
+  width: 18.5%;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.banner-imgs img:hover {
+  width: 22%;
+  height: 200px;
+}
+
+/* .category-wrap {
+  -webkit-box-shadow: 0px -14px 30px 20px #000000;
+  box-shadow: 0px -14px 30px 20px #000000;
+} */
+
+.category-wrap h4 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  line-height: 36px;
+}
+
+.categories {
+  margin-top: 48px;
+  display: flex;
+  padding: 0 4%;
+}
+
+.categories > div {
+  height: 120px;
+  width: 100%;
+  margin-right: 2%;
+  border-radius: 12px;
+  background-color: #262829;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories > div img {
+  max-width: 50px;
+  margin-bottom: 15px;
+}
+
+.categories > div p {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  margin: 0;
+}
+
+/* media queries */
+
+@media screen and (max-width: 1200px) {
+  .app-width {
+    max-width: 1064px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
