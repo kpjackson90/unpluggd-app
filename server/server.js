@@ -16,7 +16,7 @@ const keys = require('./config/keys');
 const auth = require('./routes/auth');
 const event = require('./routes/event');
 const room = require('./routes/room');
-
+const index = require('./routes');
 const app = express();
 
 app.use(cors());
@@ -43,6 +43,7 @@ app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(auth);
 app.use(event);
 app.use(room);
+app.use(index);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.MONGO_URI, {

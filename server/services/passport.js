@@ -21,18 +21,23 @@ passport.use(
 			clientID: keys.FACEBOOK_CLIENT,
 			clientSecret: keys.FACEBOOK_SECRET,
 			callbackURL: '/api/user/facebook/callback',
+			profileFields: ['id', 'displayName', 'email'],
 			proxy: true,
 		},
 		async (accessToken, refreshToken, profile, done) => {
-			console.log('In here');
-			// const existingUser = await User.findOne({ facebook: profile.id });
+			const role = 'guest';
+			const isVerified = true;
 
-			// if (existingUser) {
-			//   return done(null, existingUser);
-			// }
+			const {id, name, email} = profile._json;
 
-			// const newUser = await new User({ facebook: profile.id }).save();
-			// done(null, newUser);
+			const existingUser = await User.findOne({facebook: id});
+
+			if (existingUser) {
+				return done(null, existingUser);
+			}
+
+			const newUser = await new User({email, role, username: name, isVerified, facebook: id}).save();
+			done(null, newUser);
 		}
 	)
 );
