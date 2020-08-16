@@ -14,7 +14,8 @@ const keys = require('./config/keys');
 
 /**routes */
 const auth = require('./routes/auth');
-const event = require('./routes/auth');
+const event = require('./routes/event');
+const room = require('./routes/room');
 
 const app = express();
 
@@ -41,6 +42,7 @@ const swaggerDocs = swaggerJsDoc(swaggerOptions);
 app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 app.use(auth);
 app.use(event);
+app.use(room);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.MONGO_URI, {

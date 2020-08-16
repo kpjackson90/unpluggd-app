@@ -16,8 +16,14 @@ const UserSchema = new Schema({
   },
   role: {
     type: String,
-    enum: ['admin', 'host', 'guest'],
+    enum: ['admin', 'user'],
   },
+  user_role: [
+    {
+      type: String,
+      enum: ['guest', 'attendee'],
+    },
+  ],
   profile_image: {
     type: String,
   },
@@ -27,7 +33,13 @@ const UserSchema = new Schema({
   occupation: {
     type: String,
   },
-  company: {
+  company_name: {
+    type: String,
+  },
+  company_url: {
+    type: String,
+  },
+  company_bio: {
     type: String,
   },
   username: {
@@ -72,7 +84,23 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  facebook: {
+  isAdultContent: {
+    type: Boolean,
+    default: false,
+  },
+  facebook_url: {
+    type: String,
+  },
+  twitter_url: {
+    type: String,
+  },
+  youtube_url: {
+    type: String,
+  },
+  instagram_url: {
+    type: String,
+  },
+  twitch: {
     type: String,
   },
   stripe: {

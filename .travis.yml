@@ -1,0 +1,17 @@
+language: generic
+services:
+  - docker
+cache:
+  directories:
+    - node_modules
+install: true
+script:
+  - echo "Success"
+after_success:
+  - docker build -t kpjackson27/unpluggd-server .
+  - docker build -t kpjackson27/unpluggd-nginx ./nginx
+  - docker build -t kpjackson27/unpluggd-client ./client
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  - docker push kpjackson27/unpluggd-server
+  - docker push kpjackson27/unpluggd-nginx
+  - docker push kpjackson27/unpluggd-client
