@@ -1,0 +1,306 @@
+/* general styles */
+body,
+*,
+html {
+  letter-spacing: 0.2px;
+}
+
+.app-btn {
+  padding: 10px 20px !important;
+  border-radius: 6px;
+  background: radial-gradient(circle, #12ccc7 0%, #08b09a 100%);
+  color: white !important;
+}
+
+.text-teal {
+  color: #12ccc7 !important;
+}
+
+.app-width {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.title-h4 {
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  line-height: 36px;
+}
+
+.f-14 {
+  font-size: 14px !important;
+}
+
+.f-18 {
+  font-size: 18px !important;
+}
+
+.f-24 {
+  font-size: 24px !important;
+}
+
+.fw-300 {
+  font-weight: 300 !important;
+}
+
+.bg-pink {
+  background-color: #e72287 !important;
+}
+
+.btn-small {
+  border-radius: 4px;
+  color: white;
+  height: 28px;
+  width: 82px;
+  border: none;
+  outline: none;
+}
+
+.btn-transparent {
+  height: 40px;
+  width: 200px;
+  border: 1px solid #007a87;
+  border-radius: 6px;
+  color: white;
+  background-color: transparent;
+}
+
+.flex-1 {
+  flex: 1 !important;
+}
+
+.width-20 {
+  width: 20%;
+}
+
+.mb-120 {
+  margin-bottom: 120px !important;
+}
+
+.mt-120 {
+  margin-top: 120px !important;
+}
+
+.max-80{
+  max-width: 80px;
+}
+
+/* navbar styles */
+
+.navbar .nav-link {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  margin-right: 30px;
+}
+
+/* footer styles */
+
+footer {
+  background-color: #16161a;
+  text-align: center;
+  padding: 120px 0;
+}
+
+footer img {
+  max-width: 200px;
+  margin-bottom: 50px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 160px;
+  margin: 0 auto;
+}
+
+.social-icons span {
+  font-size: 30px;
+}
+
+footer p {
+  margin-top: 50px;
+}
+
+/* home styles */
+
+.home {
+  background-color: #141417;
+  color: #ffffff;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+
+.banner {
+  min-height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 4% 0 6% 0;
+  display: flex;
+  flex-direction: column;
+  transition: all 1.5s ease-in-out;
+}
+
+.intro-text {
+  text-align: center;
+  margin: 50px 0 120px 0;
+  transition: 1s ease-in;
+}
+
+.intro-text h6 {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  line-height: 36px;
+  margin-bottom: 8px;
+}
+
+.intro-text img {
+  height: 61px;
+  margin-bottom: 23px;
+}
+
+.intro-text p {
+  font-size: 18px;
+  letter-spacing: 0.2px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.banner-imgs {
+  display: flex;
+  margin-top: auto !important;
+}
+
+.banner-imgs img {
+  margin-right: 1.5%;
+  height: 95%;
+  width: 18.5%;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.banner-imgs img:hover {
+  width: 22%;
+  height: 100%;
+}
+
+.category-wrap {
+  /* -webkit-box-shadow: 0px -14px 30px 20px #000000;
+  box-shadow: 0px -14px 30px 20px #000000; */
+  padding-top: 60px;
+}
+
+.categories {
+  margin-top: 48px;
+  display: flex;
+  padding: 0 4%;
+}
+
+.categories > div {
+  height: 120px;
+  width: 100%;
+  margin-right: 2%;
+  border-radius: 12px;
+  background-color: #262829;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories > div img {
+  max-width: 50px;
+  margin-bottom: 15px;
+}
+
+.categories > div p {
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  margin: 0;
+}
+
+.info img {
+  max-width: 210px;
+  margin-bottom: 72px;
+}
+
+.info h1 {
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 0.4px;
+  line-height: 64px;
+  margin-bottom: 40px;
+}
+
+.events {
+  margin-top: 180px;
+}
+
+.events-list {
+  display: flex;
+}
+
+.events-list > div {
+  width: 31%;
+  margin-right: 2%;
+}
+
+.events-list img {
+  width: 100%;
+}
+
+.events-list .img-button {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+
+.about {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 180px;
+}
+
+.about > div {
+  margin-right: 4%;
+  display: flex;
+  flex-direction: column;
+  width: 29%;
+}
+
+.steps {
+  margin-top: auto;
+}
+
+.steps img {
+  max-width: 200px;
+  margin-bottom: 65px;
+}
+
+.steps .arrow-right {
+  position: absolute;
+  right: -20px;
+  top: 30%;
+}
+
+.steps .arrow-right.last {
+  top: 20%;
+}
+/* media queries */
+
+@media screen and (max-width: 1200px) {
+  .app-width {
+    max-width: 1064px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
