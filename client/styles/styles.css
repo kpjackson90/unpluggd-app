@@ -1,9 +1,20 @@
+/* fonts */
+@font-face {
+  font-family: TheGwathmey;
+  src: url(fonts/TheGwathmey.ttf);
+}
+
 /* general styles */
 body,
 *,
 html {
   letter-spacing: 0.2px;
   color: white;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1d1e1f;
 }
 
 .app-btn {
@@ -40,7 +51,7 @@ html {
 }
 
 .app-height {
-  min-height: 100vh;
+  height: 100vh;
 }
 
 .title-h4 {
@@ -126,6 +137,11 @@ html {
 
 .max-345 {
   max-width: 345px;
+}
+
+.max-600 {
+  max-width: 800px;
+  width: 100%;
 }
 
 .fb-btn {
@@ -396,7 +412,9 @@ footer p {
 
 .signup .image-left {
   width: 516px;
-  height: 100vh;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 .signup-logo {
@@ -409,6 +427,40 @@ footer p {
   width: 100%;
   background-color: rgba(151, 151, 151, 0.2);
   margin-top: 40px;
+}
+
+/* signup-success page styles */
+
+.intro-text.success img {
+  height: auto;
+  max-width: 260px;
+  margin-top: 12px;
+}
+
+.intro-text.success p {
+  font-size: 18px;
+  margin-top: 44px;
+}
+
+.event-host,
+.attendee {
+  text-align: center;
+}
+
+.event-host h3,
+.attendee h3 {
+  font-family: TheGwathmey;
+  font-size: 36px;
+}
+
+.event-host img,
+.attendee img {
+  max-width: 320px;
+  margin-bottom: 44px;
+}
+
+.intro-text.success {
+  margin-bottom: 52px;
 }
 
 /* media queries */
