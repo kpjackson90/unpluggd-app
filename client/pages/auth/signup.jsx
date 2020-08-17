@@ -1,5 +1,5 @@
 import React from "react";
-import Forminput from "./utils/FormInput";
+import Forminput from "../partials/FormInput";
 import { useState } from "react";
 
 const Signup = () => {
@@ -20,7 +20,7 @@ const Signup = () => {
         <div className="col-6 h-100 d-flex align-items-center justify-content-center">
           <div className="max-345 ml-5 mr-auto text-center">
             <img src="/images/logo@3x.png" alt="" className="signup-logo" />
-            <h4 className="title-h4">Login</h4>
+            <h4 className="title-h4">Sign Up</h4>
 
             <button className="fb-btn app-btn">
               <span className="f-24 mr-4">

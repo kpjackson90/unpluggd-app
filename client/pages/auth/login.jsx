@@ -1,5 +1,5 @@
 import React from "react";
-import Forminput from "./utils/FormInput";
+import Forminput from "../partials/FormInput";
 import { useState } from "react";
 
 const Login = () => {
@@ -7,7 +7,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const bg = {
-    backgroundImage: `url('/images/image-back@3x.png')`,
+    backgroundImage: `url('/images/image-back2@3x.png')`,
   };
 
   return (
@@ -19,17 +19,17 @@ const Login = () => {
         <div className="col-6 h-100 d-flex align-items-center justify-content-center">
           <div className="max-345 ml-5 mr-auto text-center">
             <img src="/images/logo@3x.png" alt="" className="signup-logo" />
-            <h4 className="title-h4">Sign Up</h4>
+            <h4 className="title-h4">Login</h4>
 
             <button className="fb-btn app-btn">
               <span className="f-24 mr-4">
-                <i class="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook-f"></i>
               </span>
               <span>Login with Facebook</span>
             </button>
             <button className="ig-btn app-btn">
               <span className="f-24 mr-4">
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
               </span>
               <span>Login with Instagram</span>
             </button>
