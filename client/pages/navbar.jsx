@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link app-btn" href="#">
+            <a className="nav-link navbar-btn app-btn" href="#">
               Sign Up <span className="sr-only">(current)</span>
             </a>
           </li>

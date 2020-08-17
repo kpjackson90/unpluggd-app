@@ -3,11 +3,20 @@ body,
 *,
 html {
   letter-spacing: 0.2px;
+  color: white;
 }
 
 .app-btn {
-  padding: 10px 20px !important;
+  border: none;
+  outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 6px;
+}
+
+.navbar-btn {
+  padding: 10px 20px !important;
   background: radial-gradient(circle, #12ccc7 0%, #08b09a 100%);
   color: white !important;
 }
@@ -16,9 +25,22 @@ html {
   color: #12ccc7 !important;
 }
 
+.bg-teal {
+  background: radial-gradient(circle, #12ccc7 0%, #08b09a 100%) !important;
+}
+
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .app-width {
   width: 80%;
   margin: 0 auto;
+}
+
+.app-height {
+  min-height: 100vh;
 }
 
 .title-h4 {
@@ -32,6 +54,10 @@ html {
   font-size: 14px !important;
 }
 
+.f-16 {
+  font-size: 16px !important;
+}
+
 .f-18 {
   font-size: 18px !important;
 }
@@ -40,8 +66,20 @@ html {
   font-size: 24px !important;
 }
 
+.f-30 {
+  font-size: 30px !important;
+}
+
 .fw-300 {
   font-weight: 300 !important;
+}
+
+.fw-400 {
+  font-weight: 400 !important;
+}
+
+.fw-bold {
+  font-weight: bold !important;
 }
 
 .bg-pink {
@@ -82,8 +120,59 @@ html {
   margin-top: 120px !important;
 }
 
-.max-80{
+.max-80 {
   max-width: 80px;
+}
+
+.max-345 {
+  max-width: 345px;
+}
+
+.fb-btn {
+  height: 48px;
+  width: 100%;
+  background: radial-gradient(circle, #2895c9 0%, #115fe5 100%);
+  margin-top: 60px;
+  margin-bottom: 12px;
+}
+
+.ig-btn {
+  height: 48px;
+  width: 344px;
+  background: radial-gradient(circle, #f57a47 0%, #e72287 42.25%, #7a36ec 100%);
+  margin-bottom: 32px;
+}
+
+.line-break {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.line-break > div {
+  height: 1px;
+  border-radius: 0.5px;
+  background-color: #3e4747;
+  flex: 1;
+}
+
+.app-input {
+  height: 48px;
+  width: 100%;
+  border: 1px solid #464646;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  line-height: 20px;
+  padding-left: 16px;
+  background-color: transparent;
+  margin-bottom: 12px;
+}
+
+.form-text {
+  margin-top: -10px;
+  margin-bottom: 12px;
 }
 
 /* navbar styles */
@@ -295,6 +384,33 @@ footer p {
 .steps .arrow-right.last {
   top: 20%;
 }
+
+/* Signup page styles */
+
+.signup {
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+.signup .image-left {
+  width: 516px;
+  height: 100vh;
+}
+
+.signup-logo {
+  max-width: 157px;
+  margin-bottom: 12px;
+}
+
+.signup-btn {
+  height: 48px;
+  width: 100%;
+  background-color: rgba(151, 151, 151, 0.2);
+  margin-top: 40px;
+}
+
 /* media queries */
 
 @media screen and (max-width: 1200px) {

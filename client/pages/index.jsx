@@ -208,7 +208,7 @@ export default function Home() {
                 <i class="fas fa-chevron-right"></i>
               </span>
             </div>
-            <h4 className="mb-3">Step 1</h4>
+            <h4 className="mb-3 title-4">Step 1</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -230,7 +230,7 @@ export default function Home() {
                 <i class="fas fa-chevron-right"></i>
               </span>
             </div>
-            <h4 className="mb-3">Step 2</h4>
+            <h4 className="mb-3 title-4">Step 2</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -249,7 +249,7 @@ export default function Home() {
             <div className="text-center position-relative">
               <img src={`/images/hp-ticket3@3x.png`} />
             </div>
-            <h4 className="mb-3">Step 3</h4>
+            <h4 className="mb-3 title-4">Step 3</h4>
             <p>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               commodo ligula eget dolor. Aenean massa. Cum sociis natoque
@@ -271,7 +271,7 @@ export default function Home() {
             <i class="fab fa-twitter"></i>
           </span>
         </div>
-        <p>Unpluggd All Rights Reserved</p>
+        <p>Unpluggd&reg; All Rights Reserved</p>
       </footer>
     </div>
   );
