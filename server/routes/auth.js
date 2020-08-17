@@ -103,15 +103,13 @@ router.post('/api/user/signin', async (req, res) => {
   }
 });
 
-// router.get('/api/user/facebook', passport.authenticate('facebook', {scope: ['profile', 'email']}));
 
-// router.get(
-//   '/api/user/facebook/callback',
-//   passport.authenticate('facebook'),
-//   (req, res) => {
-//     res.redirect('/');
-//   }
-// );
+router.get('/api/user/facebook', passport.authenticate('facebook', {scope: ['email']}));
+
+router.get('/api/user/facebook/callback', passport.authenticate('facebook'), (req, res) => {
+	res.redirect('/');
+});
+
 
 // router.get('/api/logout', (req, res) => {
 //   req.logout();
