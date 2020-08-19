@@ -62,7 +62,7 @@ const Signup = () => {
                 valid={true}
                 textInfo="Password Match"
               />
-              <button className="app-btn signup-btn bg-teal">Sign Up</button>
+              <button className="app-btn gray-btn bg-teal">Sign Up</button>
             </form>
           </div>
         </div>

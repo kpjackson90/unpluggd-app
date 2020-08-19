@@ -52,6 +52,7 @@ body {
 
 .app-height {
   height: 100vh;
+  overflow: scroll;
 }
 
 .title-h4 {
@@ -77,6 +78,10 @@ body {
   font-size: 24px !important;
 }
 
+.f-28 {
+  font-size: 28px !important;
+}
+
 .f-30 {
   font-size: 30px !important;
 }
@@ -91,6 +96,10 @@ body {
 
 .fw-bold {
   font-weight: bold !important;
+}
+
+.ls-4 {
+  letter-spacing: 0.4px;
 }
 
 .bg-pink {
@@ -127,6 +136,18 @@ body {
   margin-bottom: 120px !important;
 }
 
+.mb-36 {
+  margin-bottom: 36px !important;
+}
+
+.mb-44 {
+  margin-bottom: 44px !important;
+}
+
+.mt-60 {
+  margin-top: 60px !important;
+}
+
 .mt-120 {
   margin-top: 120px !important;
 }
@@ -135,12 +156,8 @@ body {
   max-width: 80px;
 }
 
-.max-345 {
-  max-width: 345px;
-}
-
-.max-600 {
-  max-width: 800px;
+.max-254 {
+  max-width: 254px;
   width: 100%;
 }
 
@@ -318,6 +335,7 @@ footer p {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 14px 0;
 }
 
 .categories > div img {
@@ -331,6 +349,7 @@ footer p {
   letter-spacing: 0.2px;
   line-height: 20px;
   margin: 0;
+  margin-top: auto;
 }
 
 .info img {
@@ -422,7 +441,7 @@ footer p {
   margin-bottom: 12px;
 }
 
-.signup-btn {
+.gray-btn {
   height: 48px;
   width: 100%;
   background-color: rgba(151, 151, 151, 0.2);
@@ -463,12 +482,74 @@ footer p {
   margin-bottom: 52px;
 }
 
+/* attendee styles */
+
+.logo-color {
+  margin-top: 36px;
+  max-width: 250px;
+  margin-bottom: 32px;
+}
+
+.attendee-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.attendee-flex > div:first-child,
+.attendee-flex > div:last-child {
+  max-width: 150px;
+}
+
+.attendee-flex > div:first-child img,
+.attendee-flex > div:last-child img {
+  width: 100%;
+  height: 100%;
+}
+
+.reg-section {
+  width: 50%;
+}
+
+.left-info {
+  max-width: 164px;
+  width: 100%;
+}
+
+.categories.attendee {
+  flex-wrap: wrap;
+  margin-top: 0;
+  padding: 0;
+}
+
+.categories.attendee > div {
+  width: 23%;
+  margin-right: 2%;
+  background-color: transparent;
+  border: 1px solid #616162;
+  margin-bottom: 12px;
+}
+
+.categories.attendee p {
+  color: #616162;
+  font-weight: 400;
+}
+
+.upload {
+  width: 120px;
+  height: 120px;
+  border: 1px dashed #ffffff;
+  border-radius: 12px;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 50px;
+}
+
 /* media queries */
 
 @media screen and (max-width: 1200px) {
   .app-width {
     max-width: 1064px;
     width: 100%;
-    margin: 0 auto;
   }
 }

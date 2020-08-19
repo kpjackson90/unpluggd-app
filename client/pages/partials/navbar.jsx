@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-transparent navbar-light bg-light">
@@ -16,14 +18,19 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item active">
-            <a className="nav-link navbar-btn app-btn" href="#">
-              Sign Up <span className="sr-only">(current)</span>
-            </a>
+            <Link href="../auth/signup">
+              <a className="nav-link navbar-btn app-btn" href="#">
+                Sign Up <span className="sr-only">(current)</span>
+              </a>
+            </Link>
           </li>
+
           <li className="nav-item">
-            <a className="nav-link text-teal" href="#">
-              Login
-            </a>
+            <Link href="../auth/login">
+              <a className="nav-link text-teal" href="#">
+                Login
+              </a>
+            </Link>
           </li>
         </ul>
       </div>

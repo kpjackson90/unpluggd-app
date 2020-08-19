@@ -54,7 +54,7 @@ const Login = () => {
                 setValue={setPassword}
                 valid={true}
               />
-              <button className="app-btn signup-btn bg-teal">Login</button>
+              <button className="app-btn gray-btn bg-teal">Login</button>
             </form>
           </div>
         </div>
