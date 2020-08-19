@@ -1,5 +1,5 @@
-import Navbar from "./navbar";
 import { useState } from "react";
+import Navbar from "./partials/navbar";
 
 export default function Home() {
   const [imgs, setImgs] = useState([1, 2, 3, 4, 5]);

@@ -23,8 +23,8 @@ const Forminput = (props) => {
       />
       {textInfo ? (
         <small
-          className="form-text fw-400 f-16 text-left"
-          style={{ color: valid ? "#12ccc7" : invalid ? "#E72287" : "initial" }}
+          className="form-text fw-400 f-14 text-left"
+          style={{ color: valid ? "#12ccc7" : invalid ? "#E72287" : "#A2A2A2" }}
         >
           {textInfo}
         </small>
