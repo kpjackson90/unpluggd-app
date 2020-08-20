@@ -5,6 +5,10 @@ const { requireAuth } = require('../middleware/requireAuth');
 const { roleAuthorization } = require('../middleware/roleAuthorization');
 
 const router = express.Router();
+//events should have 2 additional quantity(number of tickets) and quantity sold(array)
+//update events with the number of tickets requested
+//when tickets are sold, update the tickets requested field in the events model
+//and generate random IDS starting from 1 and they are placed in array that shows quantity sold
 
 router.post(
   '/api/ticket',
