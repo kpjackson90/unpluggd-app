@@ -13,9 +13,11 @@ const TicketSchema = new Schema({
     type: String,
     enum: ['regular', 'vip', 'backstage'],
   },
-  ticket_quantity: {
-    type: Number,
-    default: 0,
+  ticket_unique_id: {
+    type: String,
+  },
+  ticket_price: {
+    type: String,
   },
   event: {
     type: Schema.Types.ObjectId,
