@@ -2,7 +2,7 @@ import React from "react";
 import Forminput from "../partials/FormInput";
 import { useState } from "react";
 
-const AttendeeReg = () => {
+const HostProfile = () => {
   const [categories, setCategories] = useState([
     "Art",
     "Music",
@@ -35,50 +35,22 @@ const AttendeeReg = () => {
         <img src="/images/logo-color@3x.png" alt="" className="logo-color" />
         <div className="attendee-flex">
           <div>
-            <img src="/images/ap-image-left@3x.png" />
+            <img src="/images/hp-image-left@3x.png" />
           </div>
           <div className="reg-section w-45">
-            <h4 className="f-28 fw-300 ls-4 mb-44">Register As An Attendee</h4>
-            <div className="text-left mb-36 d-flex">
+            <h4 className="f-28 fw-300 ls-4 mb-3">Become An Event Host</h4>
+            <div className="broken-line mb-44 ml-auto mr-auto">
+              <div></div>
+              <span></span>
+              <span></span>
+            </div>
+            <div className="text-left d-flex mb-36">
               <div className="left-info">
                 <h6 className="text-teal">01</h6>
-                <h6>
-                  Upload <br /> Profile image
-                </h6>
-              </div>
-              <div className="w-100 d-flex justify-content-end align-items-end">
-                <div
-                  className="upload"
-                  style={{ backgroundImage: `url('/images/Upload@3x.png')` }}
-                ></div>
-                <button className="btn-transparent app-btn text-teal">
-                  Re-upload
-                </button>
-              </div>
-            </div>
-            <div className="text-left d-flex mb-44">
-              <div className="left-info">
-                <h6 className="text-teal">02</h6>
-                <h6>
-                  Enter <br /> Username
-                </h6>
-              </div>
-              <div className="w-100">
-                <Forminput
-                  type="text"
-                  placeholder="Username"
-                  textInfo="* No more than 30 characters"
-                />
-              </div>
-            </div>
-            <div className="text-left d-flex">
-              <div className="left-info">
-                <h6 className="text-teal">03</h6>
                 <h6 className="mb-1">
-                  Select Event <br />
-                  Categories
+                  Select Event <br /> Categories <br /> you will host
                 </h6>
-                <span className="f-14 fw-400 text-muted">(Select Up to 5)</span>
+                <span className="f-14 fw-400 text-muted">(Select Up to 3)</span>
               </div>
               <div className="w-100">
                 <div className="categories attendee">
@@ -107,14 +79,40 @@ const AttendeeReg = () => {
                 </div>
               </div>
             </div>
+            <div className="text-left d-flex">
+              <div className="left-info">
+                <h6 className="text-teal">02</h6>
+                <h6 className="mb-0">
+                  Declare <br /> Content Info
+                </h6>
+              </div>
+              <div className="w-100 d-flex flex-column justify-content-between">
+                <h6 className="mb-0 f-16">
+                  Does your content contain adult content?
+                </h6>
+                <div className="radio-wrap">
+                  <label class="radio">
+                    Yes
+                    <input type="radio" checked="checked" name="radio" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="radio">
+                    No
+                    <input type="radio" name="radio" />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
           </div>
           <div>
-            <img src="/images/ap-image-right@3x.png" />
+            <img src="/images/hp-image-right@3x.png" />
           </div>
         </div>
-        <div className="text-center mt-5 mb-4">
+        <div className="text-center mt-4 mb-4 hp-actions">
+          <button className="btn-transparent app-btn text-teal">Back</button>
           <button
-            className="app-btn gray-btn max-254 ml-auto mr-auto mt-0"
+            className="app-btn gray-btn mt-0"
             style={{
               background: filled
                 ? "radial-gradient(circle, #12CCC7 0%, #08B09A 100%)"
@@ -122,7 +120,7 @@ const AttendeeReg = () => {
               boxShadow: filled ? "0 8px 24px 0 rgba(18,204,199,0.3" : "",
             }}
           >
-            Confirm
+            Next
           </button>
         </div>
       </div>
@@ -130,4 +128,4 @@ const AttendeeReg = () => {
   );
 };
 
-export default AttendeeReg;
+export default HostProfile;

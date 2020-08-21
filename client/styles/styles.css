@@ -537,6 +537,10 @@ footer p {
   width: 55%;
 }
 
+.reg-section.w-45 {
+  width: 45%;
+}
+
 .left-info {
   max-width: 164px;
   width: 100%;
@@ -601,8 +605,6 @@ footer p {
   justify-content: space-around;
 }
 
-.event-host 
-
 /* congrats screen styles */
 .congrats-screen {
   background-size: 100%;
@@ -618,7 +620,107 @@ footer p {
   box-shadow: 0 8px 24px 0 rgba(18, 204, 199, 0.3);
 }
 
+/* host-profile styles */
+
+.hp-actions {
+  max-width: 525px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.hp-actions button {
+  width: 48%;
+  margin-right: 3%;
+  height: 48px;
+}
+
+.hp-actions button:last-child {
+  margin-right: 0;
+}
+
+/* custom radio button styles */
+
+.radio {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  background-color: #e0e0e0;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #12ccc7;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: white;
+}
+
+.radio-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.radio-wrap > * {
+  margin-right: 40px;
+}
+
 /* media queries */
+
+@media screen and (max-width: 1350px) {
+  .reg-section.w-45 {
+    width: 55%;
+  }
+}
 
 @media screen and (max-width: 1200px) {
   .app-width {
