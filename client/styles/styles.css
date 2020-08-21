@@ -118,7 +118,7 @@ body {
 .btn-transparent {
   height: 40px;
   width: 200px;
-  border: 1px solid #007a87;
+  border: 1px solid #12ccc7;
   border-radius: 6px;
   color: white;
   background-color: transparent;
@@ -223,6 +223,10 @@ body {
   padding-left: 16px;
   background-color: transparent;
   margin-bottom: 12px;
+}
+
+.app-input.textarea {
+  height: unset;
 }
 
 .form-text {
@@ -515,6 +519,7 @@ footer p {
 .attendee-flex {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 }
 
 .attendee-flex > div:first-child,
@@ -529,7 +534,7 @@ footer p {
 }
 
 .reg-section {
-  width: 50%;
+  width: 55%;
 }
 
 .left-info {
@@ -561,11 +566,42 @@ footer p {
   height: 120px;
   border: 1px dashed #ffffff;
   border-radius: 12px;
-  background-size: 35%;
+  background-size: 40px;
   background-repeat: no-repeat;
   background-position: center;
   margin-right: 50px;
 }
+
+/* event-host styles */
+
+.broken-line {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  align-items: center;
+}
+
+.broken-line > div {
+  height: 4px;
+  width: 32px;
+  border-radius: 4px;
+  background-color: #12ccc7;
+}
+
+.broken-line > span {
+  height: 4px;
+  width: 4px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+}
+
+.upload-delete {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.event-host 
 
 /* congrats screen styles */
 .congrats-screen {
