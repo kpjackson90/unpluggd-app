@@ -1,8 +1,8 @@
 import React from "react";
-import Forminput from "../partials/FormInput";
+import Forminput from "../../partials/FormInput";
 import { useState } from "react";
 
-const HostProfile = () => {
+const Screen2 = () => {
   const [categories, setCategories] = useState([
     "Art",
     "Music",
@@ -109,23 +109,30 @@ const HostProfile = () => {
             <img src="/images/hp-image-right@3x.png" />
           </div>
         </div>
-        <div className="text-center mt-4 mb-4 hp-actions">
-          <button className="btn-transparent app-btn text-teal">Back</button>
-          <button
-            className="app-btn gray-btn mt-0"
-            style={{
-              background: filled
-                ? "radial-gradient(circle, #12CCC7 0%, #08B09A 100%)"
-                : "rgba(151, 151, 151, 0.2)",
-              boxShadow: filled ? "0 8px 24px 0 rgba(18,204,199,0.3" : "",
-            }}
-          >
-            Next
-          </button>
+        <div className="reg-section w-45 ml-auto mr-auto">
+          <div className="d-flex">
+            <div className="left-info"></div>
+            <div className="text-center mt-2 mb-4 hp-actions">
+              <button className="btn-transparent app-btn text-teal">
+                Back
+              </button>
+              <button
+                className="app-btn gray-btn mt-0"
+                style={{
+                  background: filled
+                    ? "radial-gradient(circle, #12CCC7 0%, #08B09A 100%)"
+                    : "rgba(151, 151, 151, 0.2)",
+                  boxShadow: filled ? "0 8px 24px 0 rgba(18,204,199,0.3" : "",
+                }}
+              >
+                Next
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default HostProfile;
+export default Screen2;
