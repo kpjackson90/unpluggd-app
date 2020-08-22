@@ -11,12 +11,14 @@ exports.requireAuth = (req, res, next) => {
 	}
 
 	const token = authorization.replace('Bearer ', '');
+
 	jwt.verify(token, keys.JWT_SECRET, async (err, payload) => {
 		if (err) {
 			return res.status(401).send({error: 'You must be logged in.'});
 		}
 
-		const user = await User.findById(payload.userId);
+		const user = await User.findById(payload._id);
+
 		req.user = user;
 		next();
 	});
