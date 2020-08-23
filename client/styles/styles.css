@@ -36,6 +36,10 @@ body {
   color: #12ccc7 !important;
 }
 
+.text-gray {
+  color: #a2a2a2 !important;
+}
+
 .bg-teal {
   background: radial-gradient(circle, #12ccc7 0%, #08b09a 100%) !important;
 }
@@ -138,6 +142,13 @@ body {
   border: none;
 }
 
+.gray-btn {
+  height: 48px;
+  width: 100%;
+  background-color: rgba(151, 151, 151, 0.2);
+  margin-top: 40px;
+}
+
 .boxShadow {
   box-shadow: 0 10px 24px 0 rgba(18, 204, 199, 0.3);
 }
@@ -158,6 +169,10 @@ body {
   margin-bottom: 36px !important;
 }
 
+.mt-36 {
+  margin-top: 36px !important;
+}
+
 .mb-44 {
   margin-bottom: 44px !important;
 }
@@ -166,12 +181,20 @@ body {
   margin-bottom: 12px !important;
 }
 
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+
 .mb-24 {
   margin-bottom: 24px !important;
 }
 
 .mt-60 {
   margin-top: 60px !important;
+}
+
+.mb-60 {
+  margin-bottom: 60px !important;
 }
 
 .mb-80 {
@@ -475,13 +498,6 @@ footer p {
   margin-bottom: 12px;
 }
 
-.gray-btn {
-  height: 48px;
-  width: 100%;
-  background-color: rgba(151, 151, 151, 0.2);
-  margin-top: 40px;
-}
-
 /* signup-success page styles */
 
 .intro-text.success img {
@@ -705,12 +721,34 @@ footer p {
   width: 100%;
 }
 
-.event-content img {
+.event-img {
   max-width: 250px;
   width: 100%;
   margin-bottom: 25px;
 }
 
+.upload.event-media {
+  height: 254px;
+  background-size: 120px;
+}
+
+.uploaded-media {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.event-small-img {
+  height: 52px;
+  width: 52px;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
 /* custom radio button styles */
 
 .radio {
