@@ -7,10 +7,12 @@ const Forminput = (props) => {
     valid,
     invalid,
     textInfo,
+    label,
   } = props;
 
   return (
     <div>
+      {label ? <label className="f-18 fw-300 mb-12">{label}</label> : null}
       <input
         type={type}
         placeholder={placeholder}
