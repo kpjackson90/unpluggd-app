@@ -55,6 +55,10 @@ body {
   overflow: scroll;
 }
 
+.app-min-height {
+  min-height: 100vh;
+}
+
 .title-h4 {
   font-size: 24px;
   font-weight: 400;
@@ -160,6 +164,10 @@ body {
 
 .mb-12 {
   margin-bottom: 12px !important;
+}
+
+.mb-24 {
+  margin-bottom: 24px !important;
 }
 
 .mt-60 {
@@ -659,6 +667,48 @@ footer p {
 
 .categories.attendee.cards > div:last-child {
   margin-right: 0;
+}
+
+/* create event styles */
+
+.event-bar {
+  background-color: #262829;
+  width: 278px;
+  border-radius: 12px;
+  padding: 44px 22px;
+}
+
+.event-flow {
+  margin-top: 56px;
+}
+
+.event-flow ul {
+  padding-left: 20px;
+  margin-bottom: 24px;
+}
+
+.event-flow ul li {
+  font-size: 16px;
+  font-weight: 500;
+  color: #a2a2a2;
+}
+
+.event-flow img {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.event-content {
+  padding-top: 60px;
+  margin: 0 auto;
+  max-width: 524px;
+  width: 100%;
+}
+
+.event-content img {
+  max-width: 250px;
+  width: 100%;
+  margin-bottom: 25px;
 }
 
 /* custom radio button styles */
