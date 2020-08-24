@@ -36,6 +36,10 @@ body {
   color: #12ccc7 !important;
 }
 
+.text-pink {
+  color: #e72287 !important;
+}
+
 .text-gray {
   color: #a2a2a2 !important;
 }
@@ -173,6 +177,10 @@ body {
   margin-top: 36px !important;
 }
 
+.mt-44 {
+  margin-top: 44px !important;
+}
+
 .mb-44 {
   margin-bottom: 44px !important;
 }
@@ -215,6 +223,11 @@ body {
 
 .max-254 {
   max-width: 254px;
+  width: 100%;
+}
+
+.max-200 {
+  max-width: 200px;
   width: 100%;
 }
 
@@ -267,6 +280,10 @@ body {
 .form-text {
   margin-top: -10px;
   margin-bottom: 12px;
+}
+
+.logo155 {
+  max-width: 155px;
 }
 
 /* navbar styles */
@@ -725,6 +742,13 @@ footer p {
   width: 100%;
 }
 
+.event-content.preview {
+  padding-top: 60px;
+  margin: 0 auto;
+  max-width: unset;
+  width: 75%;
+}
+
 .event-img {
   max-width: 250px;
   width: 100%;
@@ -765,18 +789,72 @@ footer p {
   font-size: 14px;
   font-weight: 500;
   text-align: center;
-  height: 24px;
-  width: 64px;
   border-radius: 4px;
   background-color: #12ccc7;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-right: 12px;
+  padding: 3.5px 19px;
 }
 
 .event-tag.paid {
   background-color: #007a87;
+}
+
+.event-tag.latest {
+  background-color: #08b09a;
+}
+
+.preview-publish {
+  display: flex;
+}
+
+.preview-publish > div:first-child {
+  margin-right: 51px;
+}
+
+.preview-publish > div:last-child {
+  max-width: 219px;
+  width: 100%;
+}
+
+.preview-img img {
+  max-width: 24px;
+  margin-left: 24px;
+}
+
+.tickets-available {
+  padding: 16px;
+  border: 1px solid #e72287;
+  border-radius: 12px;
+}
+
+.tickets-available img {
+  max-width: 40px;
+  margin-right: 14px;
+}
+
+.preview-publish .total {
+  padding-top: 18px;
+  border-top: 1px solid rgba(230, 230, 230, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.preview-publish .total > div:first-child {
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  max-width: 120px;
+}
+
+.preview-vid iframe {
+  border-radius: 12px;
 }
 
 /* custom radio button styles */
