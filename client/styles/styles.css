@@ -732,7 +732,8 @@ footer p {
   background-size: 120px;
 }
 
-.uploaded-media {
+.uploaded-media,
+.free-ticket {
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -749,6 +750,27 @@ footer p {
   justify-content: center;
   margin-right: 20px;
 }
+
+.free-ticket {
+  border-top: 2px solid rgba(230, 230, 230, 0.3);
+  margin-top: 32px;
+}
+
+.event-tag {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  height: 24px;
+  width: 64px;
+  border-radius: 4px;
+  background-color: #12ccc7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 12px;
+}
+
 /* custom radio button styles */
 
 .radio {
