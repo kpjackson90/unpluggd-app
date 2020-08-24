@@ -3,6 +3,8 @@ import { useState } from "react";
 import Forminput from "../partials/FormInput";
 
 const CreateTickets = ({ clickedEvent }) => {
+  const [filled, setFilled] = useState(false);
+
   return (
     <React.Fragment>
       {clickedEvent == "create-tickets" ? (
@@ -38,7 +40,7 @@ const CreateTickets = ({ clickedEvent }) => {
               </div>
             </div>
           </div>
-          <div>
+          <div className="free-paid">
             <div className="free-ticket pt-4 mb-24">
               <div className="d-flex align-items-center">
                 <div className="event-tag">
@@ -56,9 +58,77 @@ const CreateTickets = ({ clickedEvent }) => {
               label="Create Ticket Name"
               textInfo="Maximum 30 Characters"
             />
+            <div className="row mt-24">
+              <div className="col-md-6 pl-0 pr-2">
+                <Forminput
+                  type="text"
+                  placeholder="Ticket Quantity"
+                  label="Ticket Quantity"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="free-paid">
+            <div className="free-ticket pt-4 mb-24">
+              <div className="d-flex align-items-center">
+                <div className="event-tag paid">
+                  <span>Paid</span>
+                </div>
+                <p className="f-16 text-teal fw-500 mb-0">Ticket 2</p>
+              </div>
+              <span className="f-24">
+                <i className="fas fa-times text-teal"></i>
+              </span>
+            </div>
+            <Forminput
+              type="text"
+              placeholder="Give your ticket a special name"
+              label="Create Ticket Name"
+              textInfo="Maximum 30 Characters"
+            />
+            <div className="row mt-24">
+              <div className="col-md-6 pl-0 pr-2">
+                <Forminput
+                  type="text"
+                  placeholder="Ticket Access Type"
+                  label="Ticket Access Type"
+                />
+              </div>
+              <div className="col-md-6 pr-0 pl-2">
+                <Forminput
+                  type="text"
+                  placeholder="Ticket Price"
+                  label="Ticket Price"
+                />
+              </div>
+            </div>
+            <div className="row mt-24">
+              <div className="col-md-6 pl-0 pr-2">
+                <Forminput
+                  type="text"
+                  placeholder="Ticket Quantity"
+                  label="Ticket Quantity"
+                />
+              </div>
+            </div>
           </div>
           <div className="mt-60 mb-60">
-
+            <div className="text-center mt-2 mb-4 hp-actions">
+              <button className="btn-transparent app-btn text-teal">
+                Back
+              </button>
+              <button
+                className="app-btn gray-btn mt-0"
+                style={{
+                  background: filled
+                    ? "radial-gradient(circle, #12CCC7 0%, #08B09A 100%)"
+                    : "rgba(151, 151, 151, 0.2)",
+                  color: filled ? "#FFF" : "#9A9A9A",
+                }}
+              >
+                Continue
+              </button>
+            </div>
           </div>
         </div>
       ) : null}

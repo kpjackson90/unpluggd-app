@@ -37,7 +37,7 @@ const Screen2 = () => {
           <div>
             <img src="/images/hp-image-left@3x.png" />
           </div>
-          <div className="reg-section w-45">
+          <div className="app-section w-45">
             <h4 className="f-28 fw-300 ls-4 mb-3">Become An Event Host</h4>
             <div className="broken-line mb-44 ml-auto mr-auto">
               <div></div>
@@ -109,7 +109,7 @@ const Screen2 = () => {
             <img src="/images/hp-image-right@3x.png" />
           </div>
         </div>
-        <div className="reg-section w-45 ml-auto mr-auto">
+        <div className="app-section w-45 ml-auto mr-auto">
           <div className="d-flex">
             <div className="left-info"></div>
             <div className="text-center mt-2 mb-4 hp-actions">
@@ -122,7 +122,6 @@ const Screen2 = () => {
                   background: filled
                     ? "radial-gradient(circle, #12CCC7 0%, #08B09A 100%)"
                     : "rgba(151, 151, 151, 0.2)",
-                  boxShadow: filled ? "0 8px 24px 0 rgba(18,204,199,0.3" : "",
                 }}
               >
                 Next

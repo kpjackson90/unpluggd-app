@@ -37,7 +37,7 @@ const AttendeeReg = () => {
           <div>
             <img src="/images/ap-image-left@3x.png" />
           </div>
-          <div className="reg-section w-45">
+          <div className="app-section w-45">
             <h4 className="f-28 fw-300 ls-4 mb-44">Register As An Attendee</h4>
             <div className="text-left mb-36 d-flex">
               <div className="left-info">

@@ -189,6 +189,10 @@ body {
   margin-bottom: 24px !important;
 }
 
+.mt-24 {
+  margin-top: 24px !important;
+}
+
 .mt-60 {
   margin-top: 60px !important;
 }
@@ -557,11 +561,11 @@ footer p {
   height: 100%;
 }
 
-.reg-section {
+.app-section {
   width: 55%;
 }
 
-.reg-section.w-45 {
+.app-section.w-45 {
   width: 45%;
 }
 
@@ -771,6 +775,10 @@ footer p {
   margin-right: 12px;
 }
 
+.event-tag.paid {
+  background-color: #007a87;
+}
+
 /* custom radio button styles */
 
 .radio {
@@ -848,7 +856,7 @@ footer p {
 /* media queries */
 
 @media screen and (max-width: 1350px) {
-  .reg-section.w-45 {
+  .app-section.w-45 {
     width: 55%;
   }
 }

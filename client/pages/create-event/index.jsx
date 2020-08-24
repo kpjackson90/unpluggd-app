@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import EventGeneral from "./event-general";
 import CreateTickets from "./create-tickets";
+import ConnectSocial from "./connect-social";
 
 const CreateEvent = () => {
   const [eventFlow, setEventFlow] = useState([
@@ -29,7 +30,7 @@ const CreateEvent = () => {
           {eventFlow.map((e, i) => {
             const { title, img } = e;
             return (
-              <div>
+              <div key={i}>
                 <ul>
                   <li
                     onClick={() => getClickedEvent(img)}
@@ -70,6 +71,7 @@ const CreateEvent = () => {
           </div>
           <EventGeneral clickedEvent={clickedEvent} />
           <CreateTickets clickedEvent={clickedEvent} />
+          <ConnectSocial clickedEvent={clickedEvent} />
         </div>
       </div>
     </div>
