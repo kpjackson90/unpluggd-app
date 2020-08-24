@@ -2,13 +2,18 @@ import React from "react";
 import { useState } from "react";
 import Forminput from "../partials/FormInput";
 
-const ConnectSocial = ({ clickedEvent }) => {
+const ConnectSocial = ({ clickedEvent, pageTitle }) => {
   const [filled, setFilled] = useState(false);
 
   return (
     <React.Fragment>
       {clickedEvent == "connect-social" ? (
-        <div>
+        <div className="event-content">
+          <div className="text-center">
+            <img src="/images/logo-color@3x.png" alt="" className="event-img" />
+            <h4 className="f-28 fw-300">Create your event</h4>
+            <h6 className="f-16 fw-500 text-teal mb-24">{pageTitle}</h6>
+          </div>
           <div className="mt-36">
             <label className="f-18 fw-300 mb-12">
               Event URL

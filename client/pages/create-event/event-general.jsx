@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import Forminput from "../partials/FormInput";
 
-const EventGeneral = ({ clickedEvent }) => {
+const EventGeneral = ({ clickedEvent, pageTitle }) => {
   const [uploadedMedia, setUploadedMedia] = useState([
     "Event_123.jpg",
     "Big.banner.png",
@@ -14,7 +14,12 @@ const EventGeneral = ({ clickedEvent }) => {
   return (
     <React.Fragment>
       {clickedEvent == "event-general" ? (
-        <div>
+        <div className="event-content">
+          <div className="text-center">
+            <img src="/images/logo-color@3x.png" alt="" className="event-img" />
+            <h4 className="f-28 fw-300">Create your event</h4>
+            <h6 className="f-16 fw-500 text-teal mb-24">{pageTitle}</h6>
+          </div>
           <Forminput
             type="text"
             placeholder="Give your event a short distinctive title"

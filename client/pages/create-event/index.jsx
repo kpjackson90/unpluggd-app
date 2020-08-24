@@ -3,19 +3,23 @@ import { useState } from "react";
 import EventGeneral from "./event-general";
 import CreateTickets from "./create-tickets";
 import ConnectSocial from "./connect-social";
+import PreviewPublish from "./preview-publish";
 
 const CreateEvent = () => {
   const [eventFlow, setEventFlow] = useState([
-    { title: "Event Generals", img: "event-general" },
-    { title: "Create Tickets", img: "create-tickets" },
-    { title: "Connect Social", img: "connect-social" },
-    { title: "Preview Publish" },
+    { title: "Event Generals", page: "event-general", img: "event-general" },
+    { title: "Create Tickets", page: "create-tickets", img: "create-tickets" },
+    { title: "Connect Social", page: "connect-social", img: "connect-social" },
+    { title: "Preview Publish", page: "preview-publish" },
   ]);
 
   const [clickedEvent, setClickedEvent] = useState("event-general");
+  const [pageTitle, setPageTitle] = useState("Event Generals");
+  const [completed, setCompleted] = useState(true);
 
-  const getClickedEvent = (clicked) => {
+  const getClickedEvent = (clicked, currentPageTitle) => {
     setClickedEvent(clicked);
+    setPageTitle(currentPageTitle);
   };
 
   return (
@@ -28,12 +32,12 @@ const CreateEvent = () => {
         </div>
         <div className="event-flow">
           {eventFlow.map((e, i) => {
-            const { title, img } = e;
+            const { title, img, page } = e;
             return (
               <div key={i}>
                 <ul>
                   <li
-                    onClick={() => getClickedEvent(img)}
+                    onClick={() => getClickedEvent(page, title)}
                     style={{
                       color: clickedEvent == img ? "#12CCC7" : "#FFF",
                     }}
@@ -46,7 +50,11 @@ const CreateEvent = () => {
                       >
                         {title}
                       </span>
-                      {clickedEvent == img ? (
+                      {completed ? (
+                        <span className="f-18">
+                          <i className="fas fa-check-circle text-teal"></i>
+                        </span>
+                      ) : completed == false && clickedEvent == img ? (
                         <span>
                           <i className="fas fa-spinner"></i>
                         </span>
@@ -63,16 +71,10 @@ const CreateEvent = () => {
         </div>
       </div>
       <div className="flex-1">
-        <div className="event-content">
-          <div className="text-center">
-            <img src="/images/logo-color@3x.png" alt="" className="event-img" />
-            <h4 className="f-28 fw-300">Create your event</h4>
-            <h6 className="f-16 fw-500 text-teal mb-24">Event Generals</h6>
-          </div>
-          <EventGeneral clickedEvent={clickedEvent} />
-          <CreateTickets clickedEvent={clickedEvent} />
-          <ConnectSocial clickedEvent={clickedEvent} />
-        </div>
+        <EventGeneral clickedEvent={clickedEvent} pageTitle={pageTitle} />
+        <CreateTickets clickedEvent={clickedEvent} pageTitle={pageTitle} />
+        <ConnectSocial clickedEvent={clickedEvent} pageTitle={pageTitle} />
+        <PreviewPublish clickedEvent={clickedEvent} pageTitle={pageTitle} />
       </div>
     </div>
   );
