@@ -9,6 +9,8 @@ const EventGeneral = ({ clickedEvent }) => {
     "guitar workshop 072219.mp4",
   ]);
 
+  const [filled, setFilled] = useState(true);
+
   return (
     <React.Fragment>
       {clickedEvent == "event-general" ? (
@@ -43,7 +45,7 @@ const EventGeneral = ({ clickedEvent }) => {
               <Forminput type="text" placeholder="End Time" />
             </div>
           </div>
-          <div class="form-group mb-0 mt-36">
+          <div className="form-group mb-0 mt-36">
             <label className="f-18 fw-300 mb-12">Event Description</label>
             <textarea
               placeholder="Enter a memorable event description"
@@ -93,7 +95,15 @@ const EventGeneral = ({ clickedEvent }) => {
             })}
           </div>
           <div className="mt-60 mb-60">
-            <button className="app-btn gray-btn max-254 mt-0 text-gray mr-auto ml-auto">
+            <button
+              className="app-btn gray-btn max-254 mt-0 mr-auto ml-auto"
+              style={{
+                background: filled
+                  ? "radial-gradient(circle, #12CCC7 0%, #08B09A 100%)"
+                  : "rgba(151, 151, 151, 0.2)",
+                color: filled ? "#FFF" : "#9A9A9A",
+              }}
+            >
               Continue
             </button>
           </div>
