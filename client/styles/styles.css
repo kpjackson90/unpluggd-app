@@ -98,6 +98,10 @@ body {
   font-size: 30px !important;
 }
 
+.f-40 {
+  font-size: 40px !important;
+}
+
 .fw-300 {
   font-weight: 300 !important;
 }
@@ -134,6 +138,14 @@ body {
   border-radius: 6px;
   color: white;
   background-color: transparent;
+}
+
+.btn-transparent.gray {
+  height: 48px;
+  width: 120px;
+  border: 1px solid #a2a2a2;
+  border-radius: 6px;
+  color: #9a9a9a;
 }
 
 .btn-teal {
@@ -271,6 +283,10 @@ body {
   padding-left: 16px;
   background-color: transparent;
   margin-bottom: 12px;
+}
+
+.app-input:focus {
+  outline: #12ccc7 auto 1px;
 }
 
 .app-input.textarea {
@@ -855,6 +871,16 @@ footer p {
 
 .preview-vid iframe {
   border-radius: 12px;
+}
+
+.event-board {
+  background-color: #262829;
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.event-board .host-name {
+  font-family: TheGwathmey;
 }
 
 /* custom radio button styles */
