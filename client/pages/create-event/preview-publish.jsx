@@ -136,6 +136,38 @@ const PreviewPublish = ({ clickedEvent, pageTitle }) => {
                     semper nisi. Aenean vulputate eleifend tellus.
                   </p>
                 </div>
+                <div className="mt-36 event-board">
+                  <div className="d-flex align-items-start justify-content-between">
+                    <div className="d-flex align-items-start">
+                      <img
+                        src="/images/host-profile@3x.png"
+                        alt=""
+                        className="max-80 mr-4"
+                      />
+                      <div>
+                        <p className="f-14 fw-300 text-gray mb-0">Event Host</p>
+                        <p className="fw-300 f-40 text-teal host-name">
+                          Scarlette Robinson
+                        </p>
+                      </div>
+                    </div>
+                    <button className="btn-transparent gray">Unfollow</button>
+                  </div>
+                  <div className="mt-12">
+                    <p className="f-14 fw-300 text-gray mb-2">About the host</p>
+                    <div className="d-flex">
+                      <span className="f-24 mr-3">
+                        <i class="fas fa-quote-left"></i>
+                      </span>
+                      <p className="f-14 fw-300">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing
+                        elit. Aenean commodo ligula eget dolor. Aenean massa.
+                        Donec quam felis, ultricies nec, pellentesque eu,
+                        pretium quis, sem.
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div></div>
