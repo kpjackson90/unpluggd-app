@@ -920,6 +920,26 @@ footer p {
   margin-right: 6%;
 }
 
+/* event-success styles */
+.congrats-screen.event-success .event-success-logo {
+  max-width: 156px;
+}
+
+.congrats-screen.event-success .event-image {
+  max-width: 246px;
+  margin: 0 auto;
+}
+
+.congrats-screen.event-success .event-image img {
+  width: 100%;
+}
+
+.event-image .img-button {
+  position: absolute;
+  top: 12px;
+  left: 16px;
+}
+
 /* custom radio button styles */
 
 .radio {
