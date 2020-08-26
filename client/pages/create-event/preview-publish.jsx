@@ -136,7 +136,7 @@ const PreviewPublish = ({ clickedEvent, pageTitle }) => {
                     semper nisi. Aenean vulputate eleifend tellus.
                   </p>
                 </div>
-                <div className="mt-36 event-board">
+                <div className="mt-36 event-board mb-24">
                   <div className="d-flex align-items-start justify-content-between">
                     <div className="d-flex align-items-start">
                       <img
@@ -168,29 +168,38 @@ const PreviewPublish = ({ clickedEvent, pageTitle }) => {
                     </div>
                   </div>
                 </div>
+                <div className="send-invite">
+                  <div>
+                    <span className="f-60">
+                      <i className="fas fa-envelope-open-text text-teal"></i>
+                    </span>
+                  </div>
+                  <div>
+                    <p className="f-16 fw-300 mb-2">
+                      Do you want to invite your friends to join as well?
+                    </p>
+                    <button className="app-btn gray-btn bg-teal max-254 mt-0">
+                      Send them an Invite now
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div></div>
+            <div>
+              <img src="/images/image-1@3x.png" alt="image-1" />
+              <img src="/images/image-2@3x.png" alt="image-2" />
+              <img src="/images/image-3@3x.png" alt="image-3" />
+            </div>
           </div>
 
-          {/* <div className="mt-60 mb-60">
+          <div className="mt-60 mb-60 border-top pt-5">
             <div className="text-center mt-2 mb-4 hp-actions">
               <button className="btn-transparent app-btn text-teal">
                 Back
               </button>
-              <button
-                className="app-btn gray-btn mt-0"
-                style={{
-                  background: filled
-                    ? "radial-gradient(circle, #12CCC7 0%, #08B09A 100%)"
-                    : "rgba(151, 151, 151, 0.2)",
-                  color: filled ? "#FFF" : "#9A9A9A",
-                }}
-              >
-                Continue
-              </button>
+              <button className="app-btn gray-btn mt-0 bg-teal">Create Event</button>
             </div>
-          </div> */}
+          </div>
         </div>
       ) : null}
     </React.Fragment>
