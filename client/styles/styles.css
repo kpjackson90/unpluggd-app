@@ -1064,6 +1064,49 @@ footer p {
   text-transform: capitalize;
 }
 
+.drop-icon:hover,
+.drop-icon:active,
+.drop-icon:focus {
+  color: #12CCC7;
+  outline: none;
+  border: none;
+}
+
+.attendee-dashboard .dropdown .dropdown-toggle {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+}
+
+.attendee-dashboard .dropdown .dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-toggle:not(:disabled):not(.disabled):active {
+  color: unset;
+  background-color: transparent;
+  border: none;
+}
+
+.attendee-dashboard .dropdown-menu.show {
+  padding: 22px 24px;
+  border-radius: 12px;
+  width: 300px;
+}
+
+.attendee-dashboard .dropdown-menu.show .d-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.attendee-dashboard .dropdown-menu.show p {
+  color: #262522;
+  margin-bottom: 0;
+}
+
 /* custom radio button styles */
 
 .radio {
@@ -1087,7 +1130,7 @@ footer p {
 }
 
 /* Create a custom radio button */
-.checkmark {
+.radio .checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -1108,7 +1151,7 @@ footer p {
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
-.checkmark:after {
+.radio .checkmark:after {
   content: "";
   position: absolute;
   display: none;
@@ -1136,6 +1179,74 @@ footer p {
 
 .radio-wrap>* {
   margin-right: 40px;
+}
+
+/* custom checkbox styles */
+
+/* The container */
+.checkbox {
+  padding-left: 24px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 21px;
+  width: 21px;
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox input:checked~.checkmark {
+  background-color: #12CCC7;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox .checkmark:after {
+  left: 8px;
+  top: 4.5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /* media queries */

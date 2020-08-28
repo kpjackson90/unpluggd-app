@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { Dropdown } from "react-bootstrap";
+import CustomChekbox from "../partials/CustomCheckbox";
 
 const Dashboard = () => {
   const [hosts, setHosts] = useState([
@@ -121,9 +123,32 @@ const Dashboard = () => {
           <div className="d-flex justify-content-between align-items-center mb-16">
             <h6 className="f-18 fw-300">Recent Events you joined</h6>
             <div>
-              <span className="f-24">
-                <i class="fas fa-bars"></i>
-              </span>
+              <Dropdown>
+                <Dropdown.Toggle id="dropdown-basic">
+                  <span className="f-24">
+                    <i className="fas fa-bars drop-icon" tabIndex="1"></i>
+                  </span>
+                </Dropdown.Toggle>
+
+                <Dropdown.Menu>
+                  <div className="d-item">
+                    <p className="f-16 fw-500">Popular Events</p>
+                    <CustomChekbox />
+                  </div>
+                  <div className="d-item">
+                    <p className="f-16 fw-500">Hot Events</p>
+                    <CustomChekbox />
+                  </div>
+                  <div className="d-item">
+                    <p className="f-16 fw-500">Events starts today</p>
+                    <CustomChekbox />
+                  </div>
+                  <div className="d-item mb-0">
+                    <p className="f-16 fw-500">Events starts in 1 hour</p>
+                    <CustomChekbox />
+                  </div>
+                </Dropdown.Menu>
+              </Dropdown>
             </div>
           </div>
           <div className="events-list flex-1">
