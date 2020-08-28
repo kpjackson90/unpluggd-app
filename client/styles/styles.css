@@ -214,6 +214,10 @@ body {
   margin-bottom: 12px !important;
 }
 
+.mb-16 {
+  margin-bottom: 16px !important;
+}
+
 .mb-20 {
   margin-bottom: 20px !important;
 }
@@ -496,10 +500,12 @@ footer p {
 
 .events-list {
   display: flex;
+  flex-wrap: wrap;
+  margin-right: -2%;
 }
 
 .events-list>div {
-  width: 31%;
+  width: 23%;
   margin-right: 2%;
 }
 
@@ -843,14 +849,21 @@ footer p {
   align-items: center;
   margin-right: 12px;
   padding: 3.5px 19px;
+  outline: none;
+  border: none;
 }
 
-.event-tag.paid {
+.event-tag.paid,
+.event-tag.popular {
   background-color: #007a87;
 }
 
 .event-tag.latest {
   background-color: #08b09a;
+}
+
+.event-tag.limited {
+  background-color: #E72287;
 }
 
 .preview-publish {
@@ -991,7 +1004,9 @@ footer p {
 
 .attendee-right-content {
   flex: 1;
-  margin: 24px 8%;
+  padding: 24px 8%;
+  height: 100%;
+  overflow: scroll;
 }
 
 .followed-hosts {
@@ -1043,6 +1058,10 @@ footer p {
   overflow: hidden;
   position: absolute;
   top: 10%;
+}
+
+.attendee-dashboard .img-button {
+  text-transform: capitalize;
 }
 
 /* custom radio button styles */
