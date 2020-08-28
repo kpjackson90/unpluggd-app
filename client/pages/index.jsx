@@ -140,11 +140,11 @@ export default function Home() {
           </h4>
           <div className="d-flex justify-content-between max-80 mt-4">
             <span className="f-24 arrow-right">
-              <i class="fas fa-chevron-left"></i>
+              <i className="fas fa-chevron-left"></i>
             </span>
 
             <span className="f-24 arrow-right">
-              <i class="fas fa-chevron-right"></i>
+              <i className="fas fa-chevron-right"></i>
             </span>
           </div>
         </div>
@@ -172,11 +172,11 @@ export default function Home() {
           </h4>
           <div className="d-flex justify-content-between max-80 mt-4">
             <span className="f-24 arrow-right">
-              <i class="fas fa-chevron-left"></i>
+              <i className="fas fa-chevron-left"></i>
             </span>
 
             <span className="f-24 arrow-right">
-              <i class="fas fa-chevron-right"></i>
+              <i className="fas fa-chevron-right"></i>
             </span>
           </div>
         </div>
@@ -205,7 +205,7 @@ export default function Home() {
             <div className="text-center position-relative">
               <img src={`/images/hp-ticket1@3x.png`} />
               <span className="f-24 arrow-right">
-                <i class="fas fa-chevron-right"></i>
+                <i className="fas fa-chevron-right"></i>
               </span>
             </div>
             <h4 className="mb-3 title-4">Step 1</h4>
@@ -227,7 +227,7 @@ export default function Home() {
             <div className="text-center position-relative">
               <img src={`/images/hp-ticket2@3x.png`} />
               <span className="f-24 arrow-right last">
-                <i class="fas fa-chevron-right"></i>
+                <i className="fas fa-chevron-right"></i>
               </span>
             </div>
             <h4 className="mb-3 title-4">Step 2</h4>
@@ -262,13 +262,13 @@ export default function Home() {
         <img src="/images/logo@3x.png" alt="" />
         <div className="social-icons">
           <span>
-            <i class="fab fa-facebook-f"></i>
+            <i className="fab fa-facebook-f"></i>
           </span>
           <span>
-            <i class="fab fa-instagram"></i>
+            <i className="fab fa-instagram"></i>
           </span>
           <span>
-            <i class="fab fa-twitter"></i>
+            <i className="fab fa-twitter"></i>
           </span>
         </div>
         <p>Unpluggd&reg; All Rights Reserved</p>
