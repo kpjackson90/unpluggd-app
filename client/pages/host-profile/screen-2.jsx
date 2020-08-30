@@ -1,6 +1,7 @@
 import React from "react";
 import Forminput from "../partials/FormInput";
 import { useState } from "react";
+import CustomRadio from "../partials/CustomRadio";
 
 const Screen2 = () => {
   const [categories, setCategories] = useState([
@@ -91,16 +92,8 @@ const Screen2 = () => {
                   Does your content contain adult content?
                 </h6>
                 <div className="radio-wrap">
-                  <label class="radio">
-                    Yes
-                    <input type="radio" checked="checked" name="radio" />
-                    <span class="checkmark"></span>
-                  </label>
-                  <label class="radio">
-                    No
-                    <input type="radio" name="radio" />
-                    <span class="checkmark"></span>
-                  </label>
+                  <CustomRadio label="Yes" name="radio" />
+                  <CustomRadio label="No" name="radio" />
                 </div>
               </div>
             </div>

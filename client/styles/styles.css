@@ -17,6 +17,14 @@ body {
   background-color: #1d1e1f;
 }
 
+ul {
+  padding-left: 20px;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
 .app-btn {
   border: none;
   outline: none;
@@ -230,6 +238,18 @@ body {
   margin-top: 24px !important;
 }
 
+.mt-22 {
+  margin-top: 22px !important;
+}
+
+.ml-22 {
+  margin-left: 22px !important;
+}
+
+.mr-22 {
+  margin-right: 22px !important;
+}
+
 .mt-60 {
   margin-top: 60px !important;
 }
@@ -335,6 +355,18 @@ body {
 
 .logo155 {
   max-width: 155px;
+}
+
+.br-popular {
+  border: 2px solid #007a87 !important;
+}
+
+.br-latest {
+  border: 2px solid #08b09a !important;
+}
+
+.br-limited {
+  border: 2px solid #E72287 !important;
 }
 
 /* navbar styles */
@@ -1105,6 +1137,76 @@ footer p {
 .attendee-dashboard .dropdown-menu.show p {
   color: #262522;
   margin-bottom: 0;
+}
+
+.img-bottom-content {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.participantsImg {
+  display: flex;
+  margin-right: 8px;
+}
+
+.participantsImg>img:nth-child(2),
+.participantsImg>img:last-child {
+  margin-left: -5px;
+}
+
+.participantsImg img {
+  max-width: 24px;
+  max-height: 24px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid gray;
+}
+
+.notification-container {
+  width: 0;
+  height: 94.5vh;
+  position: absolute;
+  right: 24px;
+  margin: auto 0;
+  display: flex;
+  align-items: flex-start;
+  transition: 1s;
+}
+
+.notification-container>div {
+  height: 100%;
+}
+
+.notification-container>div:first-child {
+  margin-right: 16px;
+}
+
+.notification-container>div:last-child {
+  flex: 1;
+  border-radius: 12px;
+  background-color: #262829;
+  overflow: scroll;
+}
+
+.notification-container ul li {
+  cursor: pointer;
+}
+
+.notification-container ul li p:last-child {
+  color: #a2a2a2;
+}
+
+.notification-container ul li:focus {
+  color: #12CCC7;
+  outline: none;
+  border: none;
+}
+
+.notification-container ul li:focus p {
+  color: inherit !important;
 }
 
 /* custom radio button styles */
