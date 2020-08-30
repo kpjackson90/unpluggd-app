@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import CustomChekbox from "../partials/CustomCheckbox";
+import Notification from "../partials/Notification";
 
 const Dashboard = () => {
   const [hosts, setHosts] = useState([
@@ -24,50 +25,83 @@ const Dashboard = () => {
       img: "event-1",
       time: "May 4 - 11:00 AM",
       type: "latest",
+      participants: 22,
+      participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
       title: "Happiness Meditation with Chocolate ",
       img: "event-2",
       time: "May 5 - 5:00 PM",
       type: "popular",
+      participants: 22,
+      participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
       title: "Cello Meditation Concert",
       img: "event-3",
       time: "May 4 - 11:00 AM",
       type: "limited",
+      participants: 22,
+      participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
       title: "Cello Meditation Concert",
       img: "event-4",
       time: "May 4 - 11:00 AM",
       type: "latest",
+      participants: 0,
     },
     {
       title: "30 Minute Guitar Workshop",
       img: "event-1",
       time: "May 4 - 11:00 AM",
       type: "latest",
+      participants: 22,
+      participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
       title: "Happiness Meditation with Chocolate ",
       img: "event-2",
       time: "May 5 - 5:00 PM",
       type: "popular",
+      participants: 22,
+      participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
       title: "Cello Meditation Concert",
       img: "event-3",
       time: "May 4 - 11:00 AM",
       type: "limited",
+      participants: 22,
+      participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
       title: "Cello Meditation Concert",
       img: "event-4",
       time: "May 4 - 11:00 AM",
       type: "latest",
+      participants: 0,
     },
   ]);
+
+  const [Notifications, setNotifications] = useState([
+    { time: "Today, 12:35pm" },
+    { time: "July 24, 16:40pm" },
+    { time: "April 09, 01:20am" },
+    { time: "Jan 30, 09:56am" },
+    { time: "Jan 19, 12:56pm" },
+    { time: "Jan 19, 12:56pm" },
+  ]);
+
+  const [NotificationToggled, setNotificationToggled] = useState(false);
+
+  const openNotification = () => {
+    setNotificationToggled(true);
+  };
+
+  const closeNotification = () => {
+    setNotificationToggled(false);
+  };
 
   return (
     <div className="app-height d-flex align-items-start p-24 attendee-dashboard">
@@ -91,7 +125,11 @@ const Dashboard = () => {
           <div></div>
           <img src="/images/Logo@3x.png" className="max-155" />
           <div className="position-relative">
-            <img src="/images/Notification@3x.png" className="max-32" />
+            <img
+              src="/images/Notification@3x.png"
+              className="max-32 c-pointer"
+              onClick={openNotification}
+            />
             {newNotification ? <div className="new-notification"></div> : null}
           </div>
         </div>
@@ -153,7 +191,14 @@ const Dashboard = () => {
           </div>
           <div className="events-list flex-1">
             {events.map((e, i) => {
-              const { title, img, time, type } = e;
+              const {
+                title,
+                img,
+                time,
+                type,
+                participantsImg,
+                participants,
+              } = e;
               return (
                 <div key={i} className="mb-36">
                   <div className="position-relative">
@@ -161,6 +206,30 @@ const Dashboard = () => {
                     <button className={`event-tag mb-3 img-button ${type}`}>
                       {type}
                     </button>
+                    <div className="img-bottom-content">
+                      {participantsImg ? (
+                        <div className="participantsImg">
+                          {participantsImg.map((p, index) => {
+                            return (
+                              <img
+                                src={`/images/${p}@3x.png`}
+                                alt={img}
+                                className={`br-${type}`}
+                              />
+                            );
+                          })}
+                        </div>
+                      ) : null}
+                      {participants > 0 ? (
+                        <p className="f-14 fw-300 mb-0">
+                          +{participants} participants
+                        </p>
+                      ) : (
+                        <p className="f-14 fw-300 mb-0">
+                          Be the first to join!
+                        </p>
+                      )}
+                    </div>
                   </div>
                   <p className="f-18 mt-3 mb-2 fw-300">{title}</p>
                   <p className="text-teal f-14">{time}</p>
@@ -170,6 +239,11 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <Notification
+        NotificationToggled={NotificationToggled}
+        closeNotification={closeNotification}
+        Notifications={Notifications}
+      />
     </div>
   );
 };
