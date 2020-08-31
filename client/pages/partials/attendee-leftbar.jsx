@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const LeftBar = () => {
   return (
@@ -8,9 +9,15 @@ const LeftBar = () => {
           <img src="/images/host-profile@3x.png" className="max-60" />
         </div>
         <div className="mt-36 block-img">
-          <img src="/images/Dashboard@3x.png" alt="dashboard" />
-          <img src="/images/Calendar@3x.png" alt="calendar" />
-          <img src="/images/Host@3x.png" alt="host" />
+          <Link href="/attendee/dashboard">
+            <img src="/images/Dashboard@3x.png" alt="dashboard" />
+          </Link>
+          <Link href="/attendee/available-events">
+            <img src="/images/Calendar@3x.png" alt="calendar" />
+          </Link>
+          <Link href="/attendee/dashboard">
+            <img src="/images/Host@3x.png" alt="host" />
+          </Link>
         </div>
       </div>
       <div className="logout">
