@@ -1209,6 +1209,35 @@ footer p {
   color: inherit !important;
 }
 
+.empty-hosts-events {
+  padding: 60px;
+  border-radius: 12px;
+  background-color: #262829;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.empty-hosts-events>div,
+.empty-hosts-events>div:last-child {
+  width: 46%;
+}
+
+.empty-hosts-events>div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 4%;
+}
+
+.empty-hosts-events>div:last-child {
+  margin-left: 4%;
+}
+
+.empty-hosts-events img {
+  max-width: 120px;
+}
+
 /* custom radio button styles */
 
 .radio {
