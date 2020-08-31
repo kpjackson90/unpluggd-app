@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import CustomChekbox from "../partials/CustomCheckbox";
 import Notification from "../partials/Notification";
+import LeftBar from "./leftbar";
 
 const Dashboard = () => {
   const [hosts, setHosts] = useState([
@@ -94,6 +95,8 @@ const Dashboard = () => {
   ]);
 
   const [NotificationToggled, setNotificationToggled] = useState(false);
+  const [hostEmpty, setHostEmpty] = useState(false);
+  const [eventEmpty, setEventEmpty] = useState(false);
 
   const openNotification = () => {
     setNotificationToggled(true);
@@ -105,21 +108,7 @@ const Dashboard = () => {
 
   return (
     <div className="app-height d-flex align-items-start p-24 attendee-dashboard">
-      <div className="attendee-left-bar">
-        <div>
-          <div className="text-center">
-            <img src="/images/host-profile@3x.png" className="max-60" />
-          </div>
-          <div className="mt-36 block-img">
-            <img src="/images/Dashboard@3x.png" alt="dashboard" />
-            <img src="/images/Calendar@3x.png" alt="calendar" />
-            <img src="/images/Host@3x.png" alt="host" />
-          </div>
-        </div>
-        <div className="logout">
-          <img src="/images/logout@3x.png" alt="logout" />
-        </div>
-      </div>
+      <LeftBar />
       <div className="attendee-right-content">
         <div className="d-flex justify-content-between align-items-center">
           <div></div>
@@ -135,31 +124,46 @@ const Dashboard = () => {
         </div>
         <div className="mt-60">
           <h6 className="f-18 fw-300 mb-12">Recent Hosts you Follow</h6>
-          <div className="followed-hosts">
-            {hosts.map((h, i) => {
-              const { img, name, more, online } = h;
-              return (
-                <div key={i}>
-                  <div className="position-relative">
-                    <img src={`/images/${img}@3x.png`} alt={img} />
-                    {online ? <div className="host-online"></div> : null}
-                    {more ? (
-                      <div className="more-hosts">
-                        <p className="text-teal fw-500 f-16">+13</p>
-                      </div>
+          {!hostEmpty ? (
+            <div className="followed-hosts">
+              {hosts.map((h, i) => {
+                const { img, name, more, online } = h;
+                return (
+                  <div key={i}>
+                    <div className="position-relative">
+                      <img src={`/images/${img}@3x.png`} alt={img} />
+                      {online ? <div className="host-online"></div> : null}
+                      {more ? (
+                        <div className="more-hosts">
+                          <p className="text-teal fw-500 f-16">+13</p>
+                        </div>
+                      ) : null}
+                    </div>
+                    {name ? (
+                      <p className="f-16 fw-300 mb-0 text-center">{name}</p>
                     ) : null}
                   </div>
-                  {name ? (
-                    <p className="f-16 fw-300 mb-0 text-center">{name}</p>
-                  ) : null}
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="empty-hosts-events">
+              <div>
+                <img src="/images/broke-ticket@3x.png" alt="" />
+              </div>
+              <div>
+                <h4 className="f-24 fw-500 mb-1">Oops!</h4>
+                <p className="f-16 fw-500 mb-24">
+                  You are not following any hosts yet.
+                </p>
+                <button className="btn-teal max-254">Follow Hosts Now</button>
+              </div>
+            </div>
+          )}
         </div>
         <div className="mt-60">
-          <div className="d-flex justify-content-between align-items-center mb-16">
-            <h6 className="f-18 fw-300">Recent Events you joined</h6>
+          <div className="d-flex justify-content-between align-items-center mb-12">
+            <h6 className="f-18 fw-300 mb-0">Recent Events you joined</h6>
             <div>
               <Dropdown>
                 <Dropdown.Toggle id="dropdown-basic">
@@ -189,54 +193,70 @@ const Dashboard = () => {
               </Dropdown>
             </div>
           </div>
-          <div className="events-list flex-1">
-            {events.map((e, i) => {
-              const {
-                title,
-                img,
-                time,
-                type,
-                participantsImg,
-                participants,
-              } = e;
-              return (
-                <div key={i} className="mb-36">
-                  <div className="position-relative">
-                    <img src={`/images/${img}@3x.png`} alt={img} />
-                    <button className={`event-tag mb-3 img-button ${type}`}>
-                      {type}
-                    </button>
-                    <div className="img-bottom-content">
-                      {participantsImg ? (
-                        <div className="participantsImg">
-                          {participantsImg.map((p, index) => {
-                            return (
-                              <img
-                                src={`/images/${p}@3x.png`}
-                                alt={img}
-                                className={`br-${type}`}
-                              />
-                            );
-                          })}
-                        </div>
-                      ) : null}
-                      {participants > 0 ? (
-                        <p className="f-14 fw-300 mb-0">
-                          +{participants} participants
-                        </p>
-                      ) : (
-                        <p className="f-14 fw-300 mb-0">
-                          Be the first to join!
-                        </p>
-                      )}
+          {!eventEmpty ? (
+            <div className="events-list flex-1">
+              {events.map((e, i) => {
+                const {
+                  title,
+                  img,
+                  time,
+                  type,
+                  participantsImg,
+                  participants,
+                } = e;
+                return (
+                  <div key={i} className="mb-36">
+                    <div className="position-relative">
+                      <img src={`/images/${img}@3x.png`} alt={img} />
+                      <button className={`event-tag mb-3 img-button ${type}`}>
+                        {type}
+                      </button>
+                      <div className="img-bottom-content">
+                        {participantsImg ? (
+                          <div className="participantsImg">
+                            {participantsImg.map((p, index) => {
+                              return (
+                                <img
+                                  src={`/images/${p}@3x.png`}
+                                  alt={img}
+                                  className={`br-${type}`}
+                                  key={index}
+                                />
+                              );
+                            })}
+                          </div>
+                        ) : null}
+                        {participants > 0 ? (
+                          <p className="f-14 fw-300 mb-0">
+                            +{participants} participants
+                          </p>
+                        ) : (
+                          <p className="f-14 fw-300 mb-0">
+                            Be the first to join!
+                          </p>
+                        )}
+                      </div>
                     </div>
+                    <p className="f-18 mt-3 mb-2 fw-300">{title}</p>
+                    <p className="text-teal f-14">{time}</p>
                   </div>
-                  <p className="f-18 mt-3 mb-2 fw-300">{title}</p>
-                  <p className="text-teal f-14">{time}</p>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="empty-hosts-events">
+              <div>
+                <img src="/images/broke-ticket@3x.png" alt="" />
+              </div>
+              <div>
+                <h4 className="f-24 fw-500 mb-1">Oops!</h4>
+                <p className="f-16 fw-500 mb-24">
+                  You have not joined any events yet.
+                </p>
+                <button className="btn-teal max-254">Join Events Now</button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <Notification
