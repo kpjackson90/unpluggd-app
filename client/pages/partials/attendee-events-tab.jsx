@@ -18,7 +18,7 @@ const EventsTab = () => {
         return (
           <Link href={path}>
             <p
-              className="f-16 fw-500 mr-5 mb-0"
+              className="f-16 fw-500 mr-5 mb-0 c-pointer"
               style={{
                 color: router.pathname == `${path}` ? "#12CCC7" : "#A2A2A2",
               }}

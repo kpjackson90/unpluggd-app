@@ -6,7 +6,7 @@ import Notification from "../partials/Notification";
 import LeftBar from "../partials/attendee-leftbar";
 import EventsTab from "../partials/attendee-events-tab";
 
-const AvailableEvents = () => {
+const EventsJoined = () => {
   const [events, setEvents] = useState([
     {
       title: "30 Minute Guitar Workshop",
@@ -17,58 +17,18 @@ const AvailableEvents = () => {
       participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
-      title: "Happiness Meditation with Chocolate ",
+      title: "Let’s make some fruitjuice together!",
       img: "event-2",
       time: "May 5 - 5:00 PM",
-      type: "popular",
       participants: 22,
       participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
-      title: "Cello Meditation Concert",
+      title: "Virtual singing Contest",
       img: "event-3",
       time: "May 4 - 11:00 AM",
-      type: "limited",
       participants: 22,
       participantsImg: ["Host-1", "Host-2", "Host-3"],
-    },
-    {
-      title: "Cello Meditation Concert",
-      img: "event-4",
-      time: "May 4 - 11:00 AM",
-      type: "latest",
-      participants: 0,
-    },
-    {
-      title: "30 Minute Guitar Workshop",
-      img: "event-1",
-      time: "May 4 - 11:00 AM",
-      type: "latest",
-      participants: 22,
-      participantsImg: ["Host-1", "Host-2", "Host-3"],
-    },
-    {
-      title: "Happiness Meditation with Chocolate ",
-      img: "event-2",
-      time: "May 5 - 5:00 PM",
-      type: "popular",
-      participants: 22,
-      participantsImg: ["Host-1", "Host-2", "Host-3"],
-    },
-    {
-      title: "Cello Meditation Concert",
-      img: "event-3",
-      time: "May 4 - 11:00 AM",
-      type: "limited",
-      participants: 22,
-      participantsImg: ["Host-1", "Host-2", "Host-3"],
-    },
-    {
-      title: "Cello Meditation Concert",
-      img: "event-4",
-      time: "May 4 - 11:00 AM",
-      type: "latest",
-      participants: 0,
     },
   ]);
 
@@ -130,9 +90,11 @@ const AvailableEvents = () => {
                 <div key={i} className="mb-36">
                   <div className="position-relative">
                     <img src={`/images/${img}@3x.png`} alt={img} />
-                    <button className={`event-tag mb-3 img-button ${type}`}>
-                      {type}
-                    </button>
+                    {type ? (
+                      <button className={`event-tag mb-3 img-button ${type}`}>
+                        {type}
+                      </button>
+                    ) : null}
                     <div className="img-bottom-content">
                       {participantsImg ? (
                         <div className="participantsImg">
@@ -164,6 +126,21 @@ const AvailableEvents = () => {
                 </div>
               );
             })}
+            <div className="mb-36">
+              <div className="position-relative">
+                <img src={`/images/border@3x.png`} />
+                <div className="discover-more">
+                  <h4 className="f-24 fw-500 mb-12">Craving more?</h4>
+                  <p className="f-14 fw-400 mb-12">
+                    Click “Discover More” below to look for more interesting
+                    events to join!
+                  </p>
+                  <button className="btn-teal max-180 fw-500">
+                    Discover More
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -171,4 +148,4 @@ const AvailableEvents = () => {
   );
 };
 
-export default AvailableEvents;
+export default EventsJoined;
