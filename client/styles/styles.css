@@ -1034,7 +1034,7 @@ footer p {
   max-width: 32px;
 }
 
-.attendee-dashboard .block-img img {
+.block-img img {
   max-width: 32px;
   margin-bottom: 40px;
 }
@@ -1257,6 +1257,47 @@ footer p {
   height: 100%;
   padding: 0 30px;
   text-align: center;
+}
+
+/* all availabke hosts styles */
+.available-hosts {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -1.66%;
+}
+
+.available-hosts>div {
+  width: 15%;
+  margin: 0 1.66% 24px 0;
+  text-align: center;
+}
+
+.available-hosts-card {
+  background-color: #262829;
+  width: 100%;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.available-hosts-img {
+  max-width: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.available-hosts-img img {
+  width: 100%;
+}
+
+.available-hosts-icons {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.available-hosts-icons img {
+  max-height: 24px;
 }
 
 /* custom radio button styles */

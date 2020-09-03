@@ -7,14 +7,14 @@ import LeftBar from "../partials/attendee-leftbar";
 
 const Dashboard = () => {
   const [hosts, setHosts] = useState([
-    { img: "host-1", name: "Jim Beglin" },
+    { img: "host-1", name: "Jim Beglin", online: false },
     { img: "host-2", name: "Jim Beglin", online: true },
     { img: "host-3", name: "Jim Beglin", online: true },
-    { img: "host-4", name: "Jim Beglin" },
+    { img: "host-4", name: "Jim Beglin", online: false },
     { img: "host-5", name: "Jim Beglin", online: true },
     { img: "host-6", name: "Jim Beglin", online: true },
-    { img: "host-7", name: "Jim Beglin" },
-    { img: "host-8", name: "Jim Beglin" },
+    { img: "host-7", name: "Jim Beglin", online: false },
+    { img: "host-8", name: "Jim Beglin", online: false },
     { img: "oval-copy-8", more: true },
   ]);
 

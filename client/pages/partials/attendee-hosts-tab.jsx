@@ -6,9 +6,8 @@ import Link from "next/link";
 const EventsTab = () => {
   const router = useRouter();
   const [tabs, setTabs] = useState([
-    { title: "All Available Events", path: "/attendee/available-events" },
-    { title: "Events you joined", path: "/attendee/events-joined" },
-    { title: "Events Completed", path: "/attendee/events-completed" },
+    { title: "All Available Hosts", path: "/attendee/available-hosts" },
+    { title: "Hosts you followed", path: "/attendee/hosts-followed" },
   ]);
 
   return (

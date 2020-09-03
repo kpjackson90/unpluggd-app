@@ -18,14 +18,14 @@ const EventsJoined = () => {
     },
     {
       title: "Let’s make some fruitjuice together!",
-      img: "event-2",
+      img: "joined-2",
       time: "May 5 - 5:00 PM",
       participants: 22,
       participantsImg: ["Host-1", "Host-2", "Host-3"],
     },
     {
       title: "Virtual singing Contest",
-      img: "event-3",
+      img: "joined-3",
       time: "May 4 - 11:00 AM",
       participants: 22,
       participantsImg: ["Host-1", "Host-2", "Host-3"],
