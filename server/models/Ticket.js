@@ -19,6 +19,9 @@ const TicketSchema = new Schema({
 	ticket_price: {
 		type: String,
 	},
+	ticket_quantity: {
+		type: Number,
+	},
 	event: {
 		type: Schema.Types.ObjectId,
 		ref: 'Event',
