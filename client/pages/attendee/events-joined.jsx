@@ -5,6 +5,8 @@ import CustomChekbox from "../partials/CustomCheckbox";
 import Notification from "../partials/Notification";
 import LeftBar from "../partials/attendee-leftbar";
 import EventsTab from "../partials/attendee-events-tab";
+import { defaultJoinedEvents } from "../partials/helpers/helpers";
+import { useEffect } from "react";
 
 const EventsJoined = () => {
   const [events, setEvents] = useState([
@@ -32,6 +34,28 @@ const EventsJoined = () => {
     },
   ]);
 
+  const [search, setSearch] = useState("");
+
+  const [searchEvents, setSearchEvents] = useState(false);
+
+  const openSearch = () => {
+    setSearchEvents(true);
+  };
+
+  const closeSearch = () => {
+    setSearchEvents(false);
+    setSearch("");
+    setEvents(defaultJoinedEvents);
+  };
+
+  useEffect(() => {
+    const newEvents = defaultJoinedEvents.filter((ev) =>
+      ev.title.toLowerCase().includes(search.toLowerCase())
+    );
+
+    setEvents(newEvents);
+  }, [search]);
+
   return (
     <div className="app-height d-flex align-items-start p-24 attendee-dashboard">
       <LeftBar />
@@ -40,42 +64,66 @@ const EventsJoined = () => {
           <div></div>
           <img src="/images/Logo@3x.png" className="max-155" />
           <div className="position-relative">
-            <img src="/images/Search@3x.png" className="max-32 c-pointer" />
+            {!searchEvents ? (
+              <img
+                src="/images/Search@3x.png"
+                className="max-32 c-pointer"
+                onClick={openSearch}
+              />
+            ) : (
+              <img
+                src="/images/close-search@3x.png"
+                className="max-32 c-pointer"
+                onClick={closeSearch}
+              />
+            )}
           </div>
         </div>
         <div className="mt-44">
-          <div className="d-flex justify-content-between align-items-center mb-12">
-            <div></div>
-            <EventsTab />
-            <div>
-              <Dropdown>
-                <Dropdown.Toggle id="dropdown-basic">
-                  <span className="f-24">
-                    <i className="fas fa-bars drop-icon" tabIndex="1"></i>
-                  </span>
-                </Dropdown.Toggle>
+          {!searchEvents ? (
+            <div className="d-flex justify-content-between align-items-center mb-12">
+              <div></div>
+              <EventsTab />
+              <div>
+                <Dropdown>
+                  <Dropdown.Toggle id="dropdown-basic">
+                    <span className="f-24">
+                      <i className="fas fa-bars drop-icon" tabIndex="1"></i>
+                    </span>
+                  </Dropdown.Toggle>
 
-                <Dropdown.Menu>
-                  <div className="d-item">
-                    <p className="f-16 fw-500">Popular Events</p>
-                    <CustomChekbox />
-                  </div>
-                  <div className="d-item">
-                    <p className="f-16 fw-500">Hot Events</p>
-                    <CustomChekbox />
-                  </div>
-                  <div className="d-item">
-                    <p className="f-16 fw-500">Events starts today</p>
-                    <CustomChekbox />
-                  </div>
-                  <div className="d-item mb-0">
-                    <p className="f-16 fw-500">Events starts in 1 hour</p>
-                    <CustomChekbox />
-                  </div>
-                </Dropdown.Menu>
-              </Dropdown>
+                  <Dropdown.Menu>
+                    <div className="d-item">
+                      <p className="f-16 fw-500">Popular Events</p>
+                      <CustomChekbox />
+                    </div>
+                    <div className="d-item">
+                      <p className="f-16 fw-500">Hot Events</p>
+                      <CustomChekbox />
+                    </div>
+                    <div className="d-item">
+                      <p className="f-16 fw-500">Events starts today</p>
+                      <CustomChekbox />
+                    </div>
+                    <div className="d-item mb-0">
+                      <p className="f-16 fw-500">Events starts in 1 hour</p>
+                      <CustomChekbox />
+                    </div>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="max-350 ml-auto mr-auto">
+              <input
+                type="search"
+                placeholder="Type here to search events"
+                className="app-input search mb-0"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </div>
+          )}
           <div className="events-list flex-1 mt-60">
             {events.map((e, i) => {
               const {
@@ -126,22 +174,37 @@ const EventsJoined = () => {
                 </div>
               );
             })}
-            <div className="mb-36">
-              <div className="position-relative">
-                <img src={`/images/border@3x.png`} />
-                <div className="discover-more">
-                  <h4 className="f-24 fw-500 mb-12">Craving more?</h4>
-                  <p className="f-14 fw-400 mb-12">
-                    Click “Discover More” below to look for more interesting
-                    events to join!
-                  </p>
-                  <button className="btn-teal max-180 fw-500">
-                    Discover More
-                  </button>
+            {events.length !== 0 ? (
+              <div className="mb-36">
+                <div className="position-relative">
+                  <img src={`/images/border@3x.png`} />
+                  <div className="discover-more">
+                    <h4 className="f-24 fw-500 mb-12">Craving more?</h4>
+                    <p className="f-14 fw-400 mb-12">
+                      Click “Discover More” below to look for more interesting
+                      events to join!
+                    </p>
+                    <button className="btn-teal max-180 fw-500">
+                      Discover More
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
+            ) : null}
           </div>
+          {events.length == 0 && searchEvents == true ? (
+            <div className="empty-search text-center">
+              <img
+                src="/images/broke-ticket@3x.png"
+                alt="empty-search"
+                className="max-207 mb-36"
+              />
+              <p className="f-24 fw-300 mb-12">No results found</p>
+              <p className="f-16 fw-300">
+                Please make sure if you enter the correct keyword.
+              </p>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>

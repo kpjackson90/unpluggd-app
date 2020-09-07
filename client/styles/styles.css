@@ -293,8 +293,18 @@ ul {
   width: 100%;
 }
 
+.max-207 {
+  max-width: 207px;
+  width: 100%;
+}
+
 .max-254 {
   max-width: 254px;
+  width: 100%;
+}
+
+.max-350 {
+  max-width: 350px;
   width: 100%;
 }
 
@@ -351,6 +361,21 @@ ul {
 
 .app-input.textarea {
   height: unset;
+}
+
+.app-input.search{
+  border: none;
+  color: white;
+}
+
+.app-input.search, .app-input.search::placeholder{
+  color: white;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.app-input.search:focus{
+  outline: none;
 }
 
 .form-text {
