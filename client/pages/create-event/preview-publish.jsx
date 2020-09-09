@@ -1,19 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import Forminput from "../partials/FormInput";
+import CreateEventsTab from "../partials/create-event-tab";
 
 const PreviewPublish = ({ clickedEvent, pageTitle }) => {
   const [filled, setFilled] = useState(false);
   const [imgs, setimgs] = useState(["art", "music", "food"]);
 
   return (
-    <React.Fragment>
-      {clickedEvent == "preview-publish" ? (
+    <div className="app-min-height d-flex pt-3 pb-3">
+      <CreateEventsTab />
+      <div className="flex-1">
         <div className="event-content preview">
           <div className="text-center">
             <img src="/images/logo-color@3x.png" alt="" className="event-img" />
             <h4 className="f-28 fw-300">Create your event</h4>
-            <h6 className="f-16 fw-500 text-teal mb-44">{pageTitle}</h6>
+            <h6 className="f-16 fw-500 text-teal mb-44">Preview Publish"</h6>
           </div>
           <div className="preview-publish">
             <div className="flex-1">
@@ -197,12 +199,14 @@ const PreviewPublish = ({ clickedEvent, pageTitle }) => {
               <button className="btn-transparent app-btn text-teal">
                 Back
               </button>
-              <button className="app-btn gray-btn mt-0 bg-teal">Create Event</button>
+              <button className="app-btn gray-btn mt-0 bg-teal">
+                Create Event
+              </button>
             </div>
           </div>
         </div>
-      ) : null}
-    </React.Fragment>
+      </div>
+    </div>
   );
 };
 

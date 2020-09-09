@@ -363,18 +363,19 @@ ul {
   height: unset;
 }
 
-.app-input.search{
+.app-input.search {
   border: none;
   color: white;
 }
 
-.app-input.search, .app-input.search::placeholder{
+.app-input.search,
+.app-input.search::placeholder {
   color: white;
   font-size: 24px;
   font-weight: 300;
 }
 
-.app-input.search:focus{
+.app-input.search:focus {
   outline: none;
 }
 
@@ -1323,6 +1324,15 @@ footer p {
 
 .available-hosts-icons img {
   max-height: 24px;
+}
+
+/* logout styles */
+
+.logout-page {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
 }
 
 /* custom radio button styles */
