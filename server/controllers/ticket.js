@@ -18,54 +18,67 @@ exports.createTicket = async (req, res) => {
 
   try {
     const isHost = await User.findOne({_id: req.user._id, user_role: 'host'});
+
     if (!isHost) {
-      return res.status(400).send({error: 'Only host can create a ticket'});
+      return res.status(400).json({error: 'Only host can create a ticket'});
     }
 
     const existingEvent = await Event.findById(event_id);
+
     if (!existingEvent) {
       return res.status(404).json({error: 'Event not found'});
     }
+
     //prevents users from requesting more tickets than the quantity available
-    // if (
-    //   existingEvent.quantityRemaining < ticket_quantity &&
-    //   existingEvent.quantityRemaining !== 0
-    // ) {
-    //   return res.status(400).json({
-    //     error: `Only allowed to create ${existingEvent.quantityRemaining} for the event ${existingEvent.name}`,
-    //   });
-    // }
+    if (
+      existingEvent.quantityRemaining < ticket_quantity &&
+      existingEvent.quantityRemaining !== 0
+    ) {
+      return res.status(400).json({
+        error: `Only allowed to create ${existingEvent.quantityRemaining} tickets for the event ${existingEvent.name}`,
+      });
+    }
+
     //no more tickets left for the event
-    // if (existingEvent.quantityRemaining <= 0) {
-    //   return res.status(400).json({
-    //     error: `Cannot create anymore tickets for the event ${existingEvent.name}`,
-    //   });
-    // }
+    if (existingEvent.quantityRemaining <= 0) {
+      return res.status(400).json({
+        error: `Cannot create anymore tickets for the event ${existingEvent.name}`,
+      });
+    }
+
     //user already created tickets for the event
-    // if (existingEvent.quantityRemaining !== existingEvent.quantityRequested) {
-    //   existingEvent.quantityRemaining =
-    //     existingEvent.quantityRemaining - ticket_quantity;
-    // }
+    if (existingEvent.quantityRemaining !== existingEvent.quantityRequested) {
+      existingEvent.quantityRemaining =
+        existingEvent.quantityRemaining - ticket_quantity;
+
+      req.ticketQuantityRemaining = existingEvent.quantityRemaining;
+    }
     //first time creating tickets for the event
-    // if (existingEvent.quantityRemaining === existingEvent.quantityRequested) {
-    //   existingEvent.quantityRemaining =
-    //     existingEvent.quantityRequested - ticket_quantity;
-    // }
-    // const ticket = new Ticket({
-    //   ticket_name,
-    //   ticket_type,
-    //   ticket_access,
-    //   ticket_quantity,
-    //   host: req.user._id,
-    //   event: event_id,
-    // });
-    //const newTicket = await ticket.save();
-    //existingEvent.tickets.push(newTicket._id);
-    // await existingEvent.save();
-    // return res.status(200).send({
-    //   success: `${ticket_quantity} created for the event ${existingEvent.name}`,
-    // });
+    if (existingEvent.quantityRemaining === existingEvent.quantityRequested) {
+      existingEvent.quantityRemaining =
+        existingEvent.quantityRequested - ticket_quantity;
+
+      req.ticketQuantityRemaining = existingEvent.quantityRemaining;
+    }
+
+    const newTicket = await Ticket.create({
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      host: req.user._id,
+      event: event_id,
+    });
+
+    console.log('New Ticket ', newTicket);
+
+    existingEvent.tickets.push(newTicket._id);
+    await existingEvent.save();
+    return res.status(201).send({
+      success: `${ticket_quantity} created for the event ${existingEvent.name}`,
+    });
   } catch (err) {
-    //return res.status(400).send({error: err.message});
+    console.log('Inside here Error');
+    return res.status(400).send({error: err.message});
   }
 };
