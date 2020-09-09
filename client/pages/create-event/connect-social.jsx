@@ -1,18 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import Forminput from "../partials/FormInput";
+import CreateEventsTab from "../partials/create-event-tab";
 
-const ConnectSocial = ({ clickedEvent, pageTitle }) => {
+const ConnectSocial = () => {
   const [filled, setFilled] = useState(false);
 
   return (
-    <React.Fragment>
-      {clickedEvent == "connect-social" ? (
+    <div className="app-min-height d-flex pt-3 pb-3">
+      <CreateEventsTab />
+      <div className="flex-1">
         <div className="event-content">
           <div className="text-center">
             <img src="/images/logo-color@3x.png" alt="" className="event-img" />
             <h4 className="f-28 fw-300">Create your event</h4>
-            <h6 className="f-16 fw-500 text-teal mb-24">{pageTitle}</h6>
+            <h6 className="f-16 fw-500 text-teal mb-24">Connect Social</h6>
           </div>
           <div className="mt-36">
             <label className="f-18 fw-300 mb-12">
@@ -88,8 +90,8 @@ const ConnectSocial = ({ clickedEvent, pageTitle }) => {
             </div>
           </div>
         </div>
-      ) : null}
-    </React.Fragment>
+      </div>
+    </div>
   );
 };
 

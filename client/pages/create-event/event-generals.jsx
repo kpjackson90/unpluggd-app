@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import Forminput from "../partials/FormInput";
+import CreateEventsTab from "../partials/create-event-tab";
 
-const EventGeneral = ({ clickedEvent, pageTitle }) => {
+const EventGeneral = () => {
   const [uploadedMedia, setUploadedMedia] = useState([
     "Event_123.jpg",
     "Big.banner.png",
@@ -12,13 +13,14 @@ const EventGeneral = ({ clickedEvent, pageTitle }) => {
   const [filled, setFilled] = useState(true);
 
   return (
-    <React.Fragment>
-      {clickedEvent == "event-general" ? (
+    <div className="app-min-height d-flex pt-3 pb-3">
+      <CreateEventsTab />
+      <div className="flex-1">
         <div className="event-content">
           <div className="text-center">
             <img src="/images/logo-color@3x.png" alt="" className="event-img" />
             <h4 className="f-28 fw-300">Create your event</h4>
-            <h6 className="f-16 fw-500 text-teal mb-24">{pageTitle}</h6>
+            <h6 className="f-16 fw-500 text-teal mb-24">Event Generals</h6>
           </div>
           <Forminput
             type="text"
@@ -113,8 +115,8 @@ const EventGeneral = ({ clickedEvent, pageTitle }) => {
             </button>
           </div>
         </div>
-      ) : null}
-    </React.Fragment>
+      </div>
+    </div>
   );
 };
 
