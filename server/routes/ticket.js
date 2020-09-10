@@ -11,8 +11,8 @@ const router = express.Router();
 
 router.post(
   '/api/ticket',
-  //requireAuth,
-  //roleAuthorization('user'),
+  requireAuth,
+  roleAuthorization('user'),
   createTicket
 );
 

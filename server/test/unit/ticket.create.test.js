@@ -6,6 +6,7 @@ const httpMocks = require('node-mocks-http');
 
 User.findOne = jest.fn();
 Event.findById = jest.fn();
+Event.updateOne = jest.fn();
 Ticket.create = jest.fn();
 
 let req, res;
@@ -23,13 +24,11 @@ beforeEach(() => {
   });
   res = httpMocks.createResponse();
   req.user = '';
-  // req.user = 'john';
-  // req.user.id = 4;
-  // let user_role = 'host';
-  // let params = {
-  //   _id: req.user.id,
-  //   user_role,
-  // };
+  req.user.id = '';
+  User.findOne.mockReturnValue('');
+  Event.findById.mockReturnValue('');
+  Event.updateOne.mockReturnValue('');
+  Ticket.create.mockReturnValue('');
 });
 
 describe('Testing the controller responsible for creating the tickets', () => {
@@ -77,7 +76,7 @@ describe('Testing the controller responsible for creating the tickets', () => {
 
   it('User is not a host. should respond to user with the appropriate error message', async () => {
     req.user = 'john';
-    req.user._id = 4;
+    req.user.id = 4;
     let responseBody = {
       error: 'Only host can create a ticket',
     };
@@ -178,7 +177,7 @@ describe('Testing the controller responsible for creating the tickets', () => {
     );
   });
 
-  it.only('first time creating ticket for event', async () => {
+  it('first time creating ticket for event', async () => {
     req.user = 'john';
     req.user.id = 4;
     let quantityRemaining = 10;
@@ -190,11 +189,161 @@ describe('Testing the controller responsible for creating the tickets', () => {
       quantityRequested,
     });
 
-    Event.prototype.save;
-
     await createTicket(req, res);
     expect(quantityRemaining - req.body.ticket_quantity).toEqual(
       req.ticketQuantityRemaining
     );
+  });
+
+  it('Ensure the ticket created is called with the correct arguments', async () => {
+    req.user = 'john';
+    req.user.id = 4;
+    let quantityRemaining = 10;
+    let quantityRequested = 10;
+    const {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event_id,
+    } = req.body;
+
+    let params = {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event: event_id,
+      host: req.user.id,
+    };
+    User.findOne.mockReturnValue(true);
+
+    Event.findById.mockReturnValue({
+      quantityRemaining,
+      quantityRequested,
+      tickets: ['ticket1', 'ticket2'],
+    });
+
+    Ticket.create.mockReturnValue({_id: '1234'});
+
+    await createTicket(req, res);
+    expect(Ticket.create).toBeCalledWith(params);
+  });
+
+  it('Ensure update is called ', async () => {
+    req.user = 'john';
+    req.user.id = 4;
+    let quantityRemaining = 10;
+    let quantityRequested = 10;
+    const {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event_id,
+    } = req.body;
+
+    let params = {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event: event_id,
+      host: req.user.id,
+    };
+    User.findOne.mockReturnValue(true);
+
+    Event.findById.mockReturnValue({
+      quantityRemaining,
+      quantityRequested,
+      tickets: ['ticket1', 'ticket2'],
+      name: 'Test event',
+    });
+
+    Ticket.create.mockReturnValue({_id: '1234'});
+
+    await createTicket(req, res);
+    expect(Event.updateOne).toBeCalled();
+  });
+
+  it('Ticket is successfully created. Return status 201 with correct message ', async () => {
+    req.user = 'john';
+    req.user.id = 4;
+    let quantityRemaining = 10;
+    let quantityRequested = 10;
+    const {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event_id,
+    } = req.body;
+
+    let params = {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event: event_id,
+      host: req.user.id,
+    };
+    User.findOne.mockReturnValue(true);
+
+    Event.findById.mockReturnValue({
+      quantityRemaining,
+      quantityRequested,
+      tickets: ['ticket1', 'ticket2'],
+      name: 'Test event',
+    });
+
+    Ticket.create.mockReturnValue({_id: '1234'});
+    let message = {
+      success: `${req.body.ticket_quantity} tickets were created for the event Test event`,
+    };
+
+    await createTicket(req, res);
+    expect(res._isEndCalled()).toBeTruthy();
+    expect(res.statusCode).toEqual(201);
+    expect(res._getJSONData()).toStrictEqual(message);
+  });
+
+  it('Error occured while creating the ticket. Should return status code of 422 with message', async () => {
+    req.user = 'john';
+    req.user.id = 4;
+    let quantityRemaining = 10;
+    let quantityRequested = 10;
+    const {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event_id,
+    } = req.body;
+
+    let params = {
+      ticket_name,
+      ticket_type,
+      ticket_access,
+      ticket_quantity,
+      event: event_id,
+      host: req.user.id,
+    };
+
+    User.findOne.mockReturnValue(true);
+
+    Event.findById.mockReturnValue({
+      quantityRemaining,
+      quantityRequested,
+      name: 'Test event',
+    });
+
+    let message = {
+      error: 'Server cannot process your request due to errors',
+    };
+
+    await createTicket(req, res);
+    expect(res._isEndCalled()).toBeTruthy();
+    expect(res.statusCode).toEqual(422);
+    expect(res._getJSONData()).toStrictEqual(message);
   });
 });

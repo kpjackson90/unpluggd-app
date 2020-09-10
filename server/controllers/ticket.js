@@ -17,7 +17,10 @@ exports.createTicket = async (req, res) => {
   } = req.body;
 
   try {
-    const isHost = await User.findOne({_id: req.user._id, user_role: 'host'});
+    const isHost = await User.findOne({
+      _id: req.user._id,
+      user_role: 'host',
+    });
 
     if (!isHost) {
       return res.status(400).json({error: 'Only host can create a ticket'});
@@ -53,6 +56,7 @@ exports.createTicket = async (req, res) => {
 
       req.ticketQuantityRemaining = existingEvent.quantityRemaining;
     }
+
     //first time creating tickets for the event
     if (existingEvent.quantityRemaining === existingEvent.quantityRequested) {
       existingEvent.quantityRemaining =
@@ -70,15 +74,16 @@ exports.createTicket = async (req, res) => {
       event: event_id,
     });
 
-    console.log('New Ticket ', newTicket);
+    const tickets = [...existingEvent.tickets, newTicket._id];
+    await Event.updateOne({_id: existingEvent._id}, {tickets});
 
-    existingEvent.tickets.push(newTicket._id);
-    await existingEvent.save();
-    return res.status(201).send({
-      success: `${ticket_quantity} created for the event ${existingEvent.name}`,
+    return res.status(201).json({
+      success: `${ticket_quantity} tickets were created for the event ${existingEvent.name}`,
     });
   } catch (err) {
-    console.log('Inside here Error');
-    return res.status(400).send({error: err.message});
+    console.error(err.message);
+    return res
+      .status(422)
+      .json({error: 'Server cannot process your request due to errors'});
   }
 };
