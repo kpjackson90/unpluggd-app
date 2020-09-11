@@ -12,11 +12,20 @@ const LeftBar = () => {
 
   const router = useRouter();
 
+  const pLink = "/attendee/profile-info";
+
   return (
     <div className="attendee-left-bar">
       <div>
-        <div className="text-center">
-          <img src="/images/host-profile@3x.png" className="max-60" />
+        <div
+          className="text-center attendee-profile-img"
+          style={{
+            border: router.pathname == pLink ? "4px solid #12CCC7" : "",
+          }}
+        >
+          <Link href={pLink}>
+            <img src="/images/host-profile@3x.png" className="max-60" />
+          </Link>
         </div>
         <div className="mt-36 block-img">
           {tabs.map((t, i) => {

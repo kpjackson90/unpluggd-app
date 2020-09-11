@@ -3,12 +3,12 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import Link from "next/link";
 
-const EventsTab = () => {
+const ProfileInfoTab = () => {
   const router = useRouter();
   const [tabs, setTabs] = useState([
-    { title: "All Available Events", path: "/attendee/available-events" },
-    { title: "Events you joined", path: "/attendee/events-joined" },
-    { title: "Events Completed", path: "/attendee/events-completed" },
+    { title: "Profile Info", path: "/attendee/profile-info" },
+    { title: "Account Settings", path: "/attendee/account-settings" },
+    { title: "Transaction History", path: "/attendee/transaction-history" },
   ]);
 
   return (
@@ -34,4 +34,4 @@ const EventsTab = () => {
   );
 };
 
-export default EventsTab;
+export default ProfileInfoTab;
