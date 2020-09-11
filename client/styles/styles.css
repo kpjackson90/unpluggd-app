@@ -222,6 +222,10 @@ ul {
   margin-bottom: 12px !important;
 }
 
+.mt-12 {
+  margin-top: 12px !important;
+}
+
 .mb-16 {
   margin-bottom: 16px !important;
 }
@@ -306,6 +310,12 @@ ul {
 .max-350 {
   max-width: 350px;
   width: 100%;
+}
+
+.max-524 {
+  max-width: 524px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .max-200 {
@@ -1051,6 +1061,17 @@ footer p {
   justify-content: space-between;
 }
 
+.attendee-profile-img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.attendee-profile-img img{
+  width: 100%;
+  height: 100%;
+}
+
 .attendee-dashboard .block-img,
 .logout {
   text-align: center;
@@ -1333,6 +1354,29 @@ footer p {
   background-repeat: no-repeat;
   background-position: center;
 
+}
+
+/* profile-info styles */
+
+.profile-info-img{
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.profile-info-img img{
+  width: 100%;
+  height: 100%;
+}
+
+.upload-delete.profile-info{
+  justify-content: space-between;
+}
+
+.upload-delete.profile-info button{
+  width: 254px;
+  height: 48px;
 }
 
 /* custom radio button styles */
