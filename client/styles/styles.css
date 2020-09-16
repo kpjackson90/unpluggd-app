@@ -52,6 +52,10 @@ ul {
   color: #a2a2a2 !important;
 }
 
+.text-deepTeal {
+  color: #007a87;
+}
+
 .bg-teal {
   background: radial-gradient(circle, #12ccc7 0%, #08b09a 100%) !important;
 }
@@ -189,7 +193,6 @@ ul {
   border-top: 1px solid rgba(230, 230, 230, 0.3);
 }
 
-
 .flex-1 {
   flex: 1 !important;
 }
@@ -318,6 +321,12 @@ ul {
   margin: 0 auto;
 }
 
+.max-631 {
+  max-width: 631px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .max-200 {
   max-width: 200px;
   width: 100%;
@@ -344,7 +353,7 @@ ul {
   margin-bottom: 32px;
 }
 
-.line-break>div {
+.line-break > div {
   height: 1px;
   border-radius: 0.5px;
   background-color: #3e4747;
@@ -407,7 +416,7 @@ ul {
 }
 
 .br-limited {
-  border: 2px solid #E72287 !important;
+  border: 2px solid #e72287 !important;
 }
 
 /* navbar styles */
@@ -526,7 +535,7 @@ footer p {
   padding: 0 4%;
 }
 
-.categories>div {
+.categories > div {
   height: 120px;
   width: 100%;
   margin-right: 2%;
@@ -540,12 +549,12 @@ footer p {
   padding: 14px 0;
 }
 
-.categories>div img {
+.categories > div img {
   max-width: 50px;
   margin-bottom: 15px;
 }
 
-.categories>div p {
+.categories > div p {
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.2px;
@@ -577,7 +586,7 @@ footer p {
   margin-right: -2%;
 }
 
-.events-list>div {
+.events-list > div {
   width: 23%;
   margin-right: 2%;
 }
@@ -598,7 +607,7 @@ footer p {
   margin-top: 180px;
 }
 
-.about>div {
+.about > div {
   margin-right: 4%;
   display: flex;
   flex-direction: column;
@@ -693,13 +702,13 @@ footer p {
   align-items: flex-start;
 }
 
-.attendee-flex>div:first-child,
-.attendee-flex>div:last-child {
+.attendee-flex > div:first-child,
+.attendee-flex > div:last-child {
   max-width: 150px;
 }
 
-.attendee-flex>div:first-child img,
-.attendee-flex>div:last-child img {
+.attendee-flex > div:first-child img,
+.attendee-flex > div:last-child img {
   width: 100%;
   height: 100%;
 }
@@ -723,7 +732,7 @@ footer p {
   padding: 0;
 }
 
-.categories.attendee>div {
+.categories.attendee > div {
   width: 23%;
   margin-right: 2%;
   background-color: transparent;
@@ -756,14 +765,14 @@ footer p {
   align-items: center;
 }
 
-.broken-line>div {
+.broken-line > div {
   height: 4px;
   width: 32px;
   border-radius: 4px;
   background-color: #12ccc7;
 }
 
-.broken-line>span {
+.broken-line > span {
   height: 4px;
   width: 4px;
   border-radius: 4px;
@@ -823,12 +832,12 @@ footer p {
   max-height: 40px;
 }
 
-.categories.attendee.cards>div {
+.categories.attendee.cards > div {
   width: 49%;
   margin-right: 2%;
 }
 
-.categories.attendee.cards>div:last-child {
+.categories.attendee.cards > div:last-child {
   margin-right: 0;
 }
 
@@ -927,27 +936,30 @@ footer p {
 }
 
 .event-tag.paid,
-.event-tag.popular {
+.event-tag.popular,
+.event-tag.pending {
   background-color: #007a87;
 }
 
-.event-tag.latest {
+.event-tag.latest,
+.event-tag.tx-paid {
   background-color: #08b09a;
 }
 
-.event-tag.limited {
-  background-color: #E72287;
+.event-tag.limited,
+.event-tag.cancelled {
+  background-color: #e72287;
 }
 
 .preview-publish {
   display: flex;
 }
 
-.preview-publish>div:first-child {
+.preview-publish > div:first-child {
   margin-right: 51px;
 }
 
-.preview-publish>div:last-child {
+.preview-publish > div:last-child {
   max-width: 219px;
   width: 100%;
 }
@@ -976,7 +988,7 @@ footer p {
   justify-content: space-between;
 }
 
-.preview-publish .total>div:first-child {
+.preview-publish .total > div:first-child {
   border-radius: 8px;
   background-color: #f7f7f7;
   display: flex;
@@ -1000,17 +1012,17 @@ footer p {
   font-family: TheGwathmey;
 }
 
-.preview-publish>div:last-child img:first-child {
+.preview-publish > div:last-child img:first-child {
   max-height: 320px;
   margin-bottom: 24px;
 }
 
-.preview-publish>div:last-child img:nth-child(2) {
+.preview-publish > div:last-child img:nth-child(2) {
   max-height: 220px;
   margin-bottom: 24px;
 }
 
-.preview-publish>div:last-child img:nth-child(3) {
+.preview-publish > div:last-child img:nth-child(3) {
   max-height: 650px;
   margin-bottom: 24px;
 }
@@ -1024,7 +1036,7 @@ footer p {
   align-items: center;
 }
 
-.send-invite>div:first-child {
+.send-invite > div:first-child {
   margin-right: 6%;
 }
 
@@ -1061,13 +1073,13 @@ footer p {
   justify-content: space-between;
 }
 
-.attendee-profile-img{
+.attendee-profile-img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
   overflow: hidden;
 }
-.attendee-profile-img img{
+.attendee-profile-img img {
   width: 100%;
   height: 100%;
 }
@@ -1104,11 +1116,11 @@ footer p {
   margin-bottom: 14px;
 }
 
-.followed-hosts>div {
+.followed-hosts > div {
   margin-right: 3%;
 }
 
-.followed-hosts>div:last-child {
+.followed-hosts > div:last-child {
   margin-right: 0;
 }
 
@@ -1125,7 +1137,7 @@ footer p {
 .host-online {
   height: 12px;
   width: 12px;
-  background-color: #12CCC7;
+  background-color: #12ccc7;
   box-shadow: 0 2px 4px 0 rgba(18, 204, 199, 0.5);
   border-radius: 50%;
   overflow: hidden;
@@ -1137,7 +1149,7 @@ footer p {
 .new-notification {
   height: 8px;
   width: 8px;
-  background-color: #E72287;
+  background-color: #e72287;
   border-radius: 50%;
   overflow: hidden;
   position: absolute;
@@ -1151,7 +1163,7 @@ footer p {
 .drop-icon:hover,
 .drop-icon:active,
 .drop-icon:focus {
-  color: #12CCC7;
+  color: #12ccc7;
   outline: none;
   border: none;
 }
@@ -1204,8 +1216,8 @@ footer p {
   margin-right: 8px;
 }
 
-.participantsImg>img:nth-child(2),
-.participantsImg>img:last-child {
+.participantsImg > img:nth-child(2),
+.participantsImg > img:last-child {
   margin-left: -5px;
 }
 
@@ -1228,15 +1240,15 @@ footer p {
   transition: 1s;
 }
 
-.notification-container>div {
+.notification-container > div {
   height: 100%;
 }
 
-.notification-container>div:first-child {
+.notification-container > div:first-child {
   margin-right: 16px;
 }
 
-.notification-container>div:last-child {
+.notification-container > div:last-child {
   flex: 1;
   border-radius: 12px;
   background-color: #262829;
@@ -1252,7 +1264,7 @@ footer p {
 }
 
 .notification-container ul li:focus {
-  color: #12CCC7;
+  color: #12ccc7;
   outline: none;
   border: none;
 }
@@ -1270,19 +1282,19 @@ footer p {
   align-items: center;
 }
 
-.empty-hosts-events>div,
-.empty-hosts-events>div:last-child {
+.empty-hosts-events > div,
+.empty-hosts-events > div:last-child {
   width: 46%;
 }
 
-.empty-hosts-events>div:first-child {
+.empty-hosts-events > div:first-child {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-right: 4%;
 }
 
-.empty-hosts-events>div:last-child {
+.empty-hosts-events > div:last-child {
   margin-left: 4%;
 }
 
@@ -1313,7 +1325,7 @@ footer p {
   margin-right: -1.66%;
 }
 
-.available-hosts>div {
+.available-hosts > div {
   width: 15%;
   margin: 0 1.66% 24px 0;
   text-align: center;
@@ -1353,28 +1365,27 @@ footer p {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
 }
 
 /* profile-info styles */
 
-.profile-info-img{
+.profile-info-img {
   width: 120px;
   height: 120px;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.profile-info-img img{
+.profile-info-img img {
   width: 100%;
   height: 100%;
 }
 
-.upload-delete.profile-info{
+.upload-delete.profile-info {
   justify-content: space-between;
 }
 
-.upload-delete.profile-info button{
+.upload-delete.profile-info button {
   width: 254px;
   height: 48px;
 }
@@ -1413,12 +1424,12 @@ footer p {
 }
 
 /* On mouse-over, add a grey background color */
-.radio:hover input~.checkmark {
+.radio:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.radio input:checked~.checkmark {
+.radio input:checked ~ .checkmark {
   background-color: #12ccc7;
 }
 
@@ -1430,7 +1441,7 @@ footer p {
 }
 
 /* Show the indicator (dot/circle) when checked */
-.radio input:checked~.checkmark:after {
+.radio input:checked ~ .checkmark:after {
   display: block;
 }
 
@@ -1449,7 +1460,7 @@ footer p {
   align-items: center;
 }
 
-.radio-wrap>* {
+.radio-wrap > * {
   margin-right: 40px;
 }
 
@@ -1487,13 +1498,13 @@ footer p {
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox:hover input~.checkmark {
+.checkbox:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox input:checked~.checkmark {
-  background-color: #12CCC7;
+.checkbox input:checked ~ .checkmark {
+  background-color: #12ccc7;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -1504,7 +1515,7 @@ footer p {
 }
 
 /* Show the checkmark when checked */
-.checkbox input:checked~.checkmark:after {
+.checkbox input:checked ~ .checkmark:after {
   display: block;
 }
 
