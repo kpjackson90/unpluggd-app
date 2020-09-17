@@ -16,10 +16,10 @@ const EventSchema = new Schema({
     type: String,
   },
   start_time: {
-    type: String,
+    type: Date,
   },
   end_time: {
-    type: String,
+    type: Date,
   },
   host: {
     type: Schema.Types.ObjectId,
@@ -50,13 +50,13 @@ const EventSchema = new Schema({
       ref: 'Ticket',
     },
   ],
-  quantityRequested: {type: Number, default: 0},
+  // quantityRequested: {type: Number, default: 0},
 
   quantityRemaining: {type: Number, default: 0},
 
-  quantitySold: {type: Number, default: 0},
+  //quantitySold: {type: Number, default: 0},
 
-  ticketsSold: [Schema.Types.Mixed],
+  //ticketsSold: [Schema.Types.Mixed],
 
   isPrevious: {
     type: Boolean,

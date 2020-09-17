@@ -5,16 +5,8 @@ const User = mongoose.model('User');
 const Event = mongoose.model('Event');
 const {requireAuth} = require('../middleware/requireAuth');
 const {roleAuthorization} = require('../middleware/roleAuthorization');
-const {createTicket} = require('../controllers/ticket');
 
 const router = express.Router();
-
-router.post(
-  '/api/ticket',
-  requireAuth,
-  roleAuthorization('user'),
-  createTicket
-);
 
 router.get(
   '/api/tickets',
