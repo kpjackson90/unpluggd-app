@@ -118,6 +118,10 @@ ul {
   font-size: 60px !important;
 }
 
+.f-80 {
+  font-size: 80px !important;
+}
+
 .fw-300 {
   font-weight: 300 !important;
 }
@@ -417,6 +421,10 @@ ul {
 
 .br-limited {
   border: 2px solid #e72287 !important;
+}
+
+.back-button{
+  width: 120px;
 }
 
 /* navbar styles */
@@ -1008,7 +1016,7 @@ footer p {
   border-radius: 12px;
 }
 
-.event-board .host-name {
+.event-board .host-name, .host-name {
   font-family: TheGwathmey;
 }
 
@@ -1388,6 +1396,14 @@ footer p {
 .upload-delete.profile-info button {
   width: 254px;
   height: 48px;
+}
+
+/* host-page styles */
+
+.host-page-banner{
+  max-height: 224px;
+  width: 100%;
+  border-radius: 12px;
 }
 
 /* custom radio button styles */
