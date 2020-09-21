@@ -3,9 +3,9 @@ import React from "react";
 const CustomChekbox = () => {
   return (
     <div className="position-relative custom-checkbox">
-      <label class="checkbox">
+      <label className="checkbox">
         <input type="checkbox" />
-        <span class="checkmark"></span>
+        <span className="checkmark"></span>
       </label>
     </div>
   );

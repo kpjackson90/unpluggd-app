@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 const HostPage = () => {
   const [events, setEvents] = useState([
@@ -67,12 +68,17 @@ const HostPage = () => {
     },
   ]);
 
+  const router = useRouter();
+
   return (
     <div className="app-min-height">
       <div className="app-width d-flex align-items-start mt-24">
         <div className="back-button">
           <div className="f-24 mt-36">
-            <i className="fas fa-chevron-left"></i>
+            <i
+              className="fas fa-chevron-left c-pointer"
+              onClick={() => router.back()}
+            ></i>
           </div>
         </div>
         <div className="flex-1">
@@ -101,7 +107,7 @@ const HostPage = () => {
               <p className="f-14 fw-300 text-gray mb-2">About the host</p>
               <div className="d-flex">
                 <span className="f-24 mr-3">
-                  <i class="fas fa-quote-left"></i>
+                  <i className="fas fa-quote-left"></i>
                 </span>
                 <p className="f-14 fw-300">
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit.

@@ -24,13 +24,13 @@ const Signup = () => {
 
             <button className="fb-btn app-btn">
               <span className="f-24 mr-4">
-                <i class="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook-f"></i>
               </span>
               <span>Sign Up with Facebook</span>
             </button>
             <button className="ig-btn app-btn">
               <span className="f-24 mr-4">
-                <i class="fab fa-instagram"></i>
+                <i className="fab fa-instagram"></i>
               </span>
               <span>Sign Up with Instagram</span>
             </button>

@@ -91,7 +91,7 @@ const EventHostReg = () => {
                     <Forminput type="text" placeholder="Occupation" />
                   </div>
                 </div>
-                <div class="form-group mb-0">
+                <div className="form-group mb-0">
                   <textarea
                     placeholder="About you (Maximum 200 characters)"
                     className="app-input textarea mb-0"
@@ -114,7 +114,7 @@ const EventHostReg = () => {
                   type="text"
                   placeholder="Intro video URL (Optional)"
                 />
-                <div class="form-group mb-0">
+                <div className="form-group mb-0">
                   <textarea
                     placeholder="About your company (Maximum 200 characters)"
                     className="app-input textarea mb-0"
