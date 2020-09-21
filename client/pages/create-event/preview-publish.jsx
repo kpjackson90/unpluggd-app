@@ -159,7 +159,7 @@ const PreviewPublish = ({ clickedEvent, pageTitle }) => {
                     <p className="f-14 fw-300 text-gray mb-2">About the host</p>
                     <div className="d-flex">
                       <span className="f-24 mr-3">
-                        <i class="fas fa-quote-left"></i>
+                        <i className="fas fa-quote-left"></i>
                       </span>
                       <p className="f-14 fw-300">
                         Lorem ipsum dolor sit amet, consectetuer adipiscing
