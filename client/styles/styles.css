@@ -443,6 +443,10 @@ ul {
   border: 2px solid #e72287 !important;
 }
 
+.br-white {
+  border: 2px solid white !important;
+}
+
 .back-button {
   width: 120px;
 }
@@ -1454,7 +1458,7 @@ footer p {
   margin-bottom: 24px;
 }
 
-.attend-now>div:last-child img:nth-child(3) {
+.attend-now>div:last-child img:last-child {
   max-height: 534px;
   margin-bottom: 24px;
 }
