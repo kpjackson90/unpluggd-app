@@ -68,6 +68,7 @@ const PendingToStart = () => {
                       src={`/images/icon-${icon}@3x.png`}
                       alt={icon}
                       className="max-h-24 ml-22"
+                      key={i}
                     />
                   );
                 })}

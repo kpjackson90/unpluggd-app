@@ -1012,7 +1012,7 @@ footer p {
   margin-right: 14px;
 }
 
-.preview-publish .total {
+.total {
   padding-top: 18px;
   border-top: 1px solid rgba(230, 230, 230, 0.3);
   display: flex;
@@ -1020,7 +1020,7 @@ footer p {
   justify-content: space-between;
 }
 
-.preview-publish .total>div:first-child {
+.total>div:first-child {
   border-radius: 8px;
   background-color: #f7f7f7;
   display: flex;
