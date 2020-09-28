@@ -101,7 +101,7 @@ const PendingToStart = () => {
                     </p>
                   </div>
                 </div>
-                <button className="btn-transparent gray">Unfollow</button>
+                <button className="btn-transparent max-120">Follow</button>
               </div>
               <div className="mt-12">
                 <p className="f-14 fw-300 text-gray mb-2">About the host</p>

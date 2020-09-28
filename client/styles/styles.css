@@ -172,6 +172,14 @@ ul {
   font-weight: 300;
 }
 
+.w-unset {
+  width: unset !important;
+}
+
+.border-none {
+  border: none !important;
+}
+
 .btn-transparent.gray {
   height: 48px;
   width: 120px;
@@ -307,6 +315,11 @@ ul {
 
 .max-32 {
   max-width: 32px;
+  width: 100%;
+}
+
+.max-120 {
+  max-width: 120px;
   width: 100%;
 }
 
@@ -962,7 +975,7 @@ footer p {
   justify-content: center;
   align-items: center;
   margin-right: 12px;
-  padding: 3.5px 19px;
+  padding: 3.5px 15px;
   outline: none;
   border: none;
 }
@@ -1048,16 +1061,19 @@ footer p {
 .preview-publish>div:last-child img:first-child {
   max-height: 320px;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .preview-publish>div:last-child img:nth-child(2) {
   max-height: 220px;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .preview-publish>div:last-child img:nth-child(3) {
   max-height: 650px;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .send-invite {
@@ -1451,16 +1467,33 @@ footer p {
 .attend-now>div:last-child img:first-child {
   max-height: 320px;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .attend-now>div:last-child img:nth-child(2) {
   max-height: 220px;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .attend-now>div:last-child img:last-child {
   max-height: 534px;
   margin-bottom: 24px;
+  width: 100%;
+}
+
+/* Review page styles */
+
+.review-img{
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.review-img img{
+  width: 100%;
+  height: 100%;
 }
 
 /* custom radio button styles */
