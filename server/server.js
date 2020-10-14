@@ -54,6 +54,7 @@ mongoose.connect(keys.MONGO_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 mongoose.connection
   .once('open', () => console.log('Connected to Mongo instance'))
