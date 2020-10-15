@@ -30,7 +30,7 @@ exports.verifyUser = async (req, res) => {
     };
     return sendResponse(req, res, USER_VERIFIED, userParams);
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     return sendResponse(req, res, SERVER_ERROR);
   }
 };

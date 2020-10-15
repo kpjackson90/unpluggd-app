@@ -1,6 +1,6 @@
 module.exports = {
   UNAUTHORIZED: {
-    error: 'Unauthorized. You must be logged in',
+    error: 'Unauthorized to perform this action',
     message: null,
     statusCode: 401,
     headers: {
@@ -26,6 +26,15 @@ module.exports = {
     },
   },
 
+  MISSING_EMAIL_PASSWORD: {
+    error: 'Must provide email and password',
+    message: null,
+    statusCode: 400,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
   MISSING_ID: {
     error: 'Missing user Id',
     message: null,
@@ -39,6 +48,15 @@ module.exports = {
     error: 'User already exists',
     message: null,
     statusCode: 409,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
+  INVALID_LOGIN_CREDENTIALS: {
+    error: 'Invalid Credentials. Please try again',
+    message: null,
+    statusCode: 422,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -60,9 +78,27 @@ module.exports = {
       'Content-Type': 'application/json',
     },
   },
+
+  USER_LOGIN: {
+    error: null,
+    message: 'Log in successful',
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
   USER_VERIFIED: {
     error: null,
     message: 'User successfully verified',
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
+  USER_UPDATED: {
+    error: null,
+    message: 'User Profile successfully updated',
     statusCode: 200,
     headers: {
       'Content-Type': 'application/json',

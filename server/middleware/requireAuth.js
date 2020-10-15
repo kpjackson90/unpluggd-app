@@ -24,7 +24,7 @@ exports.requireAuth = async (req, res, next) => {
     req.user.token = token;
     next();
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     return sendResponse(req, res, UNAUTHORIZED);
   }
 };
