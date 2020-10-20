@@ -18,6 +18,7 @@ const event = require('./routes/event');
 const room = require('./routes/room');
 const index = require('./routes');
 const ticket = require('./routes/ticket');
+const upload = require('./routes/upload');
 const app = express();
 
 app.use(cors());
@@ -25,18 +26,18 @@ app.use(bodyParser.json());
 app.use(passport.initialize());
 
 const swaggerOptions = {
-	swaggerDefinition: {
-		info: {
-			title: 'Unpluggd',
-			description: 'Admin and Consumer Side API',
-			contact: {
-				name: 'Kareem Phillip-Jackson',
-			},
-			servers: ['http://localhost:5000'],
-		},
-	},
-	//routes
-	apis: ['./routes/*.js'],
+  swaggerDefinition: {
+    info: {
+      title: 'Unpluggd',
+      description: 'Admin and Consumer Side API',
+      contact: {
+        name: 'Kareem Phillip-Jackson',
+      },
+      servers: ['http://localhost:5000'],
+    },
+  },
+  //routes
+  apis: ['./routes/*.js'],
 };
 
 const swaggerDocs = swaggerJsDoc(swaggerOptions);
@@ -46,19 +47,21 @@ app.use(event);
 app.use(room);
 app.use(index);
 app.use(ticket);
+app.use(upload);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.MONGO_URI, {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useUnifiedTopology: true,
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
 });
 mongoose.connection
-	.once('open', () => console.log('Connected to Mongo instance'))
-	.on('error', error => console.log('Error connecting to MongoDB', error));
+  .once('open', () => console.log('Connected to Mongo instance'))
+  .on('error', error => console.log('Error connecting to MongoDB', error));
 
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-	console.log('Listening on port', PORT);
+  console.log('Listening on port', PORT);
 });

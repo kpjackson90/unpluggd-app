@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Ticket = require('../models/Ticket');
+const Ticket = require('../../models/Ticket');
 
 exports.createFreeTicket = async ({
   ticket_name,
@@ -21,7 +21,7 @@ exports.createFreeTicket = async ({
 
     return newTicket;
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     throw new Error('Failed to create free ticket.');
   }
 };
@@ -48,7 +48,7 @@ exports.createPaidTicket = async ({
 
     return newTicket;
   } catch (err) {
-    console.error(err.message);
+    console.error(err);
     throw new Error('Failed to create free ticket.');
   }
 };
