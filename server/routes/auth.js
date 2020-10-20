@@ -29,6 +29,7 @@ router.get(
   facebookAuth
 );
 
+//TODO: comeback to logout functionality
 // router.get('/api/logout', (req, res) => {
 //   req.logout();
 //   res.redirect('/');

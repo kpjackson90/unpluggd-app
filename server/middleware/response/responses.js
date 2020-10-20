@@ -8,6 +8,32 @@ module.exports = {
     },
   },
 
+  NO_CONTENT: {
+    error: null,
+    message: 'No Content',
+    statusCode: 204,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+  BAD_REQUEST_BODY: {
+    error: '',
+    message: null,
+    statusCode: 400,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
+  REQUEST_SUCCESSFUL: {
+    error: '',
+    message: null,
+    statusCode: 200,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
   MISSING_EMAIL: {
     error: 'Email Address is missing',
     message: null,
@@ -109,6 +135,32 @@ module.exports = {
     error: 'Something went wrong',
     message: null,
     statusCode: 500,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
+  EVENT_CREATED: {
+    error: null,
+    message: 'Event created successfully',
+    statusCode: 201,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+  EVENT_NOT_FOUND: {
+    error: 'Event does not exist',
+    message: null,
+    statusCode: 404,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
+  EVENT_UPDATED: {
+    error: null,
+    message: 'Event successfully updated',
+    statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
     },

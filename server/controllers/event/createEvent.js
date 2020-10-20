@@ -1,17 +1,21 @@
-const Event = require('../models/Event');
-const Ticket = require('../models/Ticket');
+const Event = require('../../models/Event');
+const Ticket = require('../../models/Ticket');
+const {validateEventBody} = require('../../middleware/joi/eventBody');
+const {sendResponse} = require('../../middleware/response/sendResponse');
+const {
+  BAD_REQUEST_BODY,
+  EVENT_CREATED,
+  SERVER_ERROR,
+} = require('../../middleware/response/responses');
 
-const {createFreeTicket, createPaidTicket} = require('../controllers/ticket');
+const {createFreeTicket, createPaidTicket} = require('../ticket/ticket');
+
 exports.createEvent = async (req, res) => {
-  /*
-      TODO:
-      validate input body
-      add host to req.body
+  const {error} = validateEventBody(req);
 
-    */
-
-  if (!req.user) {
-    return res.status(401).json({error: 'UnAuthorized'});
+  if (error) {
+    BAD_REQUEST_BODY.error = error.details[0].message;
+    return sendResponse(req, res, BAD_REQUEST_BODY);
   }
 
   try {
@@ -23,9 +27,7 @@ exports.createEvent = async (req, res) => {
       end_time,
       categories,
       link,
-      host, //to change to req.user.id
       max_occupancy,
-      event_media,
       custom_url,
       facebook_url,
       twitter_url,
@@ -41,12 +43,15 @@ exports.createEvent = async (req, res) => {
       paid_ticket_price,
     } = req.body;
 
+    //define tickcet parameters
+    const free_ticket = 'free';
+    const paid_ticket = 'paid';
     let quantityRemaining = 0;
     let ticketParams = {
       ticket_name: '',
       ticket_price: 0,
       ticket_quantity: 0,
-      ticket_type: 'free',
+      host: req.user.id,
     };
 
     //create new Event
@@ -58,9 +63,8 @@ exports.createEvent = async (req, res) => {
       end_time,
       categories,
       link,
-      host,
+      host: req.user.id,
       max_occupancy,
-      event_media,
       custom_url,
       facebook_url,
       twitter_url,
@@ -77,7 +81,7 @@ exports.createEvent = async (req, res) => {
         ticket_name: free_ticket_name,
         ticket_quantity: free_ticket_quantity,
         event: newEvent._id,
-        host, //to change to req.user.id
+        ticket_type: free_ticket,
       };
       const newTicket = await createFreeTicket(ticketParams);
 
@@ -92,10 +96,9 @@ exports.createEvent = async (req, res) => {
         ticket_name: paid_ticket_name,
         ticket_price: paid_ticket_price,
         ticket_quantity: paid_ticket_quantity,
-        ticket_type: 'paid', //find way not to hardcode value here
+        ticket_type: paid_ticket,
         ticket_access: paid_ticket_access,
         event: newEvent._id,
-        host, //to change to req.user.id
       };
       const newTicket = await createPaidTicket(ticketParams);
 
@@ -110,7 +113,7 @@ exports.createEvent = async (req, res) => {
         ticket_name: free_ticket_name,
         ticket_quantity: free_ticket_quantity,
         event: newEvent._id,
-        host, //to change to req.user.id
+        ticket_type: free_ticket,
       };
 
       const paidTicketParams = {
@@ -118,10 +121,9 @@ exports.createEvent = async (req, res) => {
         ticket_name: paid_ticket_name,
         ticket_price: paid_ticket_price,
         ticket_quantity: paid_ticket_quantity,
-        ticket_type: 'paid', //find way not to hardcode value here
+        ticket_type: paid_ticket,
         ticket_access: paid_ticket_access,
         event: newEvent._id,
-        host, //to change to req.user.id
       };
 
       const [newFreeTicket, newPaidTicket] = await Promise.all([
@@ -141,9 +143,9 @@ exports.createEvent = async (req, res) => {
       {new: true}
     );
 
-    return res.status(201).json({message: 'Event successfully created'});
+    return sendResponse(req, res, EVENT_CREATED);
   } catch (err) {
     console.error(err);
-    return res.status(400).json({error: err.message});
+    return sendResponse(req, res, SERVER_ERROR);
   }
 };
