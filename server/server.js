@@ -19,6 +19,7 @@ const room = require('./routes/room');
 const index = require('./routes');
 const ticket = require('./routes/ticket');
 const upload = require('./routes/upload');
+const stripe = require('./routes/stripe');
 const app = express();
 
 app.use(cors());
@@ -48,6 +49,7 @@ app.use(room);
 app.use(index);
 app.use(ticket);
 app.use(upload);
+app.use(stripe);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.MONGO_URI, {
