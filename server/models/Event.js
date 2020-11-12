@@ -54,6 +54,10 @@ const EventSchema = new Schema({
 
   quantityRemaining: {type: Number, default: 0},
 
+  freeQuantityRemaining: {type: Number, default: 0},
+
+  paidQuantityRemaining: {type: Number, default: 0},
+
   //quantitySold: {type: Number, default: 0},
 
   //ticketsSold: [Schema.Types.Mixed],

@@ -47,6 +47,9 @@ exports.createEvent = async (req, res) => {
     const free_ticket = 'free';
     const paid_ticket = 'paid';
     let quantityRemaining = 0;
+    let freeQuantityRemaining = 0;
+    let paidQuantityRemaining = 0;
+    let tickets = [];
     let ticketParams = {
       ticket_name: '',
       ticket_price: 0,
@@ -84,8 +87,10 @@ exports.createEvent = async (req, res) => {
         ticket_type: free_ticket,
       };
       const newTicket = await createFreeTicket(ticketParams);
+      tickets.push(newTicket._id);
 
       //set quantity of tickets remaining for the event
+      freeQuantityRemaining += newTicket.ticket_quantity;
       quantityRemaining += newTicket.ticket_quantity;
     }
 
@@ -101,8 +106,10 @@ exports.createEvent = async (req, res) => {
         event: newEvent._id,
       };
       const newTicket = await createPaidTicket(ticketParams);
+      tickets.push(newTicket._id);
 
       //set quantity of tickets remaining for the event
+      paidQuantityRemaining += newTicket.ticket_quantity;
       quantityRemaining += newTicket.ticket_quantity;
     }
 
@@ -131,7 +138,11 @@ exports.createEvent = async (req, res) => {
         await createPaidTicket(paidTicketParams),
       ]);
 
+      tickets.push(newFreeTicket._id, newPaidTicket._id);
+
       //set quantity of tickets remaining for the event
+      freeQuantityRemaining += newFreeTicket.ticket_quantity;
+      paidQuantityRemaining += newPaidTicket.ticket_quantity;
       quantityRemaining +=
         newFreeTicket.ticket_quantity + newPaidTicket.ticket_quantity;
     }
@@ -139,7 +150,12 @@ exports.createEvent = async (req, res) => {
     //update event with ticket quantity
     await Event.findByIdAndUpdate(
       newEvent._id,
-      {quantityRemaining},
+      {
+        quantityRemaining,
+        freeQuantityRemaining,
+        paidQuantityRemaining,
+        tickets,
+      },
       {new: true}
     );
 
