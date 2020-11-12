@@ -148,7 +148,7 @@ exports.createEvent = async (req, res) => {
     }
 
     //update event with ticket quantity
-    let ev = await Event.findByIdAndUpdate(
+    await Event.findByIdAndUpdate(
       newEvent._id,
       {
         quantityRemaining,
