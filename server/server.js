@@ -26,7 +26,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
-app.use(morgan(':method :url  HTTP/:http-version :status - :response-time ms [:date[web]]'));
+app.use(morgan(keys.MORGAN_LOG_FORMAT));
 
 const swaggerOptions = {
   swaggerDefinition: {
