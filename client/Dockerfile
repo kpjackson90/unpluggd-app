@@ -2,16 +2,24 @@
 FROM node:alpine
 
 ##Set Working Directory
-WORKDIR '/app'
+WORKDIR '/usr/app'
 
-##Copy Package.json file
-COPY ./package.json ./
-
-##RUN npm install
-RUN npm install
+##Install PM2
+RUN npm install --global pm2
 
 ##COPY files over to working directory
-COPY . .
+COPY ./package*.json ./
+
+##RUN npm install
+RUN npm install --production
+
+COPY ./ ./
+
+RUN npm run build
+EXPOSE 3000
+
+
+USER node
 
 ##Issue Run Command
-CMD ["npm", "run", "start"]
+CMD ["pm2-runtime", "npm", "--", "start"]
