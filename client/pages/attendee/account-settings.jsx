@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import LeftBar from "../partials/attendee-leftbar";
-import ProfileInfoTab from "../partials/profile-tab";
-import Forminput from "../partials/FormInput";
+import LeftBar from "../../partials/attendee-leftbar";
+import ProfileInfoTab from "../../partials/profile-tab";
+import Forminput from "../../partials/FormInput";
 
 const AccountSettings = () => {
   const [email, setEmail] = useState("");

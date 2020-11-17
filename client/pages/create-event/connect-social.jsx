@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import Forminput from "../partials/FormInput";
-import CreateEventsTab from "../partials/create-event-tab";
+import Forminput from "../../partials/FormInput";
+import CreateEventsTab from "../../partials/create-event-tab";
 
 const ConnectSocial = () => {
   const [filled, setFilled] = useState(false);

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import Forminput from "../partials/FormInput";
+import Forminput from "../../partials/FormInput";
 
 const BuyTickets = () => {
   const [participantsImg, setParticipantsImg] = useState([

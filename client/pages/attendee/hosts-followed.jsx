@@ -1,10 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
-import CustomChekbox from "../partials/CustomCheckbox";
-import Notification from "../partials/Notification";
-import LeftBar from "../partials/attendee-leftbar";
-import EventsTab from "../partials/attendee-hosts-tab";
+import CustomChekbox from "../../partials/CustomCheckbox";
+import Notification from "../../partials/Notification";
+import LeftBar from "../../partials/attendee-leftbar";
+import EventsTab from "../../partials/attendee-hosts-tab";
 
 const HostsFollowed = () => {
   const [hosts, setHosts] = useState([

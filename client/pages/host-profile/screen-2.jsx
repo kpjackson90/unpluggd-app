@@ -1,7 +1,7 @@
 import React from "react";
-import Forminput from "../partials/FormInput";
+import Forminput from "../../partials/FormInput";
 import { useState } from "react";
-import CustomRadio from "../partials/CustomRadio";
+import CustomRadio from "../../partials/CustomRadio";
 
 const Screen2 = () => {
   const [categories, setCategories] = useState([

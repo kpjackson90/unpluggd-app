@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import LeftBar from "../partials/attendee-leftbar";
-import ProfileInfoTab from "../partials/profile-tab";
+import LeftBar from "../../partials/attendee-leftbar";
+import ProfileInfoTab from "../../partials/profile-tab";
 
 const AccountSettings = () => {
   const [txHistory, useTxHistroy] = useState([

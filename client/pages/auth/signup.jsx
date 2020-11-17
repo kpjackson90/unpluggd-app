@@ -1,5 +1,5 @@
 import React from "react";
-import Forminput from "../partials/FormInput";
+import Forminput from "../../partials/FormInput";
 import { useState } from "react";
 
 const Signup = () => {

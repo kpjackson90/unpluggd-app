@@ -1,13 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
-import CustomChekbox from "../partials/CustomCheckbox";
-import Notification from "../partials/Notification";
-import LeftBar from "../partials/attendee-leftbar";
-import EventsTab from "../partials/attendee-events-tab";
-import FormInput from "../partials/FormInput";
+import CustomChekbox from "../../partials/CustomCheckbox";
+import Notification from "../../partials/Notification";
+import LeftBar from "../../partials/attendee-leftbar";
+import EventsTab from "../../partials/attendee-events-tab";
+import FormInput from "../../partials/FormInput";
 import { useEffect } from "react";
-import { defaultEvents } from "../partials/helpers/helpers";
+import { defaultEvents } from "../../partials/helpers/helpers";
 
 const AvailableEvents = () => {
   const [events, setEvents] = useState([

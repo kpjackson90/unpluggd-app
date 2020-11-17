@@ -1,11 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { Dropdown } from "react-bootstrap";
-import CustomChekbox from "../partials/CustomCheckbox";
-import Notification from "../partials/Notification";
-import LeftBar from "../partials/attendee-leftbar";
-import EventsTab from "../partials/attendee-events-tab";
-import { defaultJoinedEvents } from "../partials/helpers/helpers";
+import CustomChekbox from "../../partials/CustomCheckbox";
+import Notification from "../../partials/Notification";
+import LeftBar from "../../partials/attendee-leftbar";
+import EventsTab from "../../partials/attendee-events-tab";
+import { defaultJoinedEvents } from "../../partials/helpers/helpers";
 import { useEffect } from "react";
 
 const EventsJoined = () => {
