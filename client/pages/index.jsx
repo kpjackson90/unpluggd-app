@@ -73,14 +73,14 @@ export default function Home() {
           {hovered == false ? (
             <div className="intro-text">
               <h6>Welcome to</h6>
-              <img src="/images/logo@3x.png" alt="" />
+              <img src="/images/Logo@3x.png" alt="" />
               <p>
                 The ultimate <span>event</span> site you need
               </p>
             </div>
           ) : (
             <div className="info app-width">
-              <img src="/images/logo@3x.png" alt="" />
+              <img src="/images/Logo@3x.png" alt="" />
               <div className="d-flex justify-content-between align-items-center">
                 <div>
                   <button className="btn-small bg-pink f-14 mb-3">
@@ -110,7 +110,7 @@ export default function Home() {
               <img
                 key={i}
                 onMouseOver={() => changeBg(img)}
-                onMouseOut={resetBg}
+                //onMouseOut={resetBg}
                 src={`/images/${img}@3x.png`}
                 alt={img}
               />
