@@ -4,7 +4,6 @@ require("./models/Event");
 require("./models/Pre");
 
 /**Dependencies */
-<<<<<<< HEAD
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -12,18 +11,8 @@ const passport = require("passport");
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUI = require("swagger-ui-express");
 const bodyParser = require("body-parser");
+const morgan = require("morgan");
 const keys = require("./config/keys");
-=======
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const passport = require('passport');
-const swaggerJsDoc = require('swagger-jsdoc');
-const swaggerUI = require('swagger-ui-express');
-const bodyParser = require('body-parser');
-const morgan = require('morgan');
-const keys = require('./config/keys');
->>>>>>> bfc4d6dff1524cdb9fc75ab88a222c3f08de82f5
 
 /**routes */
 const auth = require("./routes/auth");
