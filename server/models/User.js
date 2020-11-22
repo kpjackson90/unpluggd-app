@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
-const {Schema} = mongoose;
-const bcrypt = require('bcrypt-nodejs');
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
+const bcrypt = require("bcrypt-nodejs");
 
 const UserSchema = new Schema(
   {
@@ -17,12 +17,13 @@ const UserSchema = new Schema(
     },
     role: {
       type: String,
-      enum: ['admin', 'user'],
+      enum: ["admin", "user"],
+      default: "user",
     },
     user_role: [
       {
         type: String,
-        enum: ['guest', 'attendee', 'host'],
+        enum: ["guest", "attendee", "host"],
       },
     ],
     profile_image: {
@@ -78,7 +79,7 @@ const UserSchema = new Schema(
     events: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Event',
+        ref: "Event",
       },
     ],
     isVerified: {
@@ -108,13 +109,13 @@ const UserSchema = new Schema(
       type: String,
     },
   },
-  {timestamps: true}
+  { timestamps: true }
 );
 
-UserSchema.pre('save', function (next) {
+UserSchema.pre("save", function (next) {
   const user = this;
 
-  if (!user.isModified('password')) {
+  if (!user.isModified("password")) {
     return next();
   }
 
@@ -151,4 +152,4 @@ UserSchema.methods.comparePassword = function (candidatePassword) {
   });
 };
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);

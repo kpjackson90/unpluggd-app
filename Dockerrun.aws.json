@@ -1,0 +1,33 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+      {
+        "name": "unpluggd-client",
+        "image": "kpjackson27/unpluggd-client",
+        "hostname": "client",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "unpluggd-server",
+        "image": "kpjackson27/unpluggd-server",
+        "hostname": "api",
+        "essential": false,
+        "memory": 128
+      },
+      {
+        "name": "unpluggd-nginx",
+        "image": "kpjackson27/unpluggd-nginx",
+        "essential": true,
+        "portMappings": [
+          {
+            "hostPort": 80,
+            "containerPort": 80
+          }
+        ],
+        "links": ["unpluggd-client", "unpluggd-server"],
+        "memory": 128
+      }
+    ]
+  }
+  
