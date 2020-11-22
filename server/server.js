@@ -10,6 +10,7 @@ const passport = require('passport');
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUI = require('swagger-ui-express');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
 const keys = require('./config/keys');
 
 /**routes */
@@ -25,6 +26,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
+app.use(morgan(keys.MORGAN_LOG_FORMAT));
 
 const swaggerOptions = {
   swaggerDefinition: {
