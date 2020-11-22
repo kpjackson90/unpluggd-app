@@ -41,7 +41,7 @@ router.get(
 router.put(
   "/api/user/update-profile",
   requireAuth,
-  roleAuthorization(["user", "guest"]),
+  roleAuthorization(["user", "admin", "guest"]),
   updateUser
 );
 

@@ -1,17 +1,17 @@
-const Event = require('../../models/Event');
-const Ticket = require('../../models/Ticket');
-const {validateEventBody} = require('../../middleware/joi/eventBody');
-const {sendResponse} = require('../../middleware/response/sendResponse');
+const Event = require("../../models/Event");
+const Ticket = require("../../models/Ticket");
+const { validateEventBody } = require("../../middleware/joi/eventBody");
+const { sendResponse } = require("../../middleware/response/sendResponse");
 const {
   BAD_REQUEST_BODY,
   EVENT_CREATED,
   SERVER_ERROR,
-} = require('../../middleware/response/responses');
+} = require("../../middleware/response/responses");
 
-const {createFreeTicket, createPaidTicket} = require('../ticket/ticket');
+const { createFreeTicket, createPaidTicket } = require("../ticket/ticket");
 
 exports.createEvent = async (req, res) => {
-  const {error} = validateEventBody(req);
+  const { error } = validateEventBody(req);
 
   if (error) {
     BAD_REQUEST_BODY.error = error.details[0].message;
@@ -44,14 +44,14 @@ exports.createEvent = async (req, res) => {
     } = req.body;
 
     //define tickcet parameters
-    const free_ticket = 'free';
-    const paid_ticket = 'paid';
+    const free_ticket = "free";
+    const paid_ticket = "paid";
     let quantityRemaining = 0;
     let freeQuantityRemaining = 0;
     let paidQuantityRemaining = 0;
     let tickets = [];
     let ticketParams = {
-      ticket_name: '',
+      ticket_name: "",
       ticket_price: 0,
       ticket_quantity: 0,
       host: req.user.id,
@@ -156,10 +156,10 @@ exports.createEvent = async (req, res) => {
         paidQuantityRemaining,
         tickets,
       },
-      {new: true}
+      { new: true }
     );
 
-    return sendResponse(req, res, EVENT_CREATED);
+    return sendResponse(req, res, EVENT_CREATED, newEvent);
   } catch (err) {
     console.error(err);
     return sendResponse(req, res, SERVER_ERROR);

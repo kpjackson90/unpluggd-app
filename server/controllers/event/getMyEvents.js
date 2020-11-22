@@ -1,13 +1,13 @@
-const Ticket = require("../../models/Ticket");
+const Event = require("../../models/Event");
 const { sendResponse } = require("../../middleware/response/sendResponse");
 const {
   SERVER_ERROR,
-  BAD_REQUEST_BODY,
-  NO_CONTENT,
   REQUEST_SUCCESSFUL,
+  NO_CONTENT,
+  BAD_REQUEST_BODY,
 } = require("../../middleware/response/responses");
 
-exports.getAllTickets = async (req, res) => {
+exports.getMyEvents = async (req, res) => {
   if (!req.query.page_number || !req.query.page_size) {
     BAD_REQUEST_BODY.message =
       "This route is paginated. Please provide a page number and limit";
@@ -22,33 +22,31 @@ exports.getAllTickets = async (req, res) => {
 
     let skipCount = (page - 1) * limit;
 
-    const tickets = await Ticket.find({ host: req.user.id })
+    const events = await Event.find({ host: req.user._id })
       .skip(skipCount)
-      .limit(limit)
-      .populate("event")
-      .populate("host");
+      .limit(limit);
 
-    if (tickets && tickets.length === 0) {
+    console.log(events);
+
+    if (events && events.length === 0) {
       return sendResponse(req, res, NO_CONTENT);
     }
 
-    //get total number of tickets
-    let totalTickets = await Ticket.countDocuments({
-      host: req.user.id,
-    });
+    //get total number of events
+    let totalEvents = await Event.countDocuments({});
 
-    let ticketsRemaining = totalTickets - page * limit;
+    let eventsRemaining = totalEvents - page * limit;
 
-    if (ticketsRemaining < 0) {
-      ticketsRemaining = 0;
+    if (eventsRemaining < 0) {
+      eventsRemaining = 0;
     }
 
-    const ticketData = {
-      tickets,
+    const eventData = {
+      events,
       currentPage: page,
-      ticketsRemaining,
+      eventsRemaining,
     };
-    return sendResponse(req, res, REQUEST_SUCCESSFUL, ticketData);
+    return sendResponse(req, res, REQUEST_SUCCESSFUL, eventData);
   } catch (err) {
     console.error(err);
     return sendResponse(req, res, SERVER_ERROR);

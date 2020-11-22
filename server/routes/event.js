@@ -1,33 +1,79 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const {requireAuth} = require('../middleware/requireAuth');
-const {roleAuthorization} = require('../middleware/roleAuthorization');
-const {createEvent} = require('../controllers/event/createEvent');
-const {updateEvent} = require('../controllers/event/updateEvent');
-const {getEvent} = require('../controllers/event/getEvent');
-const {getAllEvent} = require('../controllers/event/getAllEvents');
+const express = require("express");
+const { requireAuth } = require("../middleware/requireAuth");
+const { roleAuthorization } = require("../middleware/roleAuthorization");
+const { createEvent } = require("../controllers/event/createEvent");
+const { updateEvent } = require("../controllers/event/updateEvent");
+const { getEvent } = require("../controllers/event/getEvent");
+const { getAllEvent } = require("../controllers/event/getAllEvents");
+const { getMyEvents } = require("../controllers/event/getMyEvents");
 
 const router = express.Router();
 
 /**
- * GET /api/events
- * Get All Events
+ * @swagger
+ * /api/events:
+ *  get:
+ *    tags: ['Events']
+ *    description: Get all events
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '400':
+ *         description: An unsuccessful response
  */
 router.get(
-  '/api/events',
+  "/api/events",
   requireAuth,
-  roleAuthorization(['host', 'guest']),
+  roleAuthorization(["host", "guest"]),
   getAllEvent
 );
 
 /**
- * GET /api/events/id
- * Get Single event
+ * @swagger
+ * /api/events/host:
+ *  get:
+ *    tags: ['Events']
+ *    description: Get all my events
+ *    security:
+ *      - bearerAuth: []
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '400':
+ *         description: An unsuccessful response
  */
 router.get(
-  '/api/events/:id',
+  "/api/events/host",
   requireAuth,
-  roleAuthorization(['host', 'guest']),
+  roleAuthorization(["host", "guest"]),
+  getMyEvents
+);
+
+/**
+ * @swagger
+ * /api/events/:id:
+ *  get:
+ *    tags: ['Events']
+ *    description: Get single event
+ *    security:
+ *      - bearerAuth: []
+ *    parameters:
+ *      - name: id
+ *        in: path
+ *        required: true
+ *        description: Id of event that you want to fetch
+ *    responses:
+ *      '200':
+ *        description: A successful response
+ *      '400':
+ *         description: An unsuccessful response
+ */
+router.get(
+  "/api/events/:id",
+  requireAuth,
+  roleAuthorization(["host", "guest"]),
   getEvent
 );
 
@@ -36,9 +82,9 @@ router.get(
  * Create Event
  */
 router.post(
-  '/api/event',
+  "/api/event",
   requireAuth,
-  roleAuthorization(['host', 'admin']),
+  roleAuthorization(["host", "admin", "guest"]),
   createEvent
 );
 
@@ -47,9 +93,9 @@ router.post(
  * Update Event
  */
 router.put(
-  '/api/event/:id',
+  "/api/event/:id",
   requireAuth,
-  roleAuthorization(['host']),
+  roleAuthorization(["host"]),
   updateEvent
 );
 

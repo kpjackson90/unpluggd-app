@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-const User = mongoose.model('User');
-const {UNAUTHORIZED, SERVER_ERROR} = require('./response/responses');
-const {sendResponse} = require('./response/sendResponse');
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
+const { UNAUTHORIZED, SERVER_ERROR } = require("./response/responses");
+const { sendResponse } = require("./response/sendResponse");
 
 exports.roleAuthorization = function (roles) {
   return function (req, res, next) {
