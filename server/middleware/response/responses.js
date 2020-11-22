@@ -165,4 +165,13 @@ module.exports = {
       'Content-Type': 'application/json',
     },
   },
+
+  TICKET_NOT_FOUND: {
+    error: 'Ticket does not exist',
+    message: null,
+    statusCode: 404,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
 };
