@@ -9,11 +9,19 @@ const {
   USER_EXIST,
   USER_CREATED,
   SERVER_ERROR,
+  INCORRECT_ROLE,
 } = require('../../middleware/response/responses');
 const keys = require('../../config/keys');
 
 exports.registerUser = async (req, res) => {
+  const userRole = 'user';
+  const adminRole = 'admin';
+
   const {email, password, role} = req.body;
+
+  if (role !== userRole && role !== adminRole) {
+    return sendResponse(req, res, INCORRECT_ROLE);
+  }
 
   if (!email) {
     return sendResponse(req, res, MISSING_EMAIL);

@@ -52,6 +52,15 @@ module.exports = {
     },
   },
 
+  INCORRECT_ROLE: {
+    error: 'Role must be User/Admin',
+    message: null,
+    statusCode: 400,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
   MISSING_EMAIL_PASSWORD: {
     error: 'Must provide email and password',
     message: null,
