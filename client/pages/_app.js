@@ -5,7 +5,7 @@ import "../styles/styles.css";
 import React from "react";
 import { Provider } from "react-redux";
 import withRedux, { createWrapper } from "next-redux-wrapper";
-import makeStore from "../store/store";
+import store from "../store/store";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -16,5 +16,5 @@ function MyApp({ Component, pageProps }) {
 }
 
 //const wrapper = createWrapper(makeStore);
-
+const makeStore = () => store;
 export default withRedux(makeStore)(MyApp);
