@@ -1,5 +1,5 @@
-const User = require("../../models/User");
-const { sendResponse } = require("../../middleware/response/sendResponse");
+const User = require('../../models/User');
+const {sendResponse} = require('../../middleware/response/sendResponse');
 const {
   MISSING_EMAIL_PASSWORD,
   INVALID_LOGIN_CREDENTIALS,
@@ -7,13 +7,12 @@ const {
   SERVER_ERROR,
   UNAUTHORIZED,
   USER_UPDATED,
-} = require("../../middleware/response/responses");
+} = require('../../middleware/response/responses');
 
 exports.updateUser = async (req, res) => {
   try {
-    const { _id: id, token } = req.user;
-    let user = await User.findOne({ _id: id, isVerified: false });
-    console.log(user);
+    const {_id: id, token} = req.user;
+    let user = await User.findOne({_id: id, isVerified: false});
 
     if (!user) {
       return sendResponse(req, res, UNAUTHORIZED);
@@ -45,28 +44,28 @@ exports.updateUser = async (req, res) => {
     user = await User.findByIdAndUpdate(
       id,
       {
-        ...(user_role && { user_role }),
-        ...(profile_image && { profile_image }),
-        ...(cover_image && { cover_image }),
-        ...(occupation && { occupation }),
-        ...(username && { username }),
-        ...(bio && { bio }),
-        ...(categories && { categories }),
-        ...(first_name && { first_name }),
-        ...(last_name && { last_name }),
-        ...(company_name && { company_name }),
-        ...(company_url && { company_url }),
-        ...(company_bio && { company_bio }),
-        ...(intro_video && { intro_video }),
-        ...(isAdultContent && { isAdultContent }),
-        ...(residence && { residence }),
-        ...(facebook_url && { facebook_url }),
-        ...(twitter_url && { twitter_url }),
-        ...(instagram_url && { instagram_url }),
-        ...(youtube_url && { youtube_url }),
-        ...(twitch && { twitch }),
+        ...(user_role && {user_role}),
+        ...(profile_image && {profile_image}),
+        ...(cover_image && {cover_image}),
+        ...(occupation && {occupation}),
+        ...(username && {username}),
+        ...(bio && {bio}),
+        ...(categories && {categories}),
+        ...(first_name && {first_name}),
+        ...(last_name && {last_name}),
+        ...(company_name && {company_name}),
+        ...(company_url && {company_url}),
+        ...(company_bio && {company_bio}),
+        ...(intro_video && {intro_video}),
+        ...(isAdultContent && {isAdultContent}),
+        ...(residence && {residence}),
+        ...(facebook_url && {facebook_url}),
+        ...(twitter_url && {twitter_url}),
+        ...(instagram_url && {instagram_url}),
+        ...(youtube_url && {youtube_url}),
+        ...(twitch && {twitch}),
       },
-      { new: true }
+      {new: true}
     );
 
     const userParams = {
