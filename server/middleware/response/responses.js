@@ -8,6 +8,15 @@ module.exports = {
     },
   },
 
+  USER_NOT_FOUND: {
+    error: 'User not found',
+    message: null,
+    statusCode: 404,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
+
   NO_CONTENT: {
     error: null,
     message: 'No Content',

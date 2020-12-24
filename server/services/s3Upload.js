@@ -1,4 +1,5 @@
 const AWS = require('aws-sdk');
+const keys = require('../config/keys');
 const {validateS3Media} = require('../middleware/joi/s3Media');
 AWS.config.update({
   region: '',
@@ -9,10 +10,6 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3({apiVersion: '2006-03-01'});
-
-//TODO:
-//set key to similar format `${req.user.id}/${short.uuid()}.mp4`
-//add bucket name and credentials to keys file
 
 exports.s3Upload = async (req, res) => {
   const {error} = validateS3Media(req);
@@ -26,7 +23,7 @@ exports.s3Upload = async (req, res) => {
   const {media} = req.body;
 
   const params = {
-    Bucket: '',
+    Bucket: keys.MEDIA_BUCKET,
   };
 
   try {
@@ -35,7 +32,7 @@ exports.s3Upload = async (req, res) => {
         let s3Params = {
           ...params,
           ContentType: item.contentType,
-          Key: item.filename,
+          Key: `${req.user._id}/${item.filename}`,
         };
         return await s3.getSignedUrlPromise('putObject', s3Params);
       })
