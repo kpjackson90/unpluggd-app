@@ -7,10 +7,6 @@ const eventSchema = Joi.object({
   start_time: Joi.date().required(),
   end_time: Joi.date().required(),
   categories: Joi.array().max(3),
-  link: Joi.string()
-    .pattern(/\.(com|net|org)$/)
-    .allow('')
-    .optional(),
   host: Joi.string().required(),
   max_occupancy: Joi.string().required(),
   custom_url: Joi.string()

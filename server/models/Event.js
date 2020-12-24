@@ -26,9 +26,6 @@ const EventSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'User',
     },
-    link: {
-      type: String,
-    },
     max_occupancy: {
       type: Number,
     },
