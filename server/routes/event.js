@@ -1,11 +1,11 @@
-const express = require("express");
-const { requireAuth } = require("../middleware/requireAuth");
-const { roleAuthorization } = require("../middleware/roleAuthorization");
-const { createEvent } = require("../controllers/event/createEvent");
-const { updateEvent } = require("../controllers/event/updateEvent");
-const { getEvent } = require("../controllers/event/getEvent");
-const { getAllEvent } = require("../controllers/event/getAllEvents");
-const { getMyEvents } = require("../controllers/event/getMyEvents");
+const express = require('express');
+const {requireAuth} = require('../middleware/requireAuth');
+const {roleAuthorization} = require('../middleware/roleAuthorization');
+const {createEvent} = require('../controllers/event/createEvent');
+const {updateEvent} = require('../controllers/event/updateEvent');
+const {getEvent} = require('../controllers/event/getEvent');
+const {getAllEvent} = require('../controllers/event/getAllEvents');
+const {getMyEvents} = require('../controllers/event/getMyEvents');
 
 const router = express.Router();
 
@@ -24,9 +24,9 @@ const router = express.Router();
  *         description: An unsuccessful response
  */
 router.get(
-  "/api/events",
+  '/api/events',
   requireAuth,
-  roleAuthorization(["host", "guest"]),
+  roleAuthorization(['user', 'admin']),
   getAllEvent
 );
 
@@ -45,9 +45,9 @@ router.get(
  *         description: An unsuccessful response
  */
 router.get(
-  "/api/events/host",
+  '/api/events/host',
   requireAuth,
-  roleAuthorization(["host", "guest"]),
+  roleAuthorization(['user', 'admin']),
   getMyEvents
 );
 
@@ -71,9 +71,9 @@ router.get(
  *         description: An unsuccessful response
  */
 router.get(
-  "/api/events/:id",
+  '/api/events/:id',
   requireAuth,
-  roleAuthorization(["host", "guest"]),
+  roleAuthorization(['user', 'admin']),
   getEvent
 );
 
@@ -82,9 +82,9 @@ router.get(
  * Create Event
  */
 router.post(
-  "/api/event",
+  '/api/event',
   requireAuth,
-  roleAuthorization(["host", "admin", "guest"]),
+  roleAuthorization(['user', 'admin']),
   createEvent
 );
 
@@ -93,9 +93,9 @@ router.post(
  * Update Event
  */
 router.put(
-  "/api/event/:id",
+  '/api/event/:id',
   requireAuth,
-  roleAuthorization(["host"]),
+  roleAuthorization(['user', 'admin']),
   updateEvent
 );
 

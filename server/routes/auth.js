@@ -1,34 +1,34 @@
-const express = require("express");
-const passport = require("passport");
-require("../services/passport");
+const express = require('express');
+const passport = require('passport');
+require('../services/passport');
 
-const mongoose = require("mongoose");
-const User = mongoose.model("User");
+const mongoose = require('mongoose');
+const User = mongoose.model('User');
 
-const { registerUser } = require("../controllers/auth/registerUser");
-const { verifyUser } = require("../controllers/auth/verifyUser");
-const { loginUser } = require("../controllers/auth/loginUser");
-const { updateUser } = require("../controllers/auth/updateUser");
-const { facebookAuth } = require("../controllers/auth/facebookAuth");
-const { requireAuth } = require("../middleware/requireAuth");
-const { roleAuthorization } = require("../middleware/roleAuthorization");
+const {registerUser} = require('../controllers/auth/registerUser');
+const {verifyUser} = require('../controllers/auth/verifyUser');
+const {loginUser} = require('../controllers/auth/loginUser');
+const {updateUser} = require('../controllers/auth/updateUser');
+const {facebookAuth} = require('../controllers/auth/facebookAuth');
+const {requireAuth} = require('../middleware/requireAuth');
+const {roleAuthorization} = require('../middleware/roleAuthorization');
 
 const router = express.Router();
 
-router.post("/api/user/signup", registerUser);
+router.post('/api/user/signup', registerUser);
 
-router.post("/api/user/verify", requireAuth, verifyUser);
+router.post('/api/user/verify', requireAuth, verifyUser);
 
-router.post("/api/user/signin", loginUser);
+router.post('/api/user/signin', loginUser);
 
 router.get(
-  "/api/user/facebook",
-  passport.authenticate("facebook", { scope: ["email"] })
+  '/api/user/facebook',
+  passport.authenticate('facebook', {scope: ['email']})
 );
 
 router.get(
-  "/api/user/facebook/callback",
-  passport.authenticate("facebook", { session: false }),
+  '/api/user/facebook/callback',
+  passport.authenticate('facebook', {session: false}),
   facebookAuth
 );
 
@@ -39,23 +39,23 @@ router.get(
 // });
 
 router.put(
-  "/api/user/update-profile",
+  '/api/user/update-profile',
   requireAuth,
-  roleAuthorization(["user", "admin", "guest"]),
+  roleAuthorization(['user', 'admin']),
   updateUser
 );
 
 router.get(
-  "/api/user/me",
+  '/api/user/me',
   requireAuth,
-  roleAuthorization(["user", "guest"]),
+  roleAuthorization(['user', 'admin']),
   async (req, res) => {
     try {
       console.log(req.user);
       const user = await User.findById(req.user._id);
       return res.status(200).send(user);
     } catch (err) {
-      return res.status(400).send({ message: err.message });
+      return res.status(400).send({message: err.message});
     }
   }
 );

@@ -3,7 +3,7 @@ const keys = require('../config/keys');
 
 sgMail.setApiKey(keys.SENDGRID_API_KEY);
 
-exports.sendEmail = ({ recipient, sender, subject, text, htmlText }) => {
+exports.sendEmail = async ({recipient, sender, subject, text, htmlText}) => {
   const msg = {
     to: recipient,
     from: sender,
@@ -12,12 +12,10 @@ exports.sendEmail = ({ recipient, sender, subject, text, htmlText }) => {
     html: `<p> ${htmlText} </p>`,
   };
 
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log('message sent');
-    })
-    .catch((err) => {
-      console.log(err.response.body);
-    });
+  try {
+    await sgMail.send(msg);
+    return;
+  } catch (err) {
+    throw err.response.body;
+  }
 };

@@ -7,7 +7,7 @@ const {createStripePayment} = require('../controllers/stripe/createPayment');
 router.post(
   '/api/create/payment',
   requireAuth,
-  roleAuthorization(['guest', 'attendee']),
+  roleAuthorization(['user', 'admin']),
   createStripePayment
 );
 
