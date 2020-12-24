@@ -192,4 +192,13 @@ module.exports = {
       'Content-Type': 'application/json',
     },
   },
+
+  EVENT_MEDIA_UPLOADED: {
+    error: null,
+    message: 'Event files successfully added',
+    statusCode: 201,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
 };

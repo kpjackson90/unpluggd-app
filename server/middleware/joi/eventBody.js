@@ -7,10 +7,6 @@ const eventSchema = Joi.object({
   start_time: Joi.date().required(),
   end_time: Joi.date().required(),
   categories: Joi.array().max(3),
-  link: Joi.string()
-    .pattern(/\.(com|net|org)$/)
-    .allow('')
-    .optional(),
   host: Joi.string().required(),
   max_occupancy: Joi.string().required(),
   custom_url: Joi.string()
@@ -24,11 +20,28 @@ const eventSchema = Joi.object({
   twitch: Joi.string().allow('').optional(),
   rsvp: Joi.string().allow('').optional(),
   free_ticket_name: Joi.string().allow('').optional(),
-  free_ticket_quantity: Joi.string().allow('').optional(),
+  free_ticket_quantity: Joi.string().when('free_ticket_name', {
+    is: Joi.string().min(1),
+    then: Joi.string().trim().required(),
+    otherwise: Joi.string().allow('').max(0),
+  }),
   paid_ticket_name: Joi.string().allow('').optional(),
-  paid_ticket_quantity: Joi.string().allow('').optional(),
-  paid_ticket_access: Joi.string().allow('').optional(),
-  paid_ticket_price: Joi.string().allow('').optional(),
+
+  paid_ticket_quantity: Joi.string().when('paid_ticket_name', {
+    is: Joi.string().min(1),
+    then: Joi.string().trim().required(),
+    otherwise: Joi.string().allow('').max(0),
+  }),
+  paid_ticket_access: Joi.string().when('paid_ticket_name', {
+    is: Joi.string().min(1),
+    then: Joi.string().trim().required(),
+    otherwise: Joi.string().allow('').max(0),
+  }),
+  paid_ticket_price: Joi.string().when('paid_ticket_name', {
+    is: Joi.string().min(1),
+    then: Joi.string().trim().required(),
+    otherwise: Joi.string().allow('').max(0),
+  }),
 });
 
 exports.validateEventBody = ({body}) => eventSchema.validate(body);

@@ -1,32 +1,30 @@
-const Event = require("../../models/Event");
-const { sendResponse } = require("../../middleware/response/sendResponse");
+const Event = require('../../models/Event');
+const {sendResponse} = require('../../middleware/response/sendResponse');
 const {
   SERVER_ERROR,
   REQUEST_SUCCESSFUL,
   NO_CONTENT,
   BAD_REQUEST_BODY,
-} = require("../../middleware/response/responses");
+} = require('../../middleware/response/responses');
 
 exports.getMyEvents = async (req, res) => {
   if (!req.query.page_number || !req.query.page_size) {
     BAD_REQUEST_BODY.message =
-      "This route is paginated. Please provide a page number and limit";
+      'This route is paginated. Please provide a page number and limit';
     return sendResponse(req, res, BAD_REQUEST_BODY);
   }
 
   try {
-    const { page_number, page_size } = req.query;
+    const {page_number, page_size} = req.query;
 
     let page = parseInt(page_number, 10);
     let limit = parseInt(page_size, 10);
 
     let skipCount = (page - 1) * limit;
 
-    const events = await Event.find({ host: req.user._id })
+    const events = await Event.find({host: req.user._id})
       .skip(skipCount)
       .limit(limit);
-
-    console.log(events);
 
     if (events && events.length === 0) {
       return sendResponse(req, res, NO_CONTENT);

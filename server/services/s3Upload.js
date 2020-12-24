@@ -1,5 +1,11 @@
 const AWS = require('aws-sdk');
 const keys = require('../config/keys');
+const {
+  BAD_REQUEST_BODY,
+  EVENT_MEDIA_UPLOADED,
+  SERVER_ERROR,
+} = require('../middleware/response/responses');
+const {sendResponse} = require('../middleware/response/sendResponse');
 const {validateS3Media} = require('../middleware/joi/s3Media');
 AWS.config.update({
   region: '',
@@ -16,8 +22,9 @@ exports.s3Upload = async (req, res) => {
 
   if (error) {
     let result = error.details[0].message;
+    BAD_REQUEST_BODY.error = 'error uploading files';
     console.error(result);
-    return res.status(400).json({message: 'error uploading files'});
+    return sendResponse(req, res, BAD_REQUEST_BODY);
   }
 
   const {media} = req.body;
@@ -37,9 +44,11 @@ exports.s3Upload = async (req, res) => {
         return await s3.getSignedUrlPromise('putObject', s3Params);
       })
     );
-    return res.status(201).json({message: signedUrls});
+
+    //TODO: verify format of signedurl
+    return sendResponse(req, res, EVENT_MEDIA_UPLOADED, signedUrls);
   } catch (err) {
     console.error(err);
-    return res.status(500).json({Error: 'error uploading media content'});
+    return sendResponse(req, res, SERVER_ERROR);
   }
 };
