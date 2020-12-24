@@ -45,7 +45,8 @@ exports.registerUser = async (req, res) => {
       expiresIn: keys.JWT_EXPIRES,
     });
 
-    //TODO: tidy up. Send grid is failing `The provided authorization grant is invalid, expired, or revoked `
+    /*NOTE: Email functionality is currently disabled because of the following error:
+    The provided authorization grant is invalid, expired, or revoked'
     const emailBody = {
       recipient: email,
       sender: 'kareem@pjacksonassociates.com',
@@ -54,7 +55,7 @@ exports.registerUser = async (req, res) => {
       htmlText: `<a href="http://localhost:3000/user/verify?token=${token}">Verify Email Address - ${email}</a>`,
     };
 
-    sendEmail(emailBody);
+    await sendEmail(emailBody); */
 
     const newUserInfo = {
       token,
