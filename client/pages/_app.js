@@ -3,18 +3,37 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "../styles/styles.css";
 import React from "react";
-import { Provider } from "react-redux";
-import withRedux, { createWrapper } from "next-redux-wrapper";
-import store from "../store/store";
+import Api from '../api/build-client';
+import { Provider as AuthProvider } from '../context/AuthContext';
 
-function MyApp({ Component, pageProps }) {
+
+const AppComponent = ({ Component, pageProps}) => {
   return (
-    <Provider store={store}>
-      <Component {...pageProps} />
-    </Provider>
+    <AuthProvider>
+      <Component  {...pageProps} />
+      </AuthProvider>
   );
 }
 
-//const wrapper = createWrapper(makeStore);
-const makeStore = () => store;
-export default withRedux(makeStore)(MyApp);
+// AppComponent.getInitialProps = async (appContext) => {
+//   const client = Api(appContext.ctx);
+//   const { data } = await client.get('/api/user/me');
+
+//   let pageProps = {};
+//   if (appContext.Component.getInitialProps) {
+//     pageProps = await appContext.Component.getInitialProps(
+//       appContext.ctx,
+//       client,
+//       data?.existingUser
+//     )
+//   }
+
+//   return {
+//     pageProps,
+//     ...data
+//   }
+// }
+
+
+
+export default AppComponent;

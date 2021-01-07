@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import Router from 'next/router';
+import { Context as AuthContext } from '../../context/AuthContext';
 import Forminput from "../../partials/FormInput";
-import { useState } from "react";
 
 const Screen3 = () => {
+  const { updateHostSocial } = useContext(AuthContext);
+  const [facebookUrl, setFacebookUrl] = useState('');
+  const [twitterUrl, setTwitterUrl] = useState('');
+  const [instagramUrl, setInstagramUrl] = useState('');
+  const [youtubeUrl, setYoutubeUrl] = useState('');
+  const [twitch, setTwitch] = useState('');
   const [filled, setFilled] = useState(true);
   const [uploaded, setUploaded] = useState(true);
 
@@ -22,6 +29,11 @@ const Screen3 = () => {
 
     setSelected(newSelected);
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+      updateHostSocial(facebookUrl, twitterUrl, instagramUrl, youtubeUrl, twitch, () => Router.push('/auth/register-success'));
+  }
 
   return (
     <div className="app-height">
@@ -52,7 +64,7 @@ const Screen3 = () => {
                     <i className="fab fa-facebook-f text-teal"></i>
                   </span>
                   <div className="flex-1">
-                    <Forminput type="text" placeholder="Facebook URL" />
+                    <Forminput type="text" placeholder="Facebook URL" value={facebookUrl} setValue={setFacebookUrl} />
                   </div>
                 </div>
                 <div className="w-100 d-flex align-items-center">
@@ -60,7 +72,7 @@ const Screen3 = () => {
                     <i className="fab fa-twitter text-teal"></i>
                   </span>
                   <div className="flex-1">
-                    <Forminput type="text" placeholder="Twitter URL" />
+                    <Forminput type="text" placeholder="Twitter URL" value={twitterUrl} setValue={setTwitterUrl} />
                   </div>
                 </div>
                 <div className="w-100 d-flex align-items-center">
@@ -68,7 +80,7 @@ const Screen3 = () => {
                     <i className="fab fa-instagram text-teal"></i>
                   </span>
                   <div className="flex-1">
-                    <Forminput type="text" placeholder="Instagram Name" />
+                    <Forminput type="text" placeholder="Instagram Name" value={instagramUrl} setValue={setInstagramUrl} />
                   </div>
                 </div>
                 <div className="w-100 d-flex align-items-center">
@@ -76,7 +88,7 @@ const Screen3 = () => {
                     <i className="fab fa-youtube text-teal"></i>
                   </span>
                   <div className="flex-1">
-                    <Forminput type="text" placeholder="Youtube URL" />
+                    <Forminput type="text" placeholder="Youtube URL" value={youtubeUrl} setValue={setYoutubeUrl} />
                   </div>
                 </div>
                 <div className="w-100 d-flex align-items-center">
@@ -84,7 +96,7 @@ const Screen3 = () => {
                     <i className="fab fa-twitch text-teal"></i>
                   </span>
                   <div className="flex-1">
-                    <Forminput type="text" placeholder="Twitch Name" />
+                    <Forminput type="text" placeholder="Twitch Name" value={twitch} setValue={setTwitch} />
                   </div>
                 </div>
               </div>
@@ -93,7 +105,7 @@ const Screen3 = () => {
               <div className="left-info">
                 <h6 className="text-teal">01</h6>
                 <h6 className="mb-1">
-                  Select <br /> Payouy Settings
+                  Select <br /> Payout Settings
                 </h6>
                 <span className="f-14 fw-400 text-muted">
                   (Optional for now)
@@ -155,6 +167,7 @@ const Screen3 = () => {
                 Back
               </button>
               <button
+              onClick={handleSubmit}
                 className="app-btn gray-btn mt-0"
                 style={{
                   background: filled

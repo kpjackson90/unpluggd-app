@@ -2,7 +2,7 @@ module.exports = {
   UNAUTHORIZED: {
     error: 'Unauthorized to perform this action',
     message: null,
-    statusCode: 401,
+    statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
     },

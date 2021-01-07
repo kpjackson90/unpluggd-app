@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useState, useContext }  from "react";
+import Router from 'next/router';
 import Forminput from "../../partials/FormInput";
-import { useState } from "react";
+import { Context as AuthContext } from '../../context/AuthContext';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { signup } = useContext(AuthContext);
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+    if (email && password && confirmPassword) {
+       if (password === confirmPassword) {
+          signup(email, password, () => Router.push('/auth/signup-success'));
+       }
+    }
+
+  }
 
   const bg = {
     backgroundImage: `url('/images/image-back@3x.png')`,
@@ -39,7 +51,7 @@ const Signup = () => {
               <span className="f-16 fw-bold ml-2 mr-2">OR</span>
               <div></div>
             </div>
-            <form>
+            <form onSubmit={handleSignup}>
               <Forminput
                 placeholder="Email Address"
                 type="text"

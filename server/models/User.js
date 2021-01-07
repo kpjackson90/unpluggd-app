@@ -20,28 +20,28 @@ const UserSchema = new Schema(
       enum: ['admin', 'user'],
       default: 'user',
     },
-    user_role: [
+    userRole: [
       {
         type: String,
         enum: ['guest', 'attendee', 'host'],
       },
     ],
-    profile_image: {
+    profileImage: {
       type: String,
     },
-    cover_image: {
+    coverImage: {
       type: String,
     },
     occupation: {
       type: String,
     },
-    company_name: {
+    companyName: {
       type: String,
     },
-    company_url: {
+    companyUrl: {
       type: String,
     },
-    company_bio: {
+    companyBio: {
       type: String,
     },
     username: {
@@ -50,7 +50,7 @@ const UserSchema = new Schema(
     bio: {
       type: String,
     },
-    intro_video: {
+    introVideo: {
       type: String,
     },
     categories: [
@@ -58,10 +58,10 @@ const UserSchema = new Schema(
         type: String,
       },
     ],
-    first_name: {
+    firstName: {
       type: String,
     },
-    last_name: {
+    lastName: {
       type: String,
     },
     logo: {
@@ -70,7 +70,7 @@ const UserSchema = new Schema(
     residence: {
       type: String,
     },
-    business_address: {
+    businessAddress: {
       type: String,
     },
     color: {
@@ -90,16 +90,16 @@ const UserSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    facebook_url: {
+    facebookUrl: {
       type: String,
     },
-    twitter_url: {
+    twitterUrl: {
       type: String,
     },
-    youtube_url: {
+    youtubeUrl: {
       type: String,
     },
-    instagram_url: {
+    instagramUrl: {
       type: String,
     },
     twitch: {

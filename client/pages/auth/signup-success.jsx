@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const SignupSuccess = () => {
   return (
     <div className="app-height app-width signup-success d-flex align-items-center justify-content-center">
@@ -12,15 +14,19 @@ const SignupSuccess = () => {
         </div>
         <div className="row">
           <div className="col-6 event-host">
-            <img src="/images/event-host@3x.png" className="event-host" />
-            <div>
+            <Link href="/host-profile">
+            <img src="/images/event-host@3x.png" className="event-host" style={{cursor: 'pointer'}} />
+            </Link>
+            <div style={{cursor: 'pointer'}}>
               <p className="fw-300 f-18">Become an</p>
               <h3>Event Host</h3>
             </div>
           </div>
           <div className="col-6 attendee">
-            <img src="/images/attendee@3x.png" className="attendee" />
-            <div>
+            <Link href='/auth/attendee'>
+            <img src="/images/attendee@3x.png" className="attendee" style={{cursor: 'pointer'}}/>
+            </Link>
+            <div style={{cursor: 'pointer'}}>
               <p className="fw-300 f-18">Register as an</p>
               <h3>Attendee</h3>
             </div>

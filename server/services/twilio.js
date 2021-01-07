@@ -1,5 +1,5 @@
 const keys = require('../config/keys');
-const client = require('twilio')(keys.ACCOUNT_SID, keys.AUTH_TOKEN);
+const client = require('twilio')(keys.TWILIO_ACCOUNT_SID, keys.TWILIO_AUTH_TOKEN);
 
 exports.createRoom = async ({ roomName, maxParticipants }) => {
   try {

@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import Router from 'next/router';
 import Forminput from "../../partials/FormInput";
-import { useState } from "react";
+import { Context as AuthContext } from '../../context/AuthContext';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { signin } = useContext(AuthContext);
+
+  const handleSignin = (e) => {
+    e.preventDefault();
+    if (email && password) {
+      signin(email, password, () => Router.push('/attendee/dashboard'));
+    }
+  }
 
   const bg = {
     backgroundImage: `url('/images/image-back2@3x.png')`,
@@ -38,7 +47,7 @@ const Login = () => {
               <span className="f-16 fw-bold ml-2 mr-2">OR</span>
               <div></div>
             </div>
-            <form>
+            <form onSubmit={handleSignin}>
               <Forminput
                 placeholder="Email Address"
                 type="text"
@@ -54,7 +63,7 @@ const Login = () => {
                 setValue={setPassword}
                 valid={true}
               />
-              <button className="app-btn gray-btn bg-teal">Login</button>
+              <button  className="app-btn gray-btn bg-teal">Login</button>
             </form>
           </div>
         </div>

@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React,  { useState } from "react";
+import Router from 'next/router';
 
 const Congrats = (props) => {
   //const { type } = props;
@@ -21,7 +21,7 @@ const Congrats = (props) => {
             ? "a host!"
             : null}
         </p>
-        <button className="btn-teal boxShadow">Enter Dashboard</button>
+        <button onClick={() => Router.push('/host-dashboard')} className="btn-teal boxShadow">Enter Dashboard</button>
       </div>
     </div>
   );

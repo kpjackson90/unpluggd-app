@@ -45,8 +45,6 @@ exports.registerUser = async (req, res) => {
       expiresIn: keys.JWT_EXPIRES,
     });
 
-    /*NOTE: Email functionality is currently disabled because of the following error:
-    The provided authorization grant is invalid, expired, or revoked'
     const emailBody = {
       recipient: email,
       sender: 'kareem@pjacksonassociates.com',
@@ -55,7 +53,7 @@ exports.registerUser = async (req, res) => {
       htmlText: `<a href="http://localhost:3000/user/verify?token=${token}">Verify Email Address - ${email}</a>`,
     };
 
-    await sendEmail(emailBody); */
+    await sendEmail(emailBody); 
 
     const newUserInfo = {
       token,
@@ -63,6 +61,12 @@ exports.registerUser = async (req, res) => {
       role: user.role,
       id: user._id,
     };
+
+    //save token in a cookie session
+    req.session = {
+      token
+    };
+
     return sendResponse(req, res, USER_CREATED, newUserInfo);
   } catch (err) {
     console.error(err);

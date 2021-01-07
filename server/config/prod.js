@@ -1,8 +1,10 @@
 module.exports = {
   MONGO_URI: process.env.MONGO_URI,
-  SENDGRID: process.env.SENDGRID,
+  SENDGRID_API_KEY: process.env.SENDGRID,
   JWT_SECRET: process.env.JWT_SECRET,
   STRIPE: process.env.STRIPE,
   FACEBOOK_CLIENT: process.env.FACEBOOK_CLIENT,
   FACEBOOK_SECRET: process.env.FACEBOOK_SECRET,
+  TWILIO_ACCOUNT_SID: process.env.TWILIO_ACCOUNT_SID,
+  TWILIO_AUTH_TOKEN: process.env.TWILIO_AUTH_TOKEN,
 };

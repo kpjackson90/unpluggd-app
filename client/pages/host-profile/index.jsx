@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import Forminput from "../../partials/FormInput";
-import { useState } from "react";
+import Router from 'next/router';
+import { Context as AuthContext } from '../../context/AuthContext';
 
 const EventHostReg = () => {
   const [filled, setFilled] = useState(true);
   const [uploaded, setUploaded] = useState(true);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [residence, setResidence] = useState('');
+  const [occupation, setOccupation] = useState('');
+  const [bio, setBio] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [companyUrl, setCompanyUrl] = useState('');
+  const [introVideo, setIntroVideo] = useState('');
+  const [companyBio, setCompanyBio] = useState('');
+  const { createEventHost } = useContext(AuthContext);
+
+  const handleSubmit= (e) => {
+    e.preventDefault();
+    console.log('first', firstName);
+      createEventHost( firstName, lastName, residence, occupation, bio, companyName, companyUrl, introVideo, companyBio, () => Router.push('/host-profile/screen-2'));
+  }
+
 
   return (
     <div className="app-height">
@@ -77,22 +95,24 @@ const EventHostReg = () => {
               <div className="w-100">
                 <div className="row">
                   <div className="col-md-6 pl-0">
-                    <Forminput type="text" placeholder="First Name" />
+                    <Forminput type="text" placeholder="First Name" value={firstName} setValue={setFirstName} />
                   </div>
                   <div className="col-md-6 pr-0">
-                    <Forminput type="text" placeholder="Last Name" />
+                    <Forminput type="text" placeholder="Last Name" value={lastName} setValue={setLastName}/>
                   </div>
                 </div>
                 <div className="row">
                   <div className="col-md-6 pl-0">
-                    <Forminput type="text" placeholder="Country of Residency" />
+                    <Forminput type="text" placeholder="Country of Residency" value={residence} setValue={setResidence} />
                   </div>
                   <div className="col-md-6 pr-0">
-                    <Forminput type="text" placeholder="Occupation" />
+                    <Forminput type="text" placeholder="Occupation" value={occupation} setValue={setOccupation} />
                   </div>
                 </div>
                 <div className="form-group mb-0">
                   <textarea
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
                     placeholder="About you (Maximum 200 characters)"
                     className="app-input textarea mb-0"
                     rows="5"
@@ -108,14 +128,18 @@ const EventHostReg = () => {
                 </h6>
               </div>
               <div className="w-100">
-                <Forminput type="text" placeholder="Company Name" />
-                <Forminput type="text" placeholder="Company URL" />
+                <Forminput type="text" placeholder="Company Name" value={companyName} setValue={setCompanyName}/>
+                <Forminput type="text" placeholder="Company URL" value={companyUrl} setValue={setCompanyUrl} />
                 <Forminput
                   type="text"
                   placeholder="Intro video URL (Optional)"
+                  value={introVideo}
+                  setValue={setIntroVideo}
                 />
                 <div className="form-group mb-0">
                   <textarea
+                    value={companyBio}
+                    onChange={(e) => setCompanyBio(e.target.value)}
                     placeholder="About your company (Maximum 200 characters)"
                     className="app-input textarea mb-0"
                     rows="5"
@@ -130,6 +154,7 @@ const EventHostReg = () => {
         </div>
         <div className="text-center mt-5 mb-4">
           <button
+          onClick={handleSubmit}
             className="app-btn gray-btn max-254 ml-auto mr-auto mt-0"
             style={{
               background: filled

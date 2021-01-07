@@ -13,6 +13,7 @@ const swaggerUI = require('swagger-ui-express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const keys = require('./config/keys');
+const cookieSession = require('cookie-session');
 
 /**routes */
 const auth = require('./routes/auth');
@@ -30,6 +31,9 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(morgan(keys.MORGAN_LOG_FORMAT));
+app.use(cookieSession({
+  signed: false, secure: false
+}));
 
 const swaggerOptions = {
   swaggerDefinition: {

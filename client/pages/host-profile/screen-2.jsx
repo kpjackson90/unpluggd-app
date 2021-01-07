@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import Forminput from "../../partials/FormInput";
-import { useState } from "react";
+import Router from 'next/router';
+import { Context as AuthContext } from '../../context/AuthContext'
 import CustomRadio from "../../partials/CustomRadio";
 
 const Screen2 = () => {
+  const { updateCategories } = useContext(AuthContext);
   const [categories, setCategories] = useState([
     "Art",
     "Music",
     "Business",
     "Food",
     "Animals",
-    "Fitness",
+    "Fitness"
   ]);
 
   const [selected, setSelected] = useState([]);
 
   const [filled, setFilled] = useState(true);
+
+  const [isAdult, setIsAdult] = useState(false);
 
   const handleSelected = (title) => {
     let newSelected = [...selected];
@@ -29,6 +33,13 @@ const Screen2 = () => {
 
     setSelected(newSelected);
   };
+
+  console.log('---->>> categories', selected)
+  console.log('--->>> is adult', isAdult)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+      updateCategories( selected, isAdult, () => Router.push('/host-profile/screen-3'));
+  }
 
   return (
     <div className="app-height">
@@ -92,8 +103,8 @@ const Screen2 = () => {
                   Does your content contain adult content?
                 </h6>
                 <div className="radio-wrap">
-                  <CustomRadio label="Yes" name="radio" />
-                  <CustomRadio label="No" name="radio" />
+                  <CustomRadio label="Yes" name="radio" value={true} setValue={setIsAdult} />
+                  <CustomRadio label="No" name="radio" value={false} setValue={setIsAdult}  />
                 </div>
               </div>
             </div>
@@ -110,6 +121,7 @@ const Screen2 = () => {
                 Back
               </button>
               <button
+                onClick={handleSubmit}
                 className="app-btn gray-btn mt-0"
                 style={{
                   background: filled

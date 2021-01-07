@@ -38,6 +38,12 @@ exports.loginUser = async (req, res) => {
       role: user.role,
       id: user._id,
     };
+
+    //save token in a cookie session
+    req.session = {
+      token
+    };
+
     return sendResponse(req, res, USER_LOGIN, currentUserInfo);
   } catch (err) {
     if (typeof err === 'boolean') {
