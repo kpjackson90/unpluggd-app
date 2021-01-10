@@ -9,6 +9,7 @@ const {
   USER_UPDATED,
 } = require('../../middleware/response/responses');
 
+/*remove is verified from update user */
 exports.updateUser = async (req, res) => {
   try {
     const {_id: id, token} = req.user;
@@ -39,6 +40,7 @@ exports.updateUser = async (req, res) => {
       instagramUrl,
       youtubeUrl,
       twitch,
+      isOnboarded,
     } = req.body;
 
     user = await User.findByIdAndUpdate(
@@ -64,6 +66,7 @@ exports.updateUser = async (req, res) => {
         ...(instagramUrl && {instagramUrl}),
         ...(youtubeUrl && {youtubeUrl}),
         ...(twitch && {twitch}),
+        ...(isOnboarded && { isOnboarded })
       },
       {new: true}
     );

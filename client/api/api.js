@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-let instance;
+let instance = axios.create({ baseURL: 'http://localhost:5000' });
 
-if ( typeof window === "undefined") {
-    instance = axios.create({
-        baseURL: 'http://localhost:5000'
-    });
-} else {
-    instance = axios.create({
-        baseURL: "/"
-    });
-};
+// if ( typeof window === "undefined") {
+//     instance = axios.create({
+//         baseURL: 'http://localhost:5000'
+//     });
+// } else {
+//     instance = axios.create({
+//         baseURL: "/"
+//     });
+// };
 
 instance.interceptors.request.use(
     async (config) => {

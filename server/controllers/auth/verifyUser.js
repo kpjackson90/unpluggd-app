@@ -11,6 +11,7 @@ const {
 
 const {createCustomer} = require('../../services/stripe');
 
+
 exports.verifyUser = async (req, res) => {
   const {_id: id, token} = req.user;
 
@@ -18,7 +19,7 @@ exports.verifyUser = async (req, res) => {
     //check if user is already verified
     const verifiedUser = await User.findById(id);
 
-    if (verifiedUser && verifiedUser.isVerified) {
+    if (verifiedUser && verifiedUser.isVerified && verifiedUser.isOnboarded) {
       return sendResponse(req, res, USER_ALREADY_VERIFIED);
     }
 

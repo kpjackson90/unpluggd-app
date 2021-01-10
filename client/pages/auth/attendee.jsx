@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useContext} from "react";
+import { Context as AuthContext } from '../../context/AuthContext';
 import Forminput from "../../partials/FormInput";
-import { useState } from "react";
+import Router from 'next/router';
 
 const AttendeeReg = () => {
+  const { updateAttendee } = useContext(AuthContext);
+  const [username, setUsername] = useState('');
   const [categories, setCategories] = useState([
     "Art",
     "Music",
@@ -28,6 +31,12 @@ const AttendeeReg = () => {
 
     setSelected(newSelected);
   };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+      updateAttendee(username, selected, () => Router.push('/auth/register-success'));
+  }
 
   return (
     <div className="app-height">
@@ -68,6 +77,8 @@ const AttendeeReg = () => {
                   type="text"
                   placeholder="Username"
                   textInfo="* No more than 30 characters"
+                  value={username}
+                  setValue={setUsername}
                 />
               </div>
             </div>
@@ -114,6 +125,7 @@ const AttendeeReg = () => {
         </div>
         <div className="text-center mt-5 mb-4">
           <button
+          onClick={handleSubmit}
             className="app-btn gray-btn max-254 ml-auto mr-auto mt-0"
             style={{
               background: filled

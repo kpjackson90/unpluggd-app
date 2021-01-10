@@ -2,6 +2,9 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 const bcrypt = require('bcrypt-nodejs');
 
+/* Add IP Address for users, track where they are sigin in from*/ 
+/**Track what device they are using */
+/**Track when last the user signed in */
 const UserSchema = new Schema(
   {
     email: {
@@ -23,7 +26,7 @@ const UserSchema = new Schema(
     userRole: [
       {
         type: String,
-        enum: ['guest', 'attendee', 'host'],
+        enum: ['attendee', 'host'],
       },
     ],
     profileImage: {
@@ -86,6 +89,10 @@ const UserSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    isOnboarded: {
+      type: Boolean,
+      default: false
+    },
     isAdultContent: {
       type: Boolean,
       default: false,
@@ -108,6 +115,10 @@ const UserSchema = new Schema(
     stripe: {
       type: String,
     },
+    hostsFollowing: [{
+      type: Schema.Types.ObjectId,
+      ref: 'User'
+    }]
   },
   {timestamps: true}
 );

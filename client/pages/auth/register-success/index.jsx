@@ -21,7 +21,7 @@ const Congrats = (props) => {
             ? "a host!"
             : null}
         </p>
-        <button onClick={() => Router.push('/host-dashboard')} className="btn-teal boxShadow">Enter Dashboard</button>
+        <button onClick={() => Router.push('/attendee/dashboard')} className="btn-teal boxShadow">Enter Dashboard</button>
       </div>
     </div>
   );
