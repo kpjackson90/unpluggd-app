@@ -40,6 +40,18 @@ ul {
   color: white !important;
 }
 
+.flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .text-teal {
   color: #12ccc7 !important;
 }
@@ -53,11 +65,15 @@ ul {
 }
 
 .text-deepTeal {
-  color: #007a87;
+  color: #007a87 !important;
 }
 
 .bg-teal {
   background: radial-gradient(circle, #12ccc7 0%, #08b09a 100%) !important;
+}
+
+.bg-deepTeal {
+  background: #007a87 !important;
 }
 
 .row {
@@ -162,7 +178,7 @@ ul {
 .btn-transparent {
   height: 40px;
   width: 200px;
-  border: 1px solid #007A87;
+  border: 1px solid #007a87;
   border-radius: 6px;
   color: white;
   background-color: transparent;
@@ -439,7 +455,7 @@ ul {
   margin-bottom: 32px;
 }
 
-.line-break>div {
+.line-break > div {
   height: 1px;
   border-radius: 0.5px;
   background-color: #3e4747;
@@ -629,7 +645,7 @@ footer p {
   padding: 0 4%;
 }
 
-.categories>div {
+.categories > div {
   height: 120px;
   width: 100%;
   margin-right: 2%;
@@ -643,12 +659,12 @@ footer p {
   padding: 14px 0;
 }
 
-.categories>div img {
+.categories > div img {
   max-width: 50px;
   margin-bottom: 15px;
 }
 
-.categories>div p {
+.categories > div p {
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.2px;
@@ -680,7 +696,7 @@ footer p {
   margin-right: -2%;
 }
 
-.events-list>div {
+.events-list > div {
   width: 23%;
   margin-right: 2%;
 }
@@ -701,7 +717,7 @@ footer p {
   margin-top: 180px;
 }
 
-.about>div {
+.about > div {
   margin-right: 4%;
   display: flex;
   flex-direction: column;
@@ -796,13 +812,13 @@ footer p {
   align-items: flex-start;
 }
 
-.attendee-flex>div:first-child,
-.attendee-flex>div:last-child {
+.attendee-flex > div:first-child,
+.attendee-flex > div:last-child {
   max-width: 150px;
 }
 
-.attendee-flex>div:first-child img,
-.attendee-flex>div:last-child img {
+.attendee-flex > div:first-child img,
+.attendee-flex > div:last-child img {
   width: 100%;
   height: 100%;
 }
@@ -826,7 +842,7 @@ footer p {
   padding: 0;
 }
 
-.categories.attendee>div {
+.categories.attendee > div {
   width: 23%;
   margin-right: 2%;
   background-color: transparent;
@@ -859,14 +875,14 @@ footer p {
   align-items: center;
 }
 
-.broken-line>div {
+.broken-line > div {
   height: 4px;
   width: 32px;
   border-radius: 4px;
   background-color: #12ccc7;
 }
 
-.broken-line>span {
+.broken-line > span {
   height: 4px;
   width: 4px;
   border-radius: 4px;
@@ -926,12 +942,12 @@ footer p {
   max-height: 40px;
 }
 
-.categories.attendee.cards>div {
+.categories.attendee.cards > div {
   width: 49%;
   margin-right: 2%;
 }
 
-.categories.attendee.cards>div:last-child {
+.categories.attendee.cards > div:last-child {
   margin-right: 0;
 }
 
@@ -1049,11 +1065,11 @@ footer p {
   display: flex;
 }
 
-.preview-publish>div:first-child {
+.preview-publish > div:first-child {
   margin-right: 51px;
 }
 
-.preview-publish>div:last-child {
+.preview-publish > div:last-child {
   max-width: 219px;
   width: 100%;
 }
@@ -1082,7 +1098,7 @@ footer p {
   justify-content: space-between;
 }
 
-.total>div:first-child {
+.total > div:first-child {
   border-radius: 8px;
   background-color: #f7f7f7;
   display: flex;
@@ -1108,19 +1124,19 @@ footer p {
   font-family: TheGwathmey;
 }
 
-.preview-publish>div:last-child img:first-child {
+.preview-publish > div:last-child img:first-child {
   max-height: 320px;
   margin-bottom: 24px;
   width: 100%;
 }
 
-.preview-publish>div:last-child img:nth-child(2) {
+.preview-publish > div:last-child img:nth-child(2) {
   max-height: 220px;
   margin-bottom: 24px;
   width: 100%;
 }
 
-.preview-publish>div:last-child img:nth-child(3) {
+.preview-publish > div:last-child img:nth-child(3) {
   max-height: 650px;
   margin-bottom: 24px;
   width: 100%;
@@ -1135,7 +1151,7 @@ footer p {
   align-items: center;
 }
 
-.send-invite>div:first-child {
+.send-invite > div:first-child {
   margin-right: 6%;
 }
 
@@ -1216,11 +1232,11 @@ footer p {
   margin-bottom: 14px;
 }
 
-.followed-hosts>div {
+.followed-hosts > div {
   margin-right: 3%;
 }
 
-.followed-hosts>div:last-child {
+.followed-hosts > div:last-child {
   margin-right: 0;
 }
 
@@ -1316,8 +1332,8 @@ footer p {
   margin-right: 8px;
 }
 
-.participantsImg>img:nth-child(2),
-.participantsImg>img:last-child {
+.participantsImg > img:nth-child(2),
+.participantsImg > img:last-child {
   margin-left: -5px;
 }
 
@@ -1340,15 +1356,15 @@ footer p {
   transition: 1s;
 }
 
-.notification-container>div {
+.notification-container > div {
   height: 100%;
 }
 
-.notification-container>div:first-child {
+.notification-container > div:first-child {
   margin-right: 16px;
 }
 
-.notification-container>div:last-child {
+.notification-container > div:last-child {
   flex: 1;
   border-radius: 12px;
   background-color: #262829;
@@ -1382,19 +1398,19 @@ footer p {
   align-items: center;
 }
 
-.empty-hosts-events>div,
-.empty-hosts-events>div:last-child {
+.empty-hosts-events > div,
+.empty-hosts-events > div:last-child {
   width: 46%;
 }
 
-.empty-hosts-events>div:first-child {
+.empty-hosts-events > div:first-child {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-right: 4%;
 }
 
-.empty-hosts-events>div:last-child {
+.empty-hosts-events > div:last-child {
   margin-left: 4%;
 }
 
@@ -1425,7 +1441,7 @@ footer p {
   margin-right: -1.66%;
 }
 
-.available-hosts>div {
+.available-hosts > div {
   width: 15%;
   margin: 0 1.66% 24px 0;
   text-align: center;
@@ -1505,28 +1521,28 @@ footer p {
   justify-content: space-between;
 }
 
-.attend-now>div:first-child {
+.attend-now > div:first-child {
   width: 56%;
   margin-right: 8%;
 }
 
-.attend-now>div:last-child {
+.attend-now > div:last-child {
   width: 36%;
 }
 
-.attend-now>div:last-child img:first-child {
+.attend-now > div:last-child img:first-child {
   max-height: 320px;
   margin-bottom: 24px;
   width: 100%;
 }
 
-.attend-now>div:last-child img:nth-child(2) {
+.attend-now > div:last-child img:nth-child(2) {
   max-height: 220px;
   margin-bottom: 24px;
   width: 100%;
 }
 
-.attend-now>div:last-child img:last-child {
+.attend-now > div:last-child img:last-child {
   max-height: 534px;
   margin-bottom: 24px;
   width: 100%;
@@ -1548,7 +1564,7 @@ footer p {
 
 /* attending events styles */
 
-/* arena not vip styles */
+/* arena chat styles */
 .video-chat {
   position: absolute;
   top: 0;
@@ -1574,8 +1590,9 @@ footer p {
   justify-content: space-between;
 }
 
-.arena-content>div:first-child {
+.arena-content > div:first-child {
   max-width: 160px;
+  width: 100%;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1584,10 +1601,10 @@ footer p {
 
 .screen-toggler {
   height: 32px;
-  width: 120px;
+  width: 100%;
   border-radius: 4px;
   background-color: rgba(36, 35, 34, 0.2);
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   letter-spacing: 0.2px;
   line-height: 24px;
@@ -1602,16 +1619,16 @@ footer p {
   transition: 1s;
 }
 
-.screen-toggled>* {
+.screen-toggled > * {
   height: inherit;
 }
 
 .leave-event {
   height: 48px;
-  width: 160px;
+  width: 100%;
   border-radius: 6px;
-  background-color: #E72287;
-  color: #FFFFFF;
+  background-color: #e72287;
+  color: #ffffff;
   font-size: 16px;
   font-weight: bold;
   letter-spacing: 0.2px;
@@ -1627,18 +1644,20 @@ footer p {
   display: flex;
   flex-direction: column;
   overflow: scroll;
+  transition: 0.4s;
+  position: relative;
 }
 
 .chat-class {
   height: 40px;
   border-radius: 20px;
-  background-color: #08B09A;
+  background-color: #08b09a;
   display: flex;
   align-items: center;
   padding: 4px;
 }
 
-.chat-class>p {
+.chat-class > p {
   width: 33.3%;
   border-radius: 18px;
   overflow: hidden;
@@ -1646,15 +1665,20 @@ footer p {
   font-weight: 300;
 }
 
+.chat-class.not-vip p {
+  width: 50%;
+}
+
 .chat-class .selected {
-  background-color: #FFFFFF;
-  color: #12CCC7;
+  background-color: #ffffff;
+  color: #12ccc7;
   font-weight: 600;
 }
 
 .chats {
   flex: 1;
   overflow: scroll;
+  margin-bottom: 60px;
 }
 
 .chat {
@@ -1676,7 +1700,7 @@ footer p {
   object-fit: cover;
 }
 
-.chat>div:last-child {
+.chat > div:last-child {
   flex: 1;
 }
 
@@ -1684,12 +1708,12 @@ footer p {
   height: 48px;
   min-width: 132px;
   border-radius: 12px;
-  background-color: #08B09A;
+  background-color: #08b09a;
   display: flex;
   padding: 4px;
 }
 
-.camera-angle>div {
+.camera-angle > div {
   width: 33.3%;
   display: flex;
   align-items: center;
@@ -1699,7 +1723,7 @@ footer p {
 }
 
 .selectedCam {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 
 .camera-angle img {
@@ -1707,12 +1731,73 @@ footer p {
   height: 24px;
 }
 
-.line-5>i {
+.line-5 > i {
   line-height: 0.7;
 }
 
-.line-5>i:last-child {
+.line-5 > i:last-child {
   line-height: 0.5;
+}
+
+.app-input.chat-input {
+  background-color: rgba(239, 238, 234, 0.2) !important;
+  border: none !important;
+}
+
+.app-input.chat-input::placeholder {
+  color: white;
+}
+
+.chat-input-box {
+  position: absolute;
+  width: 90%;
+  bottom: 0;
+}
+
+.screen-imgs > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.img-stack {
+  display: flex;
+  margin-right: 12px;
+}
+
+.img-stack img {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid white;
+}
+
+.img-stack > img:nth-child(2),
+.img-stack > img:last-child {
+  margin-left: -10px;
+}
+
+.img-stack.chatroom-users > img:first-child {
+  margin-left: 0;
+}
+
+.img-stack.chatroom-users img {
+  margin-left: -10px;
+  border: 3px solid #e72287;
+}
+
+.screen-imgs button {
+  width: 48px;
+  height: 28px;
+  border-radius: 4px;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 14px;
+  font-weight: 500;
 }
 
 /* custom radio button styles */
@@ -1749,12 +1834,12 @@ footer p {
 }
 
 /* On mouse-over, add a grey background color */
-.radio:hover input~.checkmark {
+.radio:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.radio input:checked~.checkmark {
+.radio input:checked ~ .checkmark {
   background-color: #12ccc7;
 }
 
@@ -1766,7 +1851,7 @@ footer p {
 }
 
 /* Show the indicator (dot/circle) when checked */
-.radio input:checked~.checkmark:after {
+.radio input:checked ~ .checkmark:after {
   display: block;
 }
 
@@ -1785,7 +1870,7 @@ footer p {
   align-items: center;
 }
 
-.radio-wrap>* {
+.radio-wrap > * {
   margin-right: 40px;
 }
 
@@ -1823,12 +1908,12 @@ footer p {
 }
 
 /* On mouse-over, add a grey background color */
-.checkbox:hover input~.checkmark {
+.checkbox:hover input ~ .checkmark {
   background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.checkbox input:checked~.checkmark {
+.checkbox input:checked ~ .checkmark {
   background-color: #12ccc7;
 }
 
@@ -1840,7 +1925,7 @@ footer p {
 }
 
 /* Show the checkmark when checked */
-.checkbox input:checked~.checkmark:after {
+.checkbox input:checked ~ .checkmark:after {
   display: block;
 }
 

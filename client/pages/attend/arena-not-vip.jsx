@@ -3,8 +3,8 @@ import React from "react";
 import { useState } from "react";
 import FormInput from "../../partials/FormInput";
 
-const ArenaVip = () => {
-  const [chatType, setchatType] = useState(["arena", "private", "vip"]);
+const ArenaNotVip = () => {
+  const [chatType, setchatType] = useState(["arena", "private"]);
 
   const [chatSelected, setChatSelected] = useState("arena");
 
@@ -197,7 +197,7 @@ const ArenaVip = () => {
         <div className="d-flex flex-column w-320 justify-content-end">
           <div
             className="chatroom"
-            style={{ height: !chatToggle ? "94vh" : "42px" }}
+            style={{ height: !chatToggle ? "96vh" : "42px" }}
           >
             <div
               className="d-flex align-items-center justify-content-between c-pointer"
@@ -216,7 +216,7 @@ const ArenaVip = () => {
               )}
             </div>
             <div
-              className={`chat-class mt-12 ${
+              className={`chat-class not-vip mt-12 ${
                 chatSelected === "private" && "bg-pink"
               }`}
             >
@@ -274,26 +274,10 @@ const ArenaVip = () => {
               />
             </div>
           </div>
-          <div className="d-flex align-items-center mt-24">
-            <div className="camera-angle">
-              {camera.map((c, i) => (
-                <div
-                  key={i}
-                  className={`${selectedCam === c && "selectedCam"}`}
-                  onClick={() => handleCamSelection(c)}
-                >
-                  <img src={`/images/camera-${c}@3x.png`} alt={`camera-${c}`} />
-                </div>
-              ))}
-            </div>
-            <p className="f-14 fw-500 mb-0 ml-2">
-              * Swap camera angle to show better performance
-            </p>
-          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ArenaVip;
+export default ArenaNotVip;

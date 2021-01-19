@@ -8,6 +8,7 @@ const Forminput = (props) => {
     invalid,
     textInfo,
     label,
+    customClass
   } = props;
 
   return (
@@ -16,7 +17,7 @@ const Forminput = (props) => {
       <input
         type={type}
         placeholder={placeholder}
-        className="app-input"
+        className={`app-input ${customClass}`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         style={{
