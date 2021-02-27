@@ -201,4 +201,12 @@ module.exports = {
       'Content-Type': 'application/json',
     },
   },
+  MAIL_CHIMP_USER_ALREADY_SUBSCRIBED: {
+    error: null,
+    message: 'This user is already subscribed',
+    statusCode: 400,
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  },
 };

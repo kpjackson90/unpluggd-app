@@ -24,6 +24,7 @@ const ticket = require('./routes/ticket');
 const upload = require('./routes/upload');
 const stripe = require('./routes/stripe');
 const pre = require('./routes/pre');
+const mailchimp = require('./routes/mailchimp');
 
 const app = express();
 
@@ -31,9 +32,12 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(passport.initialize());
 app.use(morgan(keys.MORGAN_LOG_FORMAT));
-app.use(cookieSession({
-  signed: false, secure: false
-}));
+app.use(
+  cookieSession({
+    signed: false,
+    secure: false,
+  })
+);
 
 const swaggerOptions = {
   swaggerDefinition: {
@@ -62,6 +66,7 @@ app.use(ticket);
 app.use(upload);
 app.use(stripe);
 app.use(pre);
+app.use(mailchimp);
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.MONGO_URI, {
