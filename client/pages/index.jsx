@@ -18,7 +18,7 @@ const LandingPage = () => {
     e.preventDefault();
     try {
       if (email) {
-        const res = api.post("/api/save-email", { email });
+        const res = api.post("/api/add/list/member", { email });
         if (res.data) {
           setEmailSaved(true);
         }
