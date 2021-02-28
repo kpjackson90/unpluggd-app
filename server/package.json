@@ -19,6 +19,7 @@
   "author": "Kareem Phillip-Jackson",
   "license": "ISC",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.34",
     "@sendgrid/client": "^7.2.1",
     "@sendgrid/mail": "^7.2.1",
     "aws-sdk": "^2.761.0",
