@@ -16,6 +16,7 @@ mailchimp.setConfig({
 });
 
 const listId = keys.MAIL_CHIMP_LIST_ID;
+
 exports.addListMember = async (req, res) => {
   const {error} = validateMailChimpBody(req);
 
@@ -25,21 +26,12 @@ exports.addListMember = async (req, res) => {
   }
 
   try {
-    const {email, firstName, lastName, address, phone, birthday} = req.body;
-    const pendingUserStatus = pending;
-
-    const userInfo = {
-      email,
-      firstName,
-      lastName,
-      address,
-      phone,
-      birthday,
-    };
+    const {email} = req.body;
+    const pendingUserStatus = 'pending';
 
     const subscriberHash = crypto
       .createHash('md5')
-      .update(userInfo.email.toLowerCase())
+      .update(email.toLowerCase())
       .digest('hex');
 
     const existingUser = await mailchimp.lists.getListMember(
@@ -52,18 +44,11 @@ exports.addListMember = async (req, res) => {
     }
 
     await mailchimp.lists.addListMember(listId, {
-      email_address: userInfo.email,
+      email_address: email,
       status: pendingUserStatus,
-      merge_fields: {
-        FNAME: userInfo.firstName,
-        LNAME: userInfo.lastName,
-        ADDRESS: userInfo.address,
-        PHONE: userInfo.phone,
-        BIRTHDAY: userInfo.birthday,
-      },
     });
 
-    REQUEST_SUCCESSFUL.message = `User with email address: ${userInfo.email} was successfully added`;
+    REQUEST_SUCCESSFUL.message = `User with email address: ${email} was successfully added`;
     return sendResponse(req, res, REQUEST_SUCCESSFUL);
   } catch (err) {
     console.error(err);
