@@ -1,11 +1,9 @@
 const keys = require('../../config/keys');
-const crypto = require('crypto');
 const mailchimp = require('@mailchimp/mailchimp_marketing');
 const {validateMailChimpBody} = require('../../middleware/joi/mailchimpBody');
 const {sendResponse} = require('../../middleware/response/sendResponse');
 const {
   SERVER_ERROR,
-  MAIL_CHIMP_USER_ALREADY_SUBSCRIBED,
   BAD_REQUEST_BODY,
   REQUEST_SUCCESSFUL,
 } = require('../../middleware/response/responses');
@@ -28,20 +26,6 @@ exports.addListMember = async (req, res) => {
   try {
     const {email} = req.body;
     const pendingUserStatus = 'pending';
-
-    const subscriberHash = crypto
-      .createHash('md5')
-      .update(email.toLowerCase())
-      .digest('hex');
-
-    const existingUser = await mailchimp.lists.getListMember(
-      listId,
-      subscriberHash
-    );
-
-    if (existingUser && existingUser?.status === 'subscribed') {
-      return sendResponse(req, res, MAIL_CHIMP_USER_ALREADY_SUBSCRIBED);
-    }
 
     await mailchimp.lists.addListMember(listId, {
       email_address: email,
