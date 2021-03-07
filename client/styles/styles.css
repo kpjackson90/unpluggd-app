@@ -76,6 +76,10 @@ ul {
   background: #007a87 !important;
 }
 
+.bg-gray {
+  background: rgba(151, 151, 151, 0.2) !important;
+}
+
 .row {
   margin-left: 0;
   margin-right: 0;
@@ -100,6 +104,10 @@ ul {
   font-weight: 400;
   letter-spacing: 0.4px;
   line-height: 36px;
+}
+
+.f-12 {
+  font-size: 12px !important;
 }
 
 .f-14 {
@@ -136,6 +144,10 @@ ul {
 
 .f-80 {
   font-size: 80px !important;
+}
+
+.fw-200 {
+  font-weight: 200 !important;
 }
 
 .fw-300 {
@@ -1800,6 +1812,70 @@ footer p {
   font-weight: 500;
 }
 
+/* landing page styles */
+.landing-wrapper {
+  background-repeat: no-repeat;
+  background-size: 912px;
+  background-position: top center;
+}
+
+.landing-top {
+  display: flex;
+}
+
+.landing-top > div {
+  width: 50%;
+}
+
+.landing-top > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+}
+
+.rotate-text {
+  transform: rotate(-4deg);
+}
+
+.landing-top > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.landing-top > div:last-child img:first-child {
+  max-width: 670px;
+  width: 100%;
+}
+
+.landing-top > div:last-child img:last-child {
+  max-width: 470px;
+  width: 100%;
+  margin-top: -130px;
+}
+
+.landing-bottom {
+  padding: 50px;
+  background: #262829;
+  border-radius: 12px;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 80px auto 0 auto;
+  text-align: center;
+}
+
+.landing-bottom > div {
+  width: 30.33%;
+  margin: 0 1.5%;
+}
+
+.landing-bottom > div img {
+  max-width: 150px;
+  margin-bottom: 50px;
+}
 /* custom radio button styles */
 
 .radio {
