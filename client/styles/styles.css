@@ -2026,9 +2026,44 @@ footer p {
   }
 }
 
+@media screen and (max-width: 1250px) {
+  .landing-top > div:last-child img:last-child {
+    margin-top: -80px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .app-width {
     max-width: 1064px;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .landing-top,
+  .landing-bottom {
+    flex-direction: column;
+  }
+
+  .landing-top > div:first-child {
+    width: 100%;
+  }
+
+  .landing-top > div:last-child {
+    display: none;
+  }
+
+  .landing-bottom > div {
+    max-width: 400px;
+    width: 100%;
+    margin: 20px auto;
+  }
+
+  .landing-bottom > div img {
+    margin-bottom: 12px;
+  }
+
+  .theGwathmey.rotate-text.f-60 {
+    font-size: 50px !important;
   }
 }
